@@ -3,12 +3,21 @@ import styled from "styled-components";
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  margin-top: 200px;
-  padding: 0px 75px;
+  width: 260px;
+  height: 500px;
+  background-color: white;
+  padding: 18px 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
 `;
-export const ViewMore = styled.div`
-  margin-top: 40px;
-
+export const ImageContainer = styled.div`
+  width: 240px;
+  height: 280px;
+`;
+export const BuyButton = styled.div`
   @keyframes glowing {
     0% {
       background-position: 0 0;
@@ -22,9 +31,8 @@ export const ViewMore = styled.div`
   }
   animation-duration: 2s;
 
-  width: 150px;
+  width: 220px;
   height: 50px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,12 +40,14 @@ export const ViewMore = styled.div`
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 24px;
   color: #ffffff;
   position: relative;
   z-index: 0;
-
+  border-radius: 15px;
+  border: 1px solid #a1abb9;
+  background-color: #020202;
   ::before {
     content: "";
     background: linear-gradient(
@@ -60,7 +70,7 @@ export const ViewMore = styled.div`
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     opacity: 1;
-    border-radius: 25px;
+    border-radius: 15px;
   }
   :hover::before {
     filter: blur(3px);
@@ -76,7 +86,13 @@ export const ViewMore = styled.div`
     height: 100%;
     left: 0;
     top: 0;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #202124;
   }
+`;
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 30px;
+  min-height: 15px;
 `;

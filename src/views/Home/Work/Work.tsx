@@ -14,7 +14,7 @@ import { WorkItemData } from "utils/tempData/WorkItem";
 import { WorkItem } from "components/WorkItem";
 // -----------------------------------------------------------
 
-const Hero: React.FC = () => {
+const Work: React.FC = () => {
   return (
     <Layout>
       {WorkItemData.map((item, index) => {
@@ -57,4 +57,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default Work;
