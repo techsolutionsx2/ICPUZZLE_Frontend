@@ -14,7 +14,6 @@ export const Layout = styled.div<{ first?: boolean }>`
 export const Detail = styled.div`
   width: 180px;
   height: 160px;
-
   position: relative;
   z-index: 0;
   ::before {
