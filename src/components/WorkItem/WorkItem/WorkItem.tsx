@@ -24,6 +24,7 @@ import ICImage from "assets/png/IC.png";
 import { WorkItemProps } from "types/components/Work";
 
 const WorkItem: React.FC<WorkItemProps> = ({ image, detail, login }) => {
+  console.log(detail);
   if (login) {
     return (
       <LoginLayout>

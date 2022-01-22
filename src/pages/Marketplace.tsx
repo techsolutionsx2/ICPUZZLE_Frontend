@@ -1,15 +1,26 @@
 import type { NextPage } from "next";
 
 //components
-import { Explorer, Recent } from "views/NFT";
 
+import {
+  Hero,
+  Creators,
+  Hottest,
+  JoinUs,
+  TopCollection,
+} from "views/Marketplace";
+
+//styled components
 import { MarketplaceLayout } from "styles/Styled";
 
 const NFT: NextPage = () => {
   return (
     <MarketplaceLayout>
-      <Explorer />
-      <Recent />
+      <Hero />
+      <Hottest />
+      <Creators />
+      <TopCollection />
+      <JoinUs />
     </MarketplaceLayout>
   );
 };
