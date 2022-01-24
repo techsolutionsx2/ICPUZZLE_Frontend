@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 // styled component
-import { Layout, ImageContainer, GoApp } from "./Hero.styled";
+import { Layout, ImageContainer, GoApp, ICImageLayout } from "./Hero.styled";
 
 // assets
 import IC from "assets/png/IC.png";
@@ -36,7 +36,12 @@ const Hero: React.FC = () => {
             fSize={50}
             lHeight={56}
             tAlign="center"
-            responsive={{ 1024: { fSize: 40 }, 900: { fSize: 50 } }}
+            responsive={{
+              1024: { fSize: 40 },
+              900: { fSize: 50 },
+              768: { fSize: 40 },
+              375: { fSize: 30 },
+            }}
           >
             ICPuzzle
           </Text>
@@ -48,7 +53,9 @@ const Hero: React.FC = () => {
             tAlign="left"
             responsive={{
               1024: { fSize: 20 },
-              900: { padding: "0px", tAlign: "center" },
+              900: { padding: "30px 0px 0px 0px", tAlign: "center" },
+              768: { padding: "20px 0px 0px 0px", fSize: 16 },
+              375: { fSize: 14 },
             }}
           >
             Create, Solve, Play, Buy, Sell, Trade.
@@ -76,14 +83,22 @@ const Hero: React.FC = () => {
         padding="0px 0px 0px 40px"
         alignItems="center"
         justifyContent="flex-start"
-        responsive={{ 1200: { mWidth: 230 } }}
+        responsive={{
+          1200: { mWidth: 230 },
+          900: { padding: "0px", justifyContent: "center", mWidth: 900 },
+        }}
       >
         <Col>
           <Text
             fWeight={600}
             fSize={25}
             lHeight={30}
-            responsive={{ 1200: { fSize: 20 } }}
+            responsive={{
+              1200: { fSize: 20 },
+              900: { fSize: 25, tAlign: "center" },
+              768: { fSize: 16 },
+              375: { fSize: 14 },
+            }}
           >
             Built & hosted on
           </Text>
@@ -91,25 +106,56 @@ const Hero: React.FC = () => {
             fWeight={800}
             fSize={25}
             lHeight={30}
-            responsive={{ 1024: { fSize: 20 } }}
+            responsive={{
+              1024: { fSize: 20 },
+              900: {
+                padding: "20px 0px 0px 0px",
+                fSize: 50,
+                lHeight: 54,
+                tAlign: "center",
+              },
+              768: { fSize: 40 },
+              375: { fSize: 30 },
+            }}
           >
             The Internet
           </Text>
-          <Row gap={10}>
+          <Row
+            gap={10}
+            responsive={{
+              900: { flexDirection: "column", alignItems: "center" },
+            }}
+          >
             <Text
               mode="span"
               fWeight={800}
               fSize={25}
               lHeight={30}
-              responsive={{ 1024: { fSize: 20 } }}
+              responsive={{
+                1024: { fSize: 20 },
+                900: {
+                  padding: "8px 0px 0px 0px",
+                  fSize: 50,
+                  lHeight: 54,
+                  tAlign: "center",
+                },
+                768: { fSize: 40, lHeight: 40 },
+                375: { fSize: 30, lHeight: 30 },
+              }}
             >
               Computer
             </Text>
-            <Image src={IC.src} width={64} height={32} alt="No Image"></Image>
+            <ICImageLayout>
+              <Image src={IC.src} alt="No Image" layout="fill"></Image>
+            </ICImageLayout>
           </Row>
         </Col>
       </Row>
-      <Row display="none" responsive={{ 900: { display: "block" } }}>
+      <Row
+        display="none"
+        justifyContent="center"
+        responsive={{ 900: { display: "flex", padding: "70px" } }}
+      >
         <GoApp>Go to App</GoApp>
       </Row>
     </Layout>

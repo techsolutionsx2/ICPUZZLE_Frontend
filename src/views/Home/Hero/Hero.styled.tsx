@@ -41,11 +41,18 @@ export const ImageContainer = styled.div`
     max-height: 350px;
   }
 
+  @media screen and (max-width: 900px) {
+    margin-top: 70px;
+    margin-bottom: 50px;
+  }
+
   @media screen and (max-width: 768px) {
     min-width: 300px;
     min-height: 300px;
     max-width: 300px;
     max-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
 
   img {
@@ -152,5 +159,23 @@ export const GoApp = styled.div`
     top: 0;
     border-radius: 20px;
     background-color: #202124;
+  }
+  @media screen and (max-width: 900px) {
+    width: 80%;
+    height: 60px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+`;
+export const ICImageLayout = styled.div`
+  position: relative;
+  width: 64px;
+  height: 32px;
+  @media screen and (max-width: 900px) {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
   }
 `;

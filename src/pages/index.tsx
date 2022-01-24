@@ -16,9 +16,9 @@ import { IndexLayout } from "styles/Styled";
 const Home: NextPage = () => {
   return (
     <IndexLayout>
-      <Hero />
-      {/* <Video />
-      <Collection />
+      {/* <Hero /> */}
+      <Video />
+      {/* <Collection />
       <Create />
       <Work />
       <Roadmap />
