@@ -55,12 +55,8 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
           src={data.mImage.src}
           width={260}
           height={270}
+          alt="No Image"
         ></Image>
-        <style jsx global>{`
-          .CollectionMain {
-            border-radius: 20px;
-          }
-        `}</style>
       </MainImageContainer>
       <SubImageContainer>
         <Image
@@ -68,12 +64,8 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
           src={data.sImage.src}
           width={100}
           height={100}
+          alt="No Image"
         ></Image>
-        <style jsx global>{`
-          .CollectionSub {
-            border-radius: 50px;
-          }
-        `}</style>
       </SubImageContainer>
       <Text
         padding="12px 0px 0px 0px"

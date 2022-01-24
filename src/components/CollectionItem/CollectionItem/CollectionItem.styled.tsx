@@ -72,11 +72,17 @@ export const LayoutComing = styled.div`
 `;
 
 export const MainImageContainer = styled.div`
+  img {
+    border-radius: 20px;
+  }
   border-radius: 20px;
   width: 100%;
   height: 270px;
 `;
 export const SubImageContainer = styled.div`
+  img {
+    border-radius: 50px;
+  }
   margin-top: -35px;
   width: 70px;
   height: 70px;

@@ -13,6 +13,9 @@ interface LayoutProps {
 import { Header } from "layouts/Header";
 import { Footer } from "layouts/Footer";
 
+//component
+import { ScrollTop } from "components/Button";
+
 // -----------------------------------------------------------
 
 const AppLayout = ({ children }: LayoutProps) => {
@@ -21,6 +24,7 @@ const AppLayout = ({ children }: LayoutProps) => {
       <Header />
       {children}
       <Footer />
+      <ScrollTop />
     </AppLayoutContainer>
   );
 };

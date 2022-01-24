@@ -40,16 +40,11 @@ const Hero: React.FC = () => {
       <Row mWidth={500}>
         <ImageContainer>
           <Image
-            className="hero"
             src={tempImage.src}
             width={500}
             height={500}
+            alt="No Image"
           ></Image>
-          <style jsx global>{`
-            .hero {
-              border-radius: 50%;
-            }
-          `}</style>
         </ImageContainer>
       </Row>
       <Row
@@ -69,7 +64,7 @@ const Hero: React.FC = () => {
             <Text mode="span" fWeight={800} fSize={26} lHeight={30}>
               Computer
             </Text>
-            <Image src={IC.src} width={64} height={32}></Image>
+            <Image src={IC.src} width={64} height={32} alt="No Image"></Image>
           </Row>
         </Col>
       </Row>

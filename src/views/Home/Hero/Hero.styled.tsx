@@ -14,7 +14,9 @@ export const Layout = styled.div`
 export const ImageContainer = styled.div`
   width: 500px;
   height: 500px;
-
+  img {
+    border-radius: 50%;
+  }
   position: relative;
   z-index: 0;
 

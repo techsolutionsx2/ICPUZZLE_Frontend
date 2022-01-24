@@ -10,7 +10,7 @@ export const Layout = styled.div`
     margin-right: 100px;
   }
 
-  margin-top: 150px;
+  padding-top: 150px;
 `;
 export const ItemList = styled.div`
   display: grid;

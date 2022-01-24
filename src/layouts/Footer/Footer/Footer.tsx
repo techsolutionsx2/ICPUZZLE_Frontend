@@ -12,8 +12,7 @@ import {
 } from "./Footer.styled";
 
 // assets
-
-import Logo from "assets/svg/logo.svg";
+import Logo from "assets/png/logo.png";
 
 // component
 
@@ -29,7 +28,7 @@ const Footer: React.FC = () => {
     <Layout>
       <Row alignItems="center" gap={8}>
         <ImageContainer>
-          <Image src={Logo} width={120} height={150} />
+          <Image src={Logo} width={120} height={150} alt="No Image" />
         </ImageContainer>
         <Text
           fSize={27}

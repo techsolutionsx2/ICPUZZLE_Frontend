@@ -30,6 +30,7 @@ const MarketItem: React.FC<{ data: NFTItemProps }> = ({ data }) => {
           src={data.image.src}
           width={240}
           height={280}
+          alt="No Image"
         />
         <style jsx global>{`
           .NFTImage {
@@ -62,7 +63,12 @@ const MarketItem: React.FC<{ data: NFTItemProps }> = ({ data }) => {
             Buy 10 ICP
           </Text>
           <IconContainer>
-            <Image src={ICImage.src} height={15} width={30}></Image>
+            <Image
+              src={ICImage.src}
+              height={15}
+              width={30}
+              alt="No Image"
+            ></Image>
           </IconContainer>
         </Row>
       </BuyButton>

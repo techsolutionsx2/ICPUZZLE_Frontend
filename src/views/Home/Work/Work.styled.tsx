@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  margin-top: 150px;
+  .gridMerge {
+    grid-column: span 2;
+  }
+  padding-top: 150px;
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

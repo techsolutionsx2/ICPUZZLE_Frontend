@@ -28,7 +28,7 @@ const RoadmapItem: React.FC<{
       <PointContainer>
         <Point color={pointColor}></Point>
       </PointContainer>
-      <Line end={end} color={color}></Line>
+      <Line endItem={end} color={color}></Line>
     </Layout>
   );
 };

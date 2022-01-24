@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 // styled component
 import {
@@ -15,38 +17,68 @@ import {
 
 // assets
 
-import Logo from "assets/svg/logo.svg";
+import Logo from "assets/png/logo.png";
 
 // component
 
 import Text from "components/Text";
 import { Row } from "components/Layout";
 
+import { MobileMenu } from "components/Menu";
+
+// Bookmark Data
+
+import { PageBookmarkData } from "utils/Data/Bookmark";
+
 // -----------------------------------------------------------
 
 const Header: React.FC = () => {
+  const { asPath, pathname } = useRouter();
+  const [bookmarks, setBookmarks] = useState([""]);
+
+  useEffect(() => {
+    PageBookmarkData.forEach((bookmarkItem) => {
+      if (bookmarkItem.path === pathname) {
+        setBookmarks(bookmarkItem.bookmarkList);
+      }
+    });
+  }, [pathname]);
+
+  const setBookmark = (e: any) => {
+    location.href = "#" + e.target.value;
+  };
+
   return (
     <Layout>
       <Row alignItems="center" gap={8}>
         <ImageContainer>
-          <Image src={Logo} width={120} height={150} />
+          <Image src={Logo} alt="No Image" />
         </ImageContainer>
-        <Row
-          responsive={{
-            1024: {
-              display: "none",
-            },
-          }}
+        <Text
+          fSize={30}
+          lHeight={30}
+          fWeight={800}
+          fColor="#000000"
+          responsive={{ 1024: { fSize: 20, fWeight: 700 } }}
         >
-          <Text fSize={27} lHeight={30} fWeight={800} fColor="#000000">
-            ICPuzzle
-          </Text>
-        </Row>
+          ICPuzzle
+        </Text>
       </Row>
-      <Row justifyContent="flex-end" alignItems="center" gap={10}>
+      <Row
+        justifyContent="flex-end"
+        alignItems="center"
+        gap={10}
+        responsive={{ 1024: { display: "none" } }}
+      >
         <div>
-          <Select>
-            <Option>Puzzles</Option>
+          <Select onChange={setBookmark}>
+            {bookmarks.map((item, key) => {
+              return (
+                <Option key={key} value={item.replace(/\s/g, "")}>
+                  {item}
+                </Option>
+              );
+            })}
           </Select>
         </div>
         <CreateButton>Create</CreateButton>
@@ -55,6 +87,7 @@ const Header: React.FC = () => {
           <Backdiv />
         </ButtonContainer>
       </Row>
+      <MobileMenu></MobileMenu>
     </Layout>
   );
 };

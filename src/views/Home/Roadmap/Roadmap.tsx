@@ -13,7 +13,7 @@ import { RoadmapItem } from "components/RoadmapItem";
 
 const Hero: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="Roadmap">
       <Text fSize={44} lHeight={48} fWeight={800}>
         Roadmap
       </Text>

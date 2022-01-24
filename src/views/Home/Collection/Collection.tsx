@@ -15,7 +15,7 @@ import { CollectionItemData } from "utils/tempData/CollectionItem";
 
 const Collection: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="Collection">
       <Text fSize={44} lHeight={48} fWeight={800}>
         Collection
       </Text>

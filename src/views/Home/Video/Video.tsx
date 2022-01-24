@@ -12,7 +12,7 @@ import { Row, Col } from "components/Layout";
 
 const Video: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="ICPuzzle">
       <PlayerContainer></PlayerContainer>
       <Row mWidth={550} alignItems="center">
         <Col>

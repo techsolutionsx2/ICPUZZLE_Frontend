@@ -13,7 +13,7 @@ import { NFTItem } from "components/NFTItem";
 
 const Create: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="CreateownNFT">
       <Row justifyContent="flex-end" padding="70px 0px 0px 0px">
         <Row mWidth={550}>
           <Col>

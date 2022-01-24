@@ -4,6 +4,8 @@ import styled from "styled-components";
 // -------------------------------------------------------
 
 export const Layout = styled.div`
+  position: relative;
+
   display: flex;
   align-items: center;
   padding: 62px 36px 0px 110px;
@@ -12,19 +14,23 @@ export const Layout = styled.div`
     padding: 62px 20px 0px 70px;
   }
   @media screen and (max-width: 1024px) {
-    padding: 62px 10px 0px 50px;
+    padding: 10px 10px 0px 20px;
   }
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
-  min-width: 120px;
-  min-height: 150px;
+  width: 120px;
+  height: 150px;
+  @media screen and (max-width: 1024px) {
+    width: 80px;
+    height: 100px;
+  }
 `;
 
 export const Select = styled.select`
   margin-right: 20px;
-  width: 250px;
+  width: 200px;
   height: 45px;
   border-radius: 20px;
   padding-left: 20px;
@@ -36,22 +42,36 @@ export const Select = styled.select`
   -webkit-appearance: none; /* Safari and Chrome */
   background: url(image/dropdown.png) no-repeat 93% rgba(255, 255, 255, 0.4);
 
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 600;
   font-family: Montserrat;
-  @media screen and (max-width: 1200px) {
+
+  & > :nth-child(odd) {
+    background-color: white;
+  }
+  & > :nth-child(even) {
+    background-color: #e7e7e7;
+  }
+
+  /* @media screen and (max-width: 1200px) {
     width: 200px;
   }
   @media screen and (max-width: 1024px) {
     width: 150px;
-  }
+  } */
 `;
 
-export const Option = styled.option``;
+export const Option = styled.option`
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Montserrat;
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+
 export const CreateButton = styled.div`
   @keyframes glowing {
     0% {
@@ -66,7 +86,7 @@ export const CreateButton = styled.div`
   }
   animation-duration: 2s;
 
-  width: 170px;
+  width: 140px;
   height: 45px;
 
   cursor: pointer;
@@ -124,12 +144,12 @@ export const CreateButton = styled.div`
     border-radius: 20px;
     background-color: #202124;
   }
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) {
     width: 120px;
   }
   @media screen and (max-width: 1024px) {
     width: 100px;
-  }
+  } */
 `;
 
 export const Button = styled.div`
@@ -146,7 +166,7 @@ export const Button = styled.div`
   }
   animation-duration: 2s;
 
-  width: 250px;
+  width: 200px;
   height: 58px;
 
   cursor: pointer;
@@ -204,12 +224,12 @@ export const Button = styled.div`
     border-radius: 23px;
     background-color: #202124;
   }
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) {
     width: 200px;
   }
   @media screen and (max-width: 1024px) {
     width: 150px;
-  }
+  } */
 `;
 export const Backdiv = styled.div`
   width: 25px;

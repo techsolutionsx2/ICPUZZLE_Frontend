@@ -16,11 +16,11 @@ import { WorkItem } from "components/WorkItem";
 
 const Work: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="Howitworks">
       {WorkItemData.map((item, index) => {
         if (index === 2) {
           return (
-            <>
+            <React.Fragment key={index}>
               <Row
                 className="gridMerge"
                 justifyContent="center"
@@ -30,18 +30,13 @@ const Work: React.FC = () => {
                   How it works
                 </Text>
               </Row>
-              <style jsx global>{`
-                .gridMerge {
-                  grid-column: span 2;
-                }
-              `}</style>
+
               <WorkItem
                 image={item.image}
                 detail={item.detail}
                 login={item.login}
-                key={index}
               ></WorkItem>
-            </>
+            </React.Fragment>
           );
         }
         return (

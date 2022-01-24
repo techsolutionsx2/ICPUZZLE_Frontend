@@ -71,12 +71,12 @@ export const Point = styled.div<{ color: string }>`
 `;
 
 export const Line = styled.div<{
-  end?: boolean;
+  endItem?: boolean;
   color?: string;
 }>`
   position: absolute;
   bottom: 31px;
-  width: ${({ end }) => (end ? 50 : 100)}%;
+  width: ${({ endItem }) => (endItem ? 50 : 100)}%;
   align-self: flex-start;
   height: 8px;
   background: linear-gradient(
