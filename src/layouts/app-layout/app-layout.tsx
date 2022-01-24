@@ -23,7 +23,7 @@ const AppLayout = ({ children }: LayoutProps) => {
     <AppLayoutContainer>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
       <ScrollTop />
     </AppLayoutContainer>
   );

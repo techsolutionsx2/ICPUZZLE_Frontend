@@ -8,15 +8,50 @@ export const Layout = styled.div`
   display: flex;
   justify-content: center;
   & > *:not(:last-child) {
-    margin-right: 57px;
+    margin-right: 50px;
+  }
+  @media screen and (max-width: 1250px) {
+    & > *:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    & > *:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    & > *:not(:last-child) {
+      margin-right: 0px;
+    }
   }
 `;
 export const ImageContainer = styled.div`
-  width: 500px;
-  height: 500px;
+  min-width: 500px;
+  min-height: 500px;
+  max-width: 500px;
+  max-height: 500px;
+
+  @media screen and (max-width: 1024px) {
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
   img {
     border-radius: 50%;
   }
+
   position: relative;
   z-index: 0;
 
@@ -35,13 +70,13 @@ export const ImageContainer = styled.div`
       #ff0000
     );
     position: absolute;
-    top: -7px;
-    left: -7px;
+    top: -5px;
+    left: -5px;
     background-size: 400%;
     z-index: -1;
     filter: blur(3px);
-    width: calc(100% + 14px);
-    height: calc(100% + 14px);
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
     opacity: 1;
     border-radius: 50%;
   }

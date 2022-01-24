@@ -19,6 +19,10 @@ import {
 
 import Logo from "assets/png/logo.png";
 
+// hook
+
+import { useRouterCustom } from "hooks";
+
 // component
 
 import Text from "components/Text";
@@ -48,10 +52,17 @@ const Header: React.FC = () => {
     location.href = "#" + e.target.value;
   };
 
+  const { move } = useRouterCustom();
   return (
     <Layout>
       <Row alignItems="center" gap={8}>
-        <ImageContainer>
+        <ImageContainer
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
+          onClick={() => {
+            move("/");
+          }}
+        >
           <Image src={Logo} alt="No Image" />
         </ImageContainer>
         <Text

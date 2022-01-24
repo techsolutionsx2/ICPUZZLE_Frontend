@@ -17,12 +17,12 @@ const Home: NextPage = () => {
   return (
     <IndexLayout>
       <Hero />
-      <Video />
+      {/* <Video />
       <Collection />
       <Create />
       <Work />
       <Roadmap />
-      <Join />
+      <Join /> */}
     </IndexLayout>
   );
 };

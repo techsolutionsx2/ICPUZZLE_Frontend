@@ -1,6 +1,8 @@
 // styled system
 import styled from "styled-components";
 
+//Framer motion
+import { motion } from "framer-motion";
 // -------------------------------------------------------
 
 export const Layout = styled.div`
@@ -18,10 +20,13 @@ export const Layout = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled(motion.div)`
   display: flex;
   width: 120px;
   height: 150px;
+
+  cursor: pointer;
+
   @media screen and (max-width: 1024px) {
     width: 80px;
     height: 100px;
@@ -52,13 +57,6 @@ export const Select = styled.select`
   & > :nth-child(even) {
     background-color: #e7e7e7;
   }
-
-  /* @media screen and (max-width: 1200px) {
-    width: 200px;
-  }
-  @media screen and (max-width: 1024px) {
-    width: 150px;
-  } */
 `;
 
 export const Option = styled.option`
@@ -144,12 +142,6 @@ export const CreateButton = styled.div`
     border-radius: 20px;
     background-color: #202124;
   }
-  /* @media screen and (max-width: 1200px) {
-    width: 120px;
-  }
-  @media screen and (max-width: 1024px) {
-    width: 100px;
-  } */
 `;
 
 export const Button = styled.div`
@@ -224,12 +216,6 @@ export const Button = styled.div`
     border-radius: 23px;
     background-color: #202124;
   }
-  /* @media screen and (max-width: 1200px) {
-    width: 200px;
-  }
-  @media screen and (max-width: 1024px) {
-    width: 150px;
-  } */
 `;
 export const Backdiv = styled.div`
   width: 25px;
