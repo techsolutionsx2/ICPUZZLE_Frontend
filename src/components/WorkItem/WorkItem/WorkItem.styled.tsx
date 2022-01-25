@@ -3,14 +3,26 @@ import styled from "styled-components";
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  background-color: white;
-  height: 280px;
+  width: 270px;
+  height: 270px;
   padding: 25px;
   border-radius: 20px;
+
+  background-color: white;
+
+  @media screen and (max-width: 700px) {
+    width: 300px;
+    height: 200px;
+  }
 `;
 export const LoginLayout = styled.div`
-  height: 280px;
+  width: 270px;
+  height: 270px;
   padding: 25px;
+
+  @media screen and (max-width: 700px) {
+    width: 300px;
+  }
 
   position: relative;
   z-index: 0;

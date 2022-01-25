@@ -4,8 +4,11 @@ import styled from "styled-components";
 // -------------------------------------------------------
 export const Layout = styled.div`
   width: 100%;
-  height: 300px;
+  min-height: 300px;
+  max-width: 1250px;
+
   border-radius: 20px;
+  padding: 30px;
 
   display: flex;
   flex-direction: column;
@@ -52,8 +55,6 @@ export const Layout = styled.div`
   }
 `;
 export const GoApp = styled.div`
-  margin-top: 50px;
-
   @keyframes glowing {
     0% {
       background-position: 0 0;

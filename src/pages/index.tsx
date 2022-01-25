@@ -16,13 +16,13 @@ import { IndexLayout } from "styles/Styled";
 const Home: NextPage = () => {
   return (
     <IndexLayout>
-      {/* <Hero /> */}
+      <Hero />
       <Video />
-      {/* <Collection />
+      <Collection />
       <Create />
       <Work />
       <Roadmap />
-      <Join /> */}
+      <Join />
     </IndexLayout>
   );
 };

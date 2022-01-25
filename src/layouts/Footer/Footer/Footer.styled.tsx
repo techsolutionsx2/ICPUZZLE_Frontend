@@ -9,9 +9,17 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 170px 0px 178px;
+  padding: 50px 170px 0px 178px;
 
   position: relative;
+
+  @media screen and (max-width: 1250px) {
+    padding: 50px 100px 0px 108px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 export const EmailInputContainer = styled.div`
   display: flex;
@@ -21,6 +29,9 @@ export const EmailInputContainer = styled.div`
   align-items: center;
   border-radius: 10px;
   border: 1px solid rgba(6, 0, 41, 0.2);
+  @media screen and (max-width: 1024px) {
+    margin-top: 30px;
+  }
 `;
 export const EmailInput = styled.input`
   width: 200px;
@@ -47,6 +58,12 @@ export const SignUpButton = styled.div`
 
   width: 120px;
   height: 40px;
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,12 +124,39 @@ export const SignUpButton = styled.div`
 
 export const ImageContainer = styled.div`
   display: flex;
-  min-width: 120px;
-  min-height: 150px;
+  width: 120px;
+  height: 150px;
+
+  @media screen and (max-width: 1024px) {
+    width: 80px;
+    height: 100px;
+  }
 `;
 
 export const Contact = styled.div`
   position: absolute;
   bottom: 0px;
   left: 170px;
+  @media screen and (max-width: 1250px) {
+    left: 100px;
+  }
+`;
+
+export const MobileLayout = styled.div`
+  display: none;
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px 0px 20px;
+  }
+`;
+export const IconContainer = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #0b1d35;
+  mix-blend-mode: normal;
+  opacity: 0.06;
+  border-radius: 12px;
 `;

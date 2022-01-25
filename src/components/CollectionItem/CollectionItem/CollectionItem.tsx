@@ -53,18 +53,16 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
         <Image
           className="CollectionMain"
           src={data.mImage.src}
-          width={260}
-          height={270}
           alt="No Image"
+          layout="fill"
         ></Image>
       </MainImageContainer>
       <SubImageContainer>
         <Image
           className="CollectionSub"
           src={data.sImage.src}
-          width={100}
-          height={100}
           alt="No Image"
+          layout="fill"
         ></Image>
       </SubImageContainer>
       <Text

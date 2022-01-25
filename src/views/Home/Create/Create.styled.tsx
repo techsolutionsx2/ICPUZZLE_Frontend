@@ -7,15 +7,26 @@ export const Layout = styled.div`
   display: flex;
   justify-content: center;
   & > *:not(:last-child) {
-    margin-right: 100px;
+    margin-right: 50px;
   }
 
   padding-top: 150px;
+
+  @media screen and (max-width: 1250px) {
+    flex-direction: column;
+    align-items: center;
+    & > *:not(:last-child) {
+      margin-right: 0px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 export const ItemList = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  grid-template-columns: repeat(2, 270px);
+  grid-gap: 50px;
 `;
 export const CreateButton = styled.div`
   margin-top: 40px;
@@ -35,6 +46,10 @@ export const CreateButton = styled.div`
 
   width: 140px;
   height: 50px;
+
+  @media screen and (max-width: 1250px) {
+    width: 250px;
+  }
 
   display: flex;
   justify-content: center;

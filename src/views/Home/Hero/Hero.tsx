@@ -154,7 +154,7 @@ const Hero: React.FC = () => {
       <Row
         display="none"
         justifyContent="center"
-        responsive={{ 900: { display: "flex", padding: "70px" } }}
+        responsive={{ 900: { display: "flex", padding: "70px 0px 0px 0px" } }}
       >
         <GoApp>Go to App</GoApp>
       </Row>

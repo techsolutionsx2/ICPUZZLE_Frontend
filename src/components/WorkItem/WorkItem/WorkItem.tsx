@@ -14,9 +14,7 @@ import {
 import Text from "components/Text";
 import { Row } from "components/Layout";
 
-//tempdata
-
-import { WorkItemData } from "utils/tempData/WorkItem";
+//asserts
 
 import ICImage from "assets/png/IC.png";
 

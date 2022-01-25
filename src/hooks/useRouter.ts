@@ -18,7 +18,7 @@ const Router = () => {
     };
   }, [router]);
 
-  const move = (path = "/", param = {}, mode = {}) => {
+  const move = (path = "/", param: any = {}, mode = {}) => {
     let paramString = "";
     if (!isEmpty(param)) {
       Object.keys(param).forEach((item) => {

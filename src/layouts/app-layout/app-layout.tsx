@@ -22,8 +22,8 @@ const AppLayout = ({ children }: LayoutProps) => {
   return (
     <AppLayoutContainer>
       <Header />
-      {children}
-      {/* <Footer /> */}
+      {/* {children} */}
+      <Footer />
       <ScrollTop />
     </AppLayoutContainer>
   );

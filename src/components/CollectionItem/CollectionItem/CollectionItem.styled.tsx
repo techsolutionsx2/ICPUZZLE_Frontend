@@ -4,11 +4,14 @@ import styled from "styled-components";
 // -------------------------------------------------------
 
 export const Layout = styled.div`
-  width: 100%;
+  width: 270px;
   height: 450px;
+
   background: white;
   border-radius: 20px;
+
   padding: 5px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,15 +19,19 @@ export const Layout = styled.div`
   :hover {
     margin-top: -20px;
   }
+  @media screen and (max-width: 700px) {
+    :hover {
+      margin-top: 0px;
+    }
+  }
 `;
 export const LayoutComing = styled.div`
+  width: 270px;
+  height: 450px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 100%;
-  height: 450px;
-  border-radius: 20px;
 
   position: relative;
   z-index: 0;
@@ -69,24 +76,33 @@ export const LayoutComing = styled.div`
   :hover {
     margin-top: -20px;
   }
+  @media screen and (max-width: 700px) {
+    :hover {
+      margin-top: 0px;
+    }
+  }
 `;
 
 export const MainImageContainer = styled.div`
   img {
     border-radius: 20px;
   }
+
   border-radius: 20px;
-  width: 100%;
+
+  position: relative;
+
+  width: 260px;
   height: 270px;
 `;
 export const SubImageContainer = styled.div`
   img {
     border-radius: 50px;
   }
+
   margin-top: -35px;
   width: 70px;
   height: 70px;
-
   position: relative;
   z-index: 0;
 

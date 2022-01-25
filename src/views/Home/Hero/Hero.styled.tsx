@@ -166,6 +166,9 @@ export const GoApp = styled.div`
     font-weight: bold;
     font-size: 20px;
   }
+  @media screen and (max-width: 425px) {
+    width: 90%;
+  }
 `;
 export const ICImageLayout = styled.div`
   position: relative;

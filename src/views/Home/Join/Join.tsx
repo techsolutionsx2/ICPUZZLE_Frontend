@@ -9,7 +9,7 @@ import { JoinUs } from "components/JoinUs";
 
 // -----------------------------------------------------------
 
-const Hero: React.FC = () => {
+const Join: React.FC = () => {
   return (
     <Layout>
       <JoinUs />
@@ -17,4 +17,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default Join;
