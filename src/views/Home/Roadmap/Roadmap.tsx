@@ -41,8 +41,11 @@ const Roadmap: React.FC = () => {
           slidesPerView={1}
           breakpoints={{
             "300": { slidesPerView: 1 },
+            "450": { slidesPerView: 1.5 },
             "600": { slidesPerView: 2 },
+            "750": { slidesPerView: 2.5 },
             "900": { slidesPerView: 3 },
+            "1050": { slidesPerView: 3.5 },
             "1200": { slidesPerView: 4 },
             "1500": {
               slidesPerView: 5,

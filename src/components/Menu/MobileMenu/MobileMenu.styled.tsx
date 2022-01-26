@@ -42,6 +42,8 @@ export const MotionLl = styled(motion.div)`
   width: 200px;
   height: 30px;
   padding: 15px;
+  font-weight: 800;
+  font-size: 18px;
 `;
 
 export const MotionNav = styled(motion.nav)`
@@ -61,7 +63,6 @@ export const MotionDiv = styled(motion.div)`
   bottom: 0;
   width: 300px;
   background: #fff;
-  border-radius: 50px;
 `;
 
 export const Button = styled.button`

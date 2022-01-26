@@ -13,6 +13,12 @@ export const CollectionItems = styled.div`
   grid-template-columns: repeat(4, 270px);
   grid-gap: 50px;
   justify-content: center;
+  @media screen and (max-width: 1250px) {
+    grid-template-columns: repeat(2, 270px);
+  }
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(1, 300px);
+  }
 `;
 
 export const Button = styled.div`
@@ -31,6 +37,11 @@ export const Button = styled.div`
 
   width: 170px;
   height: 50px;
+  @media screen and (max-width: 1250px) {
+    width: 90%;
+    max-width: 290px;
+    margin-top: 30px;
+  }
 
   display: flex;
   justify-content: center;

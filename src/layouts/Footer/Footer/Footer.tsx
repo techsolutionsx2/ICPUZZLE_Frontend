@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
           tAlign="center"
           responsive={{ 1024: { padding: "0px" } }}
         >
-          he latestICPuzzle updates.
+          he latest ICPuzzle updates.
         </Text>
 
         <EmailInputContainer>

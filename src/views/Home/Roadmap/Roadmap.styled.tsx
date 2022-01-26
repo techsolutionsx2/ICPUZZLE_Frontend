@@ -27,6 +27,12 @@ export const Layout = styled.div`
   .swiper-pagination-bullet-active {
     background: #9c42f5;
   }
+
+  .swiper-slide {
+    @media screen and (max-width: 1500px) {
+      min-width: 300px;
+    }
+  }
 `;
 
 export const PrevItem = styled.div`

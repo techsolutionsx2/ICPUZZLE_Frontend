@@ -25,6 +25,17 @@ export const ImageContainer = styled.div`
   width: 80%;
   height: 500px;
 
+  @media screen and (max-width: 1024px) {
+    height: 400px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 300px;
+  }
+  @media screen and (max-width: 425px) {
+    width: 90%;
+    height: 250px;
+  }
+
   position: relative;
   z-index: 0;
 
