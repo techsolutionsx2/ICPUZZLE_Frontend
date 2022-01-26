@@ -148,7 +148,10 @@ export const MobileLayout = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 10px 0px 20px;
+    padding: 50px 10vw 0px 10vw;
+  }
+  @media screen and (max-width: 700px) {
+    padding: 50px 5vw 0px 5vw;
   }
 `;
 export const IconContainer = styled.div`
