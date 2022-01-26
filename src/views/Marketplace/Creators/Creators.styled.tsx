@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  margin-top: 120px;
+  padding-top: 120px;
 `;
 
 export const CollectionItems = styled.div`

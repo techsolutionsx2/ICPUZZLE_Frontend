@@ -17,7 +17,7 @@ import { CreatorItemData } from "utils/tempData/Creator";
 
 const TopCollection: React.FC = () => {
   return (
-    <>
+    <div id="Creator">
       <Layout>
         <Row
           justifyContent="space-between"
@@ -67,7 +67,7 @@ const TopCollection: React.FC = () => {
           <Button>Explore Creators</Button>
         </Row>
       </Layout>
-    </>
+    </div>
   );
 };
 

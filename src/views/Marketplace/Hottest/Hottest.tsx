@@ -44,7 +44,7 @@ const params1 = {
 
 const Hottest: React.FC = () => {
   return (
-    <>
+    <div id="HottestNFT">
       <Layout>
         <Row
           justifyContent="space-between"
@@ -114,7 +114,7 @@ const Hottest: React.FC = () => {
 
         <Button>Explore</Button>
       </MobileLayout>
-    </>
+    </div>
   );
 };
 

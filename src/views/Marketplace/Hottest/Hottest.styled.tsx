@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  margin-top: 120px;
+  padding-top: 120px;
   @media screen and (max-width: 1250px) {
     display: none;
   }
@@ -24,7 +24,7 @@ export const MobileLayout = styled.div`
     position: relative;
     .swiper {
       padding-bottom: 40px;
-      padding-left: 50px;
+      padding-left: 0px;
     }
     .swiper-pagination-bullets {
       bottom: 8px;
@@ -35,6 +35,10 @@ export const MobileLayout = styled.div`
     }
     .swiper-pagination-bullet-active {
       background: #9c42f5;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
     }
   }
 `;

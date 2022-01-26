@@ -39,17 +39,23 @@ import { PageBookmarkData } from "utils/Data/Bookmark";
 const Header: React.FC = () => {
   const { asPath, pathname } = useRouter();
   const [bookmarks, setBookmarks] = useState([""]);
+  const [pages, setPages] = useState([""]);
 
   useEffect(() => {
     PageBookmarkData.forEach((bookmarkItem) => {
       if (bookmarkItem.path === pathname) {
         setBookmarks(bookmarkItem.bookmarkList);
+        setPages(bookmarkItem.pageList);
       }
     });
   }, [pathname]);
 
   const setBookmark = (e: any) => {
-    location.href = "#" + e.target.value;
+    if (e.target.value == "/Home") {
+      location.href = "/";
+    } else {
+      location.href = e.target.value;
+    }
   };
 
   const { move } = useRouterCustom();
@@ -85,7 +91,14 @@ const Header: React.FC = () => {
           <Select onChange={setBookmark}>
             {bookmarks.map((item, key) => {
               return (
-                <Option key={key} value={item.replace(/\s/g, "")}>
+                <Option key={key} value={"#" + item.replace(/\s/g, "")}>
+                  {item}
+                </Option>
+              );
+            })}
+            {pages.map((item, key) => {
+              return (
+                <Option key={key} value={"/" + item.replace(/\s/g, "")}>
                   {item}
                 </Option>
               );

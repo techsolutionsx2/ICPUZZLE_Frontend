@@ -25,30 +25,51 @@ const variants = {
 export const Navigation = ({ toggle }: any) => {
   const { asPath, pathname } = useRouter();
   const [bookmarks, setBookmarks] = useState([""]);
+  const [pages, setPages] = useState([""]);
 
   useEffect(() => {
     PageBookmarkData.forEach((bookmarkItem) => {
       if (bookmarkItem.path === pathname) {
         setBookmarks(bookmarkItem.bookmarkList);
+        setPages(bookmarkItem.pageList);
       }
     });
   }, [pathname]);
 
   const setBookmark = (value: string) => {
-    location.href = "#" + value;
+    if (value == "/Home") {
+      location.href = "/";
+    } else {
+      location.href = value;
+    }
   };
   return (
     <UlContainer>
       <MotionUl variants={variants}>
-        {bookmarks.map((item, index) => (
-          <MenuItem
-            item={item}
-            toggle={toggle}
-            key={index}
-            index={index}
-            setBookmark={setBookmark}
-          />
-        ))}
+        {bookmarks.map((item, index) => {
+          return (
+            <MenuItem
+              item={item}
+              toggle={toggle}
+              key={index}
+              index={index}
+              setBookmark={setBookmark}
+              pre={"#"}
+            />
+          );
+        })}
+        {pages.map((item, index) => {
+          return (
+            <MenuItem
+              item={item}
+              toggle={toggle}
+              key={index}
+              index={index}
+              setBookmark={setBookmark}
+              pre={"/"}
+            />
+          );
+        })}
       </MotionUl>
     </UlContainer>
   );

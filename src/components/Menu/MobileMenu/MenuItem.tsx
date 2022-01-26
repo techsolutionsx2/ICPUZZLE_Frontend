@@ -22,10 +22,10 @@ const variants = {
   },
 };
 
-export const MenuItem = ({ item, toggle, index, setBookmark }: any) => {
+export const MenuItem = ({ item, toggle, index, setBookmark, pre }: any) => {
   const clickItem = () => {
     toggle();
-    setBookmark(item.replace(/\s/g, ""));
+    setBookmark(pre + item.replace(/\s/g, ""));
   };
   return (
     <MotionLl

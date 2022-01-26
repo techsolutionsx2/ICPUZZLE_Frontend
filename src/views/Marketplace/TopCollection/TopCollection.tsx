@@ -44,7 +44,7 @@ const params1 = {
 
 const TopCollection: React.FC = () => {
   return (
-    <>
+    <div id="TopCollection">
       <Layout>
         <Row
           justifyContent="space-between"
@@ -114,7 +114,7 @@ const TopCollection: React.FC = () => {
 
         <Button>Explore Collections</Button>
       </MobileLayout>
-    </>
+    </div>
   );
 };
 

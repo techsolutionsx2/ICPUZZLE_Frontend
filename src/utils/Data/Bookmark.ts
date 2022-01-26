@@ -8,10 +8,16 @@ export const PageBookmarkData = [
       "How it works",
       "Roadmap",
     ],
+    pageList: ["Marketplace"],
   },
-  { path: "/NFTs", bookmarkList: ["Explore", "Recently NFT "] },
+  {
+    path: "/NFTs",
+    bookmarkList: ["Explore", "Recently NFT "],
+    pageList: [],
+  },
   {
     path: "/Marketplace",
     bookmarkList: ["Hottest NFT", "Creator", "Top Collection"],
+    pageList: ["Home"],
   },
 ];
