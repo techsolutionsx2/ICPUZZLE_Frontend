@@ -63,8 +63,9 @@ const Video: React.FC = () => {
               375: { fSize: 14 },
             }}
           >
-            Our NFTs have exciting new properties: they're unique, provably
-            scarce, tradeadle, and usable across multiple applications.
+            {
+              "Our NFTs have exciting new properties: they're unique, provably scarce, tradeadle, and usable across multiple applications."
+            }
           </Text>
           <Text
             fColor="#0B1D35"

@@ -18,7 +18,7 @@ import { ScrollTop } from "components/Button";
 
 // -----------------------------------------------------------
 
-const AppLayout: React.FC<{ children: LayoutProps }> = ({ children }) => {
+const AppLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <AppLayoutContainer>
       <Header />

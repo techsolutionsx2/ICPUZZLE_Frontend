@@ -45,7 +45,7 @@ const ScrollTop: React.FC = () => {
     };
   });
   return (
-    <>
+    <React.Fragment>
       <Layout onClick={scrollToTop} showButton={enable}>
         <Row
           alignItems="center"
@@ -57,7 +57,7 @@ const ScrollTop: React.FC = () => {
           <p>Top</p>
         </Row>
       </Layout>
-    </>
+    </React.Fragment>
   );
 };
 

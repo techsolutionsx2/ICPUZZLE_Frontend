@@ -29,7 +29,7 @@ import { BsDiscord, BsTwitter } from "react-icons/bs";
 
 const Footer: React.FC = () => {
   return (
-    <>
+    <React.Fragment>
       <Layout>
         <Row alignItems="center" gap={8}>
           <ImageContainer>
@@ -185,7 +185,7 @@ const Footer: React.FC = () => {
           </Row>
         </Row>
       </MobileLayout>
-    </>
+    </React.Fragment>
   );
 };
 
