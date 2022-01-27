@@ -9,7 +9,6 @@ interface LayoutProps {
 }
 
 // Layouts
-
 import { Header } from "layouts/Header";
 import { Footer } from "layouts/Footer";
 
