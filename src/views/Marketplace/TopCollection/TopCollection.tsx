@@ -102,12 +102,12 @@ const TopCollection: React.FC = () => {
           </Swiper>
           <div className="prevItem">
             <PrevItem>
-              <AiOutlineArrowLeft size={25} />
+              <AiOutlineArrowLeft size={25} color="#94899f" />
             </PrevItem>
           </div>
           <div className="nextItem">
             <NextItem>
-              <AiOutlineArrowRight size={25} />
+              <AiOutlineArrowRight size={25} color="#94899f" />
             </NextItem>
           </div>
         </SwiperContainer>

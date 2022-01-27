@@ -14,7 +14,7 @@ export const Layout = styled.div`
   position: relative;
 
   .swiper {
-    padding-bottom: 40px;
+    padding-bottom: 55px;
     padding-left: 50px;
   }
   .swiper-pagination-bullets {

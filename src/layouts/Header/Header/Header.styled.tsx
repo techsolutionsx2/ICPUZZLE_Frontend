@@ -1,4 +1,4 @@
-// styled system
+// Styled system
 import styled from "styled-components";
 
 //Framer motion
@@ -22,6 +22,8 @@ export const Layout = styled.div`
 
 export const ImageContainer = styled(motion.div)`
   display: flex;
+  position: relative;
+
   width: 120px;
   height: 150px;
 
@@ -31,38 +33,6 @@ export const ImageContainer = styled(motion.div)`
     width: 80px;
     height: 100px;
   }
-`;
-
-export const Select = styled.select`
-  margin-right: 20px;
-  width: 200px;
-  height: 45px;
-  border-radius: 20px;
-  padding-left: 20px;
-
-  border: 0.5px solid rgba(224, 224, 255, 0.4);
-
-  appearance: none;
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
-  background: url(image/dropdown.png) no-repeat 93% rgba(255, 255, 255, 0.4);
-
-  font-size: 18px;
-  font-weight: 600;
-  font-family: Montserrat;
-
-  & > :nth-child(odd) {
-    background-color: white;
-  }
-  & > :nth-child(even) {
-    background-color: #e7e7e7;
-  }
-`;
-
-export const Option = styled.option`
-  font-size: 18px;
-  font-weight: 600;
-  font-family: Montserrat;
 `;
 
 export const ButtonContainer = styled.div`

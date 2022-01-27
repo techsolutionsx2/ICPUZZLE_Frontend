@@ -131,4 +131,15 @@ export const SubImageContainer = styled.div`
     opacity: 1;
     border-radius: 50%;
   }
+  ::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background-color: #202124;
+  }
 `;

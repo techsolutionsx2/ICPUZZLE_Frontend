@@ -36,6 +36,7 @@ const TopCollection: React.FC = () => {
               768: { fSize: 40 },
               425: { fSize: 30 },
             }}
+            fColor="#0B1D35"
           >
             Creators
           </Text>

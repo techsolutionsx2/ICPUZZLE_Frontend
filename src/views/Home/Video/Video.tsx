@@ -1,19 +1,28 @@
 import React from "react";
+import Image from "next/image";
 
 // styled component
-import { Layout, PlayerContainer } from "./Video.styled";
+import { Layout, PlayerContainer, PlayContainer } from "./Video.styled";
 
 // component
 
 import Text from "components/Text";
 import { Row, Col } from "components/Layout";
 
+//assets
+
+import Play from "assets/png/play.png";
+
 // -----------------------------------------------------------
 
 const Video: React.FC = () => {
   return (
     <Layout id="ICPuzzle">
-      <PlayerContainer></PlayerContainer>
+      <PlayerContainer>
+        <PlayContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+          <Image src={Play} alt="No Image"></Image>
+        </PlayContainer>
+      </PlayerContainer>
       <Row
         mWidth={550}
         alignItems="center"

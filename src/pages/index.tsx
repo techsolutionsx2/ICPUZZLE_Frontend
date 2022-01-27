@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-//components
+//Component
 import {
   Hero,
   Video,
@@ -11,6 +11,7 @@ import {
   Join,
 } from "views/Home";
 
+//Styled Component
 import { IndexLayout } from "styles/Styled";
 
 const Home: NextPage = () => {

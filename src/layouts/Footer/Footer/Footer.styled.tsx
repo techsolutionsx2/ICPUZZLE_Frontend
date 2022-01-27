@@ -155,11 +155,14 @@ export const MobileLayout = styled.div`
   }
 `;
 export const IconContainer = styled.div`
+  position: relative;
   width: 50px;
   height: 50px;
   border-radius: 5px;
-  background: #0b1d35;
+  background: rgba(12, 30, 53, 0.06);
   mix-blend-mode: normal;
-  opacity: 0.06;
   border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

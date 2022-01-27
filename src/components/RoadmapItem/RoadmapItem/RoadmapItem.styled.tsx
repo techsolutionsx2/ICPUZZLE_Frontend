@@ -16,6 +16,11 @@ export const Detail = styled.div`
   height: 160px;
   position: relative;
   z-index: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
   ::before {
     content: "";
     background: linear-gradient(
@@ -48,7 +53,7 @@ export const Detail = styled.div`
     left: 0;
     top: 0;
     border-radius: 15px;
-    background-color: #202124;
+    background-color: black;
   }
 `;
 export const PointContainer = styled.div`

@@ -6,6 +6,7 @@ import "styles/globals.css";
 //Layout
 import AppLayout from "layouts/app-layout/app-layout";
 
+//Swiper
 import "swiper/css/bundle";
 
 function MyApp({ Component, pageProps }: AppProps) {

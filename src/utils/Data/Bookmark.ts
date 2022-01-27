@@ -1,4 +1,8 @@
-export const PageBookmarkData = [
+//Types
+import { BookmarkType } from "types/utils/Bookmark";
+
+//---------------------------------------------------------------
+export const PageBookmarkData: BookmarkType[] = [
   {
     path: "/",
     bookmarkList: [

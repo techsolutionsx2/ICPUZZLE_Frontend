@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 // styled component
 import {
@@ -14,6 +15,8 @@ import {
 import Text from "components/Text";
 import { Row } from "components/Layout";
 
+import Time from "assets/png/time.png";
+
 // -----------------------------------------------------------
 
 const RoadmapItem: React.FC<{
@@ -24,7 +27,9 @@ const RoadmapItem: React.FC<{
   const pointColor = color.split(",")[1];
   return (
     <Layout first={first}>
-      <Detail></Detail>
+      <Detail>
+        <Image src={Time}></Image>
+      </Detail>
       <PointContainer>
         <Point color={pointColor}></Point>
       </PointContainer>

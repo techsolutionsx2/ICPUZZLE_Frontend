@@ -12,7 +12,7 @@ import {
 // component
 
 import Text from "components/Text";
-import { Col, Row } from "components/Layout";
+import { Col } from "components/Layout";
 
 //type
 

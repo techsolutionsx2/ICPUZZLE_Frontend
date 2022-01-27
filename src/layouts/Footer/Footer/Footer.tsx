@@ -15,6 +15,8 @@ import {
 
 // assets
 import Logo from "assets/png/logo.png";
+import Discord from "assets/png/discord.png";
+import Twitter from "assets/png/twitter.png";
 
 // component
 
@@ -117,9 +119,18 @@ const Footer: React.FC = () => {
               ICPuzzle
             </Text>
           </Row>
-          <Row gap={20} alignItems="center" justifyContent="flex-end">
-            <BsDiscord size={40} />
-            <BsTwitter size={40} />
+          <Row
+            gap={20}
+            alignItems="center"
+            justifyContent="flex-end"
+            responsive={{ 425: { gap: 10 } }}
+          >
+            <IconContainer>
+              <Image src={Twitter} alt="No Image" width={30} height={30} />
+            </IconContainer>
+            <IconContainer>
+              <Image src={Discord} alt="No Image" width={30} height={30} />
+            </IconContainer>
           </Row>
         </Row>
         <Text

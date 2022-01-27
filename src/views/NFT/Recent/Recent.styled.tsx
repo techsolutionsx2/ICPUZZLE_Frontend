@@ -4,8 +4,41 @@ import styled from "styled-components";
 // -------------------------------------------------------
 export const Layout = styled.div`
   margin-top: 200px;
-  padding: 0px 75px;
+  padding: 0px 0px 0px 75px;
+  @media screen and (max-width: 768px) {
+    padding: 0px;
+  }
+  .swiper {
+    padding-bottom: 55px;
+    padding-left: 0px;
+  }
+  .swiper-pagination-bullets {
+    bottom: 8px;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+  .swiper-pagination-bullet-active {
+    background: #9c42f5;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
 `;
+export const NFTList = styled.div`
+  margin-top: 100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  grid-gap: 30px;
+  justify-content: center;
+  @media screen and (max-width: 1250px) {
+    display: none;
+  }
+`;
+
 export const ViewMore = styled.div`
   margin-top: 40px;
 
@@ -24,6 +57,12 @@ export const ViewMore = styled.div`
 
   width: 150px;
   height: 50px;
+
+  @media screen and (max-width: 1250px) {
+    width: 90%;
+    max-width: 290px;
+    margin-top: 30px;
+  }
 
   display: flex;
   justify-content: center;
@@ -61,6 +100,9 @@ export const ViewMore = styled.div`
     height: calc(100% + 4px);
     opacity: 1;
     border-radius: 25px;
+    @media screen and (max-width: 1250px) {
+      border-radius: 10px;
+    }
   }
   :hover::before {
     filter: blur(3px);
@@ -78,5 +120,45 @@ export const ViewMore = styled.div`
     top: 0;
     border-radius: 25px;
     background-color: #202124;
+    @media screen and (max-width: 1250px) {
+      border-radius: 10px;
+    }
+  }
+`;
+
+export const PrevItem = styled.div`
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  left: calc(50vw - 150px);
+  @media screen and (max-width: 500px) {
+    left: calc(50vw - 100px);
+  }
+`;
+export const NextItem = styled.div`
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  right: calc(50vw - 150px);
+  @media screen and (max-width: 500px) {
+    right: calc(50vw - 100px);
+  }
+`;
+
+export const SwiperContainer = styled.div`
+  display: none;
+  @media screen and (max-width: 1250px) {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    max-width: 100vw;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 70px;
+    }
+    @media screen and (max-width: 425px) {
+      margin-top: 50px;
+    }
   }
 `;

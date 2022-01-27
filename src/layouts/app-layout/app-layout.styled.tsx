@@ -1,4 +1,4 @@
-// styled system
+// Styled system
 import styled from "styled-components";
 
 // -------------------------------------------------------

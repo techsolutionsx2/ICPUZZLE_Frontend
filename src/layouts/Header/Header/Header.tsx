@@ -1,34 +1,27 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-// styled component
+// Styled component
 import {
   Layout,
   ImageContainer,
-  Select,
-  Option,
   CreateButton,
   ButtonContainer,
   Button,
   Backdiv,
 } from "./Header.styled";
 
-// assets
+// Assets
 
 import Logo from "assets/png/logo.png";
 
-// hook
-
-import { useRouterCustom } from "hooks";
-
-// component
+// Components
 
 import Text from "components/Text";
 import { Row } from "components/Layout";
-
 import { MobileMenu } from "components/Menu";
+import { Select } from "components/Select";
 
 // Bookmark Data
 
@@ -37,28 +30,8 @@ import { PageBookmarkData } from "utils/Data/Bookmark";
 // -----------------------------------------------------------
 
 const Header: React.FC = () => {
-  const { asPath, pathname } = useRouter();
-  const [bookmarks, setBookmarks] = useState([""]);
-  const [pages, setPages] = useState([""]);
+  const router = useRouter();
 
-  useEffect(() => {
-    PageBookmarkData.forEach((bookmarkItem) => {
-      if (bookmarkItem.path === pathname) {
-        setBookmarks(bookmarkItem.bookmarkList);
-        setPages(bookmarkItem.pageList);
-      }
-    });
-  }, [pathname]);
-
-  const setBookmark = (e: any) => {
-    if (e.target.value == "/Home") {
-      location.href = "/";
-    } else {
-      location.href = e.target.value;
-    }
-  };
-
-  const { move } = useRouterCustom();
   return (
     <Layout>
       <Row alignItems="center" gap={8}>
@@ -66,10 +39,10 @@ const Header: React.FC = () => {
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.8 }}
           onClick={() => {
-            move("/");
+            router.push("/");
           }}
         >
-          <Image src={Logo} alt="No Image" />
+          <Image src={Logo.src} alt="No Image" layout="fill" />
         </ImageContainer>
         <Text
           fSize={30}
@@ -87,24 +60,7 @@ const Header: React.FC = () => {
         gap={10}
         responsive={{ 1024: { display: "none" } }}
       >
-        <div>
-          <Select onChange={setBookmark}>
-            {bookmarks.map((item, key) => {
-              return (
-                <Option key={key} value={"#" + item.replace(/\s/g, "")}>
-                  {item}
-                </Option>
-              );
-            })}
-            {pages.map((item, key) => {
-              return (
-                <Option key={key} value={"/" + item.replace(/\s/g, "")}>
-                  {item}
-                </Option>
-              );
-            })}
-          </Select>
-        </div>
+        <Select data={PageBookmarkData}></Select>
         <CreateButton>Create</CreateButton>
         <ButtonContainer>
           <Button>swky-geexh-lbavl-tj-</Button>

@@ -1,6 +1,6 @@
 //  to import images
 import tempImage from "assets/png/temp.png";
-
+import collection from "assets/png/collection.png";
 // type
 import { CollectionItemProps } from "types/components/Collection";
 
@@ -36,7 +36,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -44,7 +44,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -52,7 +52,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -60,7 +60,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -68,7 +68,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -76,7 +76,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -84,7 +84,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",
@@ -92,7 +92,7 @@ export const CollectionItemDataTop: CollectionItemProps[] = [
   {
     coming: false,
     mImage: tempImage,
-    sImage: tempImage,
+    sImage: collection,
     title: "IDENTITY NFTs",
     subTitle: "Singular Puzzle Pieces",
     detail: "Represents Human Individuality",

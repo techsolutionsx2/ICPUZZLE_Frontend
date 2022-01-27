@@ -1,54 +1,139 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 // Framer motion
 import { useCycle } from "framer-motion";
 
 //components
 
-import { Navigation } from "./Navigation";
 import { MenuToggle } from "./MenuToggle";
+import Text from "components/Text";
+
+// Assets
+
+import Logo from "assets/png/logo.png";
 
 //Styled Components
 
-import { MotionNav, MotionDiv, Container } from "./MobileMenu.styled";
+import {
+  MotionNav,
+  Container,
+  Menu,
+  ImageContainer,
+  Header,
+  ItemList,
+  MenuItem,
+  ButtonGroup,
+  WalletButton,
+  CreateButton,
+} from "./MobileMenu.styled";
+
+//Components
+
+import { Row } from "components/Layout";
+
+// Bookmark Data
+
+import { PageBookmarkData } from "utils/Data/Bookmark";
+
+//Type
+import { BookmarkType } from "types/utils/Bookmark";
 
 // -----------------------------------------------------------
 
-const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 240px 60px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(0px at 240px 60px)",
-    transition: {
-      delay: 0.2,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
-
 const MobileMenu = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
 
+  const router = useRouter();
+
+  const { asPath, pathname } = useRouter();
+
+  const [bookmark, setBookmarks] = useState<BookmarkType>({
+    pageList: [""],
+    bookmarkList: [""],
+    path: "",
+  });
+
+  useEffect(() => {
+    PageBookmarkData.forEach((bookmarkItem) => {
+      if (bookmarkItem.path === pathname) {
+        setBookmarks(bookmarkItem);
+      }
+    });
+  }, [pathname]);
+
+  const setBookmark = (value: string) => {
+    if (value == "/Home") {
+      router.push("/");
+      toggleOpen();
+    } else {
+      router.push(value);
+      toggleOpen();
+    }
+  };
+
+  const height = bookmark.bookmarkList.length + bookmark.pageList.length;
   return (
     <Container>
-      <MotionNav
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={100}
-        ref={containerRef}
-      >
-        <MotionDiv variants={sidebar} />
-        <Navigation toggle={() => toggleOpen()} />
+      <MotionNav initial={false} animate={isOpen ? "open" : "closed"}>
         <MenuToggle toggle={() => toggleOpen()} />
+        <Menu open={isOpen} num={height}>
+          <Header>
+            <Row alignItems="center" gap={8}>
+              <ImageContainer
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+                onClick={() => {
+                  router.push("/");
+                }}
+              >
+                <Image src={Logo} alt="No Image" />
+              </ImageContainer>
+              <Text
+                fSize={30}
+                lHeight={30}
+                fWeight={800}
+                fColor="#000000"
+                responsive={{ 1024: { fSize: 20, fWeight: 700 } }}
+              >
+                ICPuzzle
+              </Text>
+            </Row>
+          </Header>
+          <ItemList>
+            {bookmark.bookmarkList.map((item, key) => {
+              return (
+                <MenuItem
+                  whileHover={{ scale: 1.1 }}
+                  key={key}
+                  onClick={() => {
+                    setBookmark("#" + item.replace(/\s/g, ""));
+                  }}
+                >
+                  {item}
+                </MenuItem>
+              );
+            })}
+            {bookmark.pageList.map((item, key) => {
+              return (
+                <MenuItem
+                  whileHover={{ scale: 1.1 }}
+                  key={key}
+                  onClick={() => {
+                    setBookmark("/" + item.replace(/\s/g, ""));
+                  }}
+                >
+                  {item}
+                </MenuItem>
+              );
+            })}
+          </ItemList>
+          <ButtonGroup>
+            <WalletButton>1x67876g8vx2g7hj</WalletButton>
+            <CreateButton>Create</CreateButton>
+          </ButtonGroup>
+        </Menu>
       </MotionNav>
     </Container>
   );

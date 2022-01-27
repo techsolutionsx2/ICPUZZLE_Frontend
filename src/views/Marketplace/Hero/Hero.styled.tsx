@@ -9,6 +9,10 @@ export const Layout = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   @keyframes glowing {
     0% {
       background-position: 0 0;

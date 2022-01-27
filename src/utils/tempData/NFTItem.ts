@@ -62,3 +62,62 @@ export const NFTItemData: NFTItemProps[] = [
     address: "6eedd82f6619ae7b51c",
   },
 ];
+
+export const NFTItemRecentData: NFTItemProps[] = [
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+  {
+    image: tempImage,
+    title: "Title",
+    mint: "#mint",
+    piece: 10,
+    address: "",
+  },
+];

@@ -79,6 +79,9 @@ export const Button = styled.div`
     height: calc(100% + 4px);
     opacity: 1;
     border-radius: 25px;
+    @media screen and (max-width: 1250px) {
+      border-radius: 10px;
+    }
   }
   :hover::before {
     filter: blur(3px);
@@ -95,6 +98,9 @@ export const Button = styled.div`
     left: 0;
     top: 0;
     border-radius: 25px;
+    @media screen and (max-width: 1250px) {
+      border-radius: 10px;
+    }
     background-color: #202124;
   }
 `;

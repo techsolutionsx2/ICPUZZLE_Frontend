@@ -1,6 +1,9 @@
 // styled system
 import styled from "styled-components";
 
+//Framer motion
+import { motion } from "framer-motion";
+
 // -------------------------------------------------------
 export const Layout = styled.div`
   display: flex;
@@ -23,7 +26,7 @@ export const Layout = styled.div`
   }
 `;
 export const PlayerContainer = styled.div`
-  background: rgba(14, 10, 29, 0.4);
+  background: black;
   width: 550px;
   height: 380px;
   border-radius: 20px;
@@ -45,4 +48,10 @@ export const PlayerContainer = styled.div`
     height: calc(90vw * 0.7);
     margin-top: 50px;
   }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
+export const PlayContainer = styled(motion.div)``;

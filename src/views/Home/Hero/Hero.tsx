@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
         <Col>
           <Text
             fWeight={600}
-            fSize={25}
+            fSize={24}
             lHeight={30}
             responsive={{
               1200: { fSize: 20 },

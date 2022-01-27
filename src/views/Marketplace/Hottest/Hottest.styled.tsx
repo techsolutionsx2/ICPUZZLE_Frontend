@@ -23,7 +23,7 @@ export const MobileLayout = styled.div`
     align-items: center;
     position: relative;
     .swiper {
-      padding-bottom: 40px;
+      padding-bottom: 55px;
       padding-left: 0px;
     }
     .swiper-pagination-bullets {
@@ -80,7 +80,7 @@ export const Button = styled.div`
   cursor: pointer;
   font-family: Montserrat;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
@@ -110,6 +110,9 @@ export const Button = styled.div`
     height: calc(100% + 4px);
     opacity: 1;
     border-radius: 25px;
+    @media screen and (max-width: 1250px) {
+      border-radius: 10px;
+    }
   }
   :hover::before {
     filter: blur(3px);
@@ -127,6 +130,9 @@ export const Button = styled.div`
     top: 0;
     border-radius: 25px;
     background-color: #202124;
+    @media screen and (max-width: 1250px) {
+      border-radius: 10px;
+    }
   }
 `;
 

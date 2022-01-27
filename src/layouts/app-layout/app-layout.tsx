@@ -1,24 +1,25 @@
 import React from "react";
 
-// styled component
+// Styled component
 import { AppLayoutContainer } from "./app-layout.styled";
 
-// types
+// Types
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-// layouts
+// Layouts
 
 import { Header } from "layouts/Header";
 import { Footer } from "layouts/Footer";
 
-//component
+//Component
+
 import { ScrollTop } from "components/Button";
 
 // -----------------------------------------------------------
 
-const AppLayout = ({ children }: LayoutProps) => {
+const AppLayout: React.FC<{ children: LayoutProps }> = ({ children }) => {
   return (
     <AppLayoutContainer>
       <Header />
