@@ -172,7 +172,7 @@ export const WalletButton = styled.div<{ flag: string }>`
   animation-duration: 2s;
 
   ${({ flag }) =>
-    flag != "" ? "width: 200px;height: 58px;" : "width: 60px; height: 70px;"};
+    flag != "" ? "width: 200px;height: 58px;" : "width: 60px; height: 60px;"};
 
   cursor: pointer;
 
