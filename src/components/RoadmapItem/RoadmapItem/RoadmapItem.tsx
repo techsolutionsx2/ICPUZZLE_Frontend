@@ -28,7 +28,7 @@ const RoadmapItem: React.FC<{
   return (
     <Layout first={first}>
       <Detail>
-        <Image src={Time}></Image>
+        <Image src={Time} alt="No Image"></Image>
       </Detail>
       <PointContainer>
         <Point color={pointColor}></Point>

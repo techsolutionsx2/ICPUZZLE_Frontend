@@ -9,9 +9,9 @@ import { BookmarkType } from "types/utils/Bookmark";
 
 // -----------------------------------------------------------
 
-const DropdownMenu: React.FC<{ data: BookmarkType; display: boolean }> = ({
+const DropdownMenu: React.FC<{ data: BookmarkType; flag: boolean }> = ({
   data,
-  display,
+  flag,
 }) => {
   const router = useRouter();
 
@@ -24,7 +24,7 @@ const DropdownMenu: React.FC<{ data: BookmarkType; display: boolean }> = ({
   };
 
   return (
-    <Layout display={display}>
+    <Layout flag={flag}>
       {data.bookmarkList.map((item, key) => {
         return (
           <MenuItem

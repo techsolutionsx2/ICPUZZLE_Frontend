@@ -2,17 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 // styled component
-import {
-  Layout,
-  LoginLayout,
-  ImageContainer,
-  LoginButton,
-} from "./WorkItem.styled";
+import { Layout, LoginLayout, ImageContainer } from "./WorkItem.styled";
 
 // component
 
 import Text from "components/Text";
 import { Row } from "components/Layout";
+import { WalletConnect } from "components/Button";
 
 //asserts
 
@@ -42,7 +38,7 @@ const WorkItem: React.FC<WorkItemProps> = ({ image, detail, login }) => {
           LOGIN using Stoic Wallet
         </Text>
         <Row justifyContent="flex-end">
-          <LoginButton>Log in</LoginButton>
+          <WalletConnect type={3}></WalletConnect>
         </Row>
       </LoginLayout>
     );

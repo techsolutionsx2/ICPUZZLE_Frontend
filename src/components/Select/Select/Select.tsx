@@ -49,7 +49,7 @@ const Select: React.FC<{ data: BookmarkType[] }> = ({ data }) => {
       <IconLayout>
         <Image src={Dropdown.src} layout="fill"></Image>
       </IconLayout>
-      <DropdownMenu data={bookmark} display={selected}></DropdownMenu>
+      <DropdownMenu data={bookmark} flag={selected}></DropdownMenu>
     </Layout>
   );
 };

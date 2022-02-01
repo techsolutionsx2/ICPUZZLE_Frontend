@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 // -------------------------------------------------------
-export const Layout = styled.div<{ display: boolean }>`
+export const Layout = styled.div<{ flag: boolean }>`
   position: absolute;
   top: 80px;
   left: 0px;
@@ -14,7 +14,7 @@ export const Layout = styled.div<{ display: boolean }>`
   border-radius: 20px;
   padding: 10px 20px;
 
-  display: ${({ display }) => (display ? "flex" : "none")};
+  display: ${({ flag }) => (flag ? "flex" : "none")};
   flex-direction: column;
 
   z-index: 2;

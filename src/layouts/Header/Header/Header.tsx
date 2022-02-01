@@ -3,14 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 // Styled component
-import {
-  Layout,
-  ImageContainer,
-  CreateButton,
-  ButtonContainer,
-  Button,
-  Backdiv,
-} from "./Header.styled";
+import { Layout, ImageContainer, CreateButton } from "./Header.styled";
 
 // Assets
 
@@ -22,6 +15,7 @@ import Text from "components/Text";
 import { Row } from "components/Layout";
 import { MobileMenu } from "components/Menu";
 import { Select } from "components/Select";
+import { WalletConnect } from "components/Button";
 
 // Bookmark Data
 
@@ -62,10 +56,7 @@ const Header: React.FC = () => {
       >
         <Select data={PageBookmarkData}></Select>
         <CreateButton>Create</CreateButton>
-        <ButtonContainer>
-          <Button>swky-geexh-lbavl-tj-</Button>
-          <Backdiv />
-        </ButtonContainer>
+        <WalletConnect type={1}></WalletConnect>
       </Row>
       <MobileMenu></MobileMenu>
     </Layout>

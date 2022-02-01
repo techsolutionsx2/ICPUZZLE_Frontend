@@ -25,13 +25,13 @@ import {
   ItemList,
   MenuItem,
   ButtonGroup,
-  WalletButton,
   CreateButton,
 } from "./MobileMenu.styled";
 
 //Components
 
 import { Row } from "components/Layout";
+import { WalletConnect } from "components/Button";
 
 // Bookmark Data
 
@@ -130,7 +130,7 @@ const MobileMenu = () => {
             })}
           </ItemList>
           <ButtonGroup>
-            <WalletButton>1x67876g8vx2g7hj</WalletButton>
+            <WalletConnect type={2}></WalletConnect>
             <CreateButton>Create</CreateButton>
           </ButtonGroup>
         </Menu>

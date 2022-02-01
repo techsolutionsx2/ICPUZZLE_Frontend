@@ -112,7 +112,7 @@ export const GoApp = styled.div`
   align-items: center;
   font-family: Montserrat;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;

@@ -16,16 +16,22 @@ import { Footer } from "layouts/Footer";
 
 import { ScrollTop } from "components/Button";
 
+//Context
+
+import { WalletProvider } from "context/WalletContext";
+
 // -----------------------------------------------------------
 
 const AppLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <AppLayoutContainer>
-      <Header />
-      {children}
-      <Footer />
-      <ScrollTop />
-    </AppLayoutContainer>
+    <WalletProvider>
+      <AppLayoutContainer>
+        <Header />
+        {children}
+        <Footer />
+        <ScrollTop />
+      </AppLayoutContainer>
+    </WalletProvider>
   );
 };
 
