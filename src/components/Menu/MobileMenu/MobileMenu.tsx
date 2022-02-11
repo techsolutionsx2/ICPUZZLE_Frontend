@@ -80,7 +80,7 @@ const MobileMenu = () => {
         <MenuToggle toggle={() => toggleOpen()} />
         <Menu open={isOpen} num={height}>
           <Header>
-            <Row alignItems="center" gap={8}>
+            <Row alignItems="center" gap={10}>
               <ImageContainer
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}

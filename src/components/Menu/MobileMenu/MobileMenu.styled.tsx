@@ -60,7 +60,7 @@ export const Menu = styled.div<{ open: boolean; num: number }>`
 `;
 
 export const Header = styled.div`
-  padding-top: 10px;
+  padding-top: 38px;
   padding-left: 20px;
   box-shadow: 0px 3px 0px 0px #5f5f5f19;
 `;

@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dfinity/candid": "^0.10.2",
     "@styled-system/css": "^5.1.5",
     "babel-plugin-styled-components": "^2.0.2",
     "framer-motion": "^5.0.0",

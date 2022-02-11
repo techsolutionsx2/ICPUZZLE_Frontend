@@ -28,7 +28,7 @@ const Header: React.FC = () => {
 
   return (
     <Layout>
-      <Row alignItems="center" gap={8}>
+      <Row alignItems="center" gap={10} responsive={{1024: {padding: "30px 35px"}}}>
         <ImageContainer
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.8 }}

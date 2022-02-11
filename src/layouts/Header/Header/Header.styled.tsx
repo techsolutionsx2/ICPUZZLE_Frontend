@@ -24,14 +24,14 @@ export const ImageContainer = styled(motion.div)`
   display: flex;
   position: relative;
 
-  width: 120px;
-  height: 150px;
+  width: 60px;
+  height: 70px;
 
   cursor: pointer;
 
   @media screen and (max-width: 1024px) {
-    width: 80px;
-    height: 100px;
+    width: 33px;
+    height: 40px;
   }
 `;
 
