@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
+import React from "react";
 import Image from "next/image";
 
 //context
@@ -23,16 +22,6 @@ import {
 
 import { StoicIdentity } from "ic-stoic-identity";
 
-// interface myStoicIdentity {
-//   load(host): any,
-//   connect(host): any,
-//   disconnect(): any
-// }
-
-// const StoicIdentity = dynamic(() =>
-//   import("ic-stoic-identity").then((module) => module.StoicIdentity)
-// );
-
 const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
   const { principleId, setPrincipleId } = useWallet();
 
@@ -43,7 +32,6 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
           if (identity !== false) {
           } else {
             identity = await StoicIdentity.connect();
-            console.log({ identity });
           }
           setPrincipleId(identity.getPrincipal().toText());
           StoicIdentity.disconnect();
@@ -52,12 +40,20 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
     }
   };
 
+  const showMenu = () => {
+    if (principleId == "") {
+      login();
+    } else {
+      console.log("show Menu");
+    }
+  };
+
   return (
     <div>
       {type == 1 && typeof window !== "undefined" ? (
         <>
           <WalletLayout>
-            <WalletButton flag={principleId} onClick={() => login()}>
+            <WalletButton flag={principleId} onClick={() => showMenu()}>
               {principleId != "" ? (
                 principleId.substr(0, 15) + "..."
               ) : (

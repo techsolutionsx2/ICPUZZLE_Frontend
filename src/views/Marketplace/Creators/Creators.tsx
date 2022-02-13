@@ -54,6 +54,7 @@ const TopCollection: React.FC = () => {
                 image={item.image}
                 detail={item.detail}
                 login={item.login}
+                creator={true}
                 key={index}
               />
             );

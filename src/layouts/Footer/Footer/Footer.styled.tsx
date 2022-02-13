@@ -124,12 +124,12 @@ export const SignUpButton = styled.div`
 
 export const ImageContainer = styled.div`
   display: flex;
-  width: 120px;
-  height: 150px;
+  width: 60px;
+  height: 70px;
 
   @media screen and (max-width: 1024px) {
-    width: 80px;
-    height: 100px;
+    width: 33px;
+    height: 40px;
   }
 `;
 

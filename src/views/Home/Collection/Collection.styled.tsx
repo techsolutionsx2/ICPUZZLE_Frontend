@@ -16,6 +16,7 @@ export const Layout = styled.div`
   position: relative;
 
   .swiper {
+    padding-top: 10px;
     padding-bottom: 55px;
     padding-left: 0px;
   }

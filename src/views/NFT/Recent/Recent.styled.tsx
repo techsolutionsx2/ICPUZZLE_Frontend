@@ -4,10 +4,6 @@ import styled from "styled-components";
 // -------------------------------------------------------
 export const Layout = styled.div`
   margin-top: 200px;
-  padding: 0px 0px 0px 75px;
-  @media screen and (max-width: 768px) {
-    padding: 0px;
-  }
   .swiper {
     padding-bottom: 55px;
     padding-left: 0px;

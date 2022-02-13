@@ -13,7 +13,7 @@ import {
 //styled components
 import { MarketplaceLayout } from "styles/Styled";
 
-const NFT: NextPage = () => {
+const Marketplace: NextPage = () => {
   return (
     <MarketplaceLayout>
       <Hero />
@@ -25,4 +25,4 @@ const NFT: NextPage = () => {
   );
 };
 
-export default NFT;
+export default Marketplace;

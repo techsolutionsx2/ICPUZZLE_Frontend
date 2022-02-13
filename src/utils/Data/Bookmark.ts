@@ -24,4 +24,15 @@ export const PageBookmarkData: BookmarkType[] = [
     bookmarkList: ["Hottest NFT", "Creator", "Top Collection"],
     pageList: ["Home"],
   },
+
+  {
+    path: "/EditProfile",
+    bookmarkList: ["Edit Profile"],
+    pageList: [],
+  },
+  {
+    path: "/MyWallet",
+    bookmarkList: ["MY Wallet"],
+    pageList: [],
+  },
 ];

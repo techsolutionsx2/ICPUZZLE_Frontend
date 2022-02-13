@@ -7,25 +7,10 @@ export const Layout = styled.div`
 
   display: flex;
   justify-content: center;
-  & > *:not(:last-child) {
-    margin-right: 50px;
-  }
-  @media screen and (max-width: 1250px) {
-    & > *:not(:last-child) {
-      margin-right: 30px;
-    }
-  }
-  @media screen and (max-width: 1100px) {
-    & > *:not(:last-child) {
-      margin-right: 20px;
-    }
-  }
+
   @media screen and (max-width: 900px) {
     flex-direction: column;
     align-items: center;
-    & > *:not(:last-child) {
-      margin-right: 0px;
-    }
   }
 `;
 export const ImageContainer = styled.div`
@@ -180,5 +165,47 @@ export const ICImageLayout = styled.div`
     width: 200px;
     height: 100px;
     margin-top: 20px;
+  }
+`;
+export const TextPuzzle = styled.div`
+  width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+  @media screen and (max-width: 1250px) {
+    padding-right: 30px;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 250px;
+  }
+  @media screen and (max-width: 1100px) {
+    padding-right: 20px;
+  }
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    max-width: 900px;
+    padding: 0px;
+    justify-content: center;
+  }
+`;
+export const TextIC = styled.div`
+  width: 300px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  @media screen and (max-width: 1250px) {
+    padding-left: 30px;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 250px;
+  }
+  @media screen and (max-width: 1100px) {
+    padding-left: 20px;
+  }
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    max-width: 900px;
+    padding: 0px;
+    justify-content: center;
   }
 `;

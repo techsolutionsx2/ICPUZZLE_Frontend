@@ -46,10 +46,11 @@ const Recent: React.FC = () => {
   return (
     <Layout id="RecentlyNFT">
       <Text
+        padding="0px 0px 0px 75px"
         fSize={50}
         fWeight={800}
         responsive={{
-          768: { fSize: 40, tAlign: "center" },
+          768: { fSize: 40, tAlign: "center", padding: "0px" },
           375: { fSize: 30 },
         }}
       >

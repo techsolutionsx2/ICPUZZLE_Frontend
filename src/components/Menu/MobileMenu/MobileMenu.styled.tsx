@@ -42,8 +42,8 @@ export const ImageContainer = styled(motion.div)`
 
   position: relative;
 
-  width: 80px;
-  height: 100px;
+  width: 33px;
+  height: 40px;
 
   cursor: pointer;
 `;
@@ -60,8 +60,9 @@ export const Menu = styled.div<{ open: boolean; num: number }>`
 `;
 
 export const Header = styled.div`
-  padding-top: 38px;
-  padding-left: 20px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  padding-left: 55px;
   box-shadow: 0px 3px 0px 0px #5f5f5f19;
 `;
 export const ItemList = styled.div`

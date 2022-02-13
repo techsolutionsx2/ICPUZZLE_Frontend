@@ -17,7 +17,12 @@ import ICImage from "assets/png/IC.png";
 // -----------------------------------------------------------
 import { WorkItemProps } from "types/components/Work";
 
-const WorkItem: React.FC<WorkItemProps> = ({ image, detail, login }) => {
+const WorkItem: React.FC<WorkItemProps> = ({
+  image,
+  detail,
+  login,
+  creator,
+}) => {
   if (login) {
     return (
       <LoginLayout>
@@ -44,8 +49,8 @@ const WorkItem: React.FC<WorkItemProps> = ({ image, detail, login }) => {
     );
   }
   return (
-    <Layout>
-      <ImageContainer>
+    <Layout flag={creator ? creator : false}>
+      <ImageContainer flag={creator ? creator : false}>
         <Image width={20} height={30} src={image.src} alt="No Image"></Image>
       </ImageContainer>
       <Text padding="28px 0px 0px 0px " fWeight={600} fSize={14}>

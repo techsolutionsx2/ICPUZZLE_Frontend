@@ -115,7 +115,6 @@ const getGap = (flexDirection: any, gap: any, display: any) => {
     `;
   } else if (flexDirection === "column") {
     return `
-      height: 100%;
       & > *:not(:last-child) {
          margin-right: 0px;
          margin-bottom: ${gap}px;

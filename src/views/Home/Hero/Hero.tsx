@@ -2,7 +2,14 @@ import Image from "next/image";
 import React from "react";
 
 // styled component
-import { Layout, ImageContainer, GoApp, ICImageLayout } from "./Hero.styled";
+import {
+  Layout,
+  ImageContainer,
+  GoApp,
+  ICImageLayout,
+  TextPuzzle,
+  TextIC,
+} from "./Hero.styled";
 
 // assets
 import IC from "assets/png/IC.png";
@@ -18,14 +25,7 @@ import { Row, Col } from "components/Layout";
 const Hero: React.FC = () => {
   return (
     <Layout>
-      <Row
-        justifyContent="flex-end"
-        mWidth={300}
-        responsive={{
-          1200: { mWidth: 250 },
-          900: { justifyContent: "center", mWidth: 900 },
-        }}
-      >
+      <TextPuzzle>
         <Col
           padding="10px 30px 0px 0px"
           mWidth={230}
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
             <GoApp>Go to App</GoApp>
           </Row>
         </Col>
-      </Row>
+      </TextPuzzle>
       <ImageContainer>
         <Image
           src={tempImage.src}
@@ -78,16 +78,7 @@ const Hero: React.FC = () => {
           layout="fill"
         />
       </ImageContainer>
-      <Row
-        mWidth={300}
-        padding="0px 0px 0px 40px"
-        alignItems="center"
-        justifyContent="flex-start"
-        responsive={{
-          1200: { mWidth: 230 },
-          900: { padding: "0px", justifyContent: "center", mWidth: 900 },
-        }}
-      >
+      <TextIC>
         <Col>
           <Text
             fWeight={600}
@@ -150,7 +141,7 @@ const Hero: React.FC = () => {
             </ICImageLayout>
           </Row>
         </Col>
-      </Row>
+      </TextIC>
       <Row
         display="none"
         justifyContent="center"

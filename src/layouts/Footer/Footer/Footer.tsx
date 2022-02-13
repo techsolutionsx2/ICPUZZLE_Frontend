@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
         </Row>
       </Layout>
       <MobileLayout>
-        <Row>
+        <Row padding="0px 0px 10px 0px">
           <Row alignItems="center" gap={8}>
             <ImageContainer>
               <Image src={Logo} alt="No Image" />
