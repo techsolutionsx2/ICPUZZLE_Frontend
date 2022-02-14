@@ -23,11 +23,7 @@ const EditProfile: React.FC = () => {
         mWidth={1250}
         responsive={{ 1024: { mWidth: 900 }, 768: { alignItems: "center" } }}
       >
-        <Text
-          fSize={40}
-          fWeight={700}
-          responsive={{ 768: { fSize: 30 }, 500: { fSize: 25 } }}
-        >
+        <Text fSize={40} fWeight={700} responsive={{ 768: { fSize: 30 } }}>
           Choose Type
         </Text>
         <Text
