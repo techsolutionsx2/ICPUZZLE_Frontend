@@ -14,7 +14,7 @@ const Loading: React.FC = () => {
   return (
     <Layout>
       <ImageContainer>
-        <LoadingImage />
+        <object type="image/svg+xml" data={LoadingImage}></object>
       </ImageContainer>
     </Layout>
   );

@@ -31,7 +31,7 @@ import { AiOutlineArrowUp, AiOutlineEllipsis } from "react-icons/ai";
 const Hero: React.FC = () => {
   const { principleId, setPrincipleId } = useWallet();
   return (
-    <Layout>
+    <Layout id="MYWallet">
       <Banner></Banner>
       <Profile>
         <Image src={TempImage} alt="No Image" layout="fill" />
