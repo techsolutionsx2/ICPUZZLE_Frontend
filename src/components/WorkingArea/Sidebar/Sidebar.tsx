@@ -66,7 +66,10 @@ const Sidebar: FC<Props> = ({ addPuzzle, selectedWearables }) => {
     const sidebar = document.getElementById("Sidebar")?.getBoundingClientRect();
     console.log(sidebar);
     if (sidebar) {
-      const { x, y } = data;
+      var { x, y } = data;
+      x = x - (window.innerWidth - 1024) / 2 - 30;
+      y = y - (window.innerHeight - 650) / 2 - 30;
+      console.log(y);
       if (x < sidebar.left - 80 || y > sidebar.height + sidebar.top) {
         const element = { ...i, x, y, rotation: 0, draggable: true };
         addPuzzle(element);
@@ -89,7 +92,7 @@ const Sidebar: FC<Props> = ({ addPuzzle, selectedWearables }) => {
                 flag={currentTab === i.id}
               >
                 <Icon>
-                  <Image src={i.icon} alt="puzzle" layout="fill" />
+                  <Image src={i.icon} alt="puzzle" width={15} height={15} />
                 </Icon>
                 <Text fSize={14} fWeight={500} fColor="#0B1D35">
                   {i.title}

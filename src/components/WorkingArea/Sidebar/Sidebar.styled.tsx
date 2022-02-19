@@ -73,6 +73,7 @@ export const ItemLayout = styled.div<{ flag: boolean }>`
       : ""}
 `;
 export const Icon = styled.div`
+  position: relative;
   width: 25px;
   height: 25px;
   margin-right: 10px;

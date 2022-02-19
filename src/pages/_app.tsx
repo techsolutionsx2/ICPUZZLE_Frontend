@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       console.log(pathname);
       if (Layoutdata.path === pathname) {
         setFlag(1);
-
+        console.log(flag);
         return;
       } else {
         setFlag(0);

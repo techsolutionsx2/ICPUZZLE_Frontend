@@ -6,3 +6,4 @@ export const ImageElement = dynamic(
 );
 export const Drawer = dynamic(() => import("./Drawer/Drawer"));
 export const Sidebar = dynamic(() => import("./Sidebar/Sidebar"));
+export const ColorPicker = dynamic(() => import("./ColorPicker/ColorPicker"));

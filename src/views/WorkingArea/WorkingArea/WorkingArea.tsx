@@ -11,7 +11,12 @@ import { Transformer } from "react-konva/es/ReactKonvaCore";
 import randomize from "randomatic";
 
 //Component
-import { ImageElement, Drawer, Sidebar } from "components/WorkingArea";
+import {
+  ImageElement,
+  Drawer,
+  Sidebar,
+  ColorPicker,
+} from "components/WorkingArea";
 import Text from "components/Text";
 
 import DefaultPuzzle from "assets/pictures/defaultPuzzle.svg";
@@ -25,6 +30,9 @@ import {
   DrawerContainer,
   TitleContainer,
   SidebarContainer,
+  ColorPickerContainer,
+  MintButton,
+  MintButtonContainer,
 } from "./WorkingArea.styled";
 
 type PuzzleItem = {
@@ -214,6 +222,18 @@ const WorkingArea: FC = () => {
     setPuzzles((current) => [...current, element]);
     setSelectedWearables((current) => [...current, element.id]);
   };
+  const handleChangePuzzleColor = (color: string) => {
+    console.log(color);
+    if (activeElements.length) {
+      const id = activeElements[0].attrs.id;
+      setPuzzles((current) =>
+        current.map((i) => {
+          if (i.id === id) i.color = color;
+          return i;
+        })
+      );
+    }
+  };
   return (
     <Layout>
       <DndProvider backend={HTML5Backend}>
@@ -235,7 +255,9 @@ const WorkingArea: FC = () => {
               Title
             </Text>
           </TitleContainer>
-
+          <MintButtonContainer>
+            <MintButton>Mint</MintButton>
+          </MintButtonContainer>
           <Canvas>
             <Stage
               width={1024}
@@ -308,6 +330,9 @@ const WorkingArea: FC = () => {
               </Layer>
             </Stage>
           </Canvas>
+          <ColorPickerContainer>
+            <ColorPicker handleChangeColor={handleChangePuzzleColor} />
+          </ColorPickerContainer>
           <SidebarContainer>
             <Sidebar
               addPuzzle={addPuzzle}
