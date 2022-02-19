@@ -88,7 +88,7 @@ const MobileMenu = () => {
                   router.push("/");
                 }}
               >
-                <Image src={Logo} alt="No Image" />
+                <Image src={Logo} alt="No Image" layout="fill" />
               </ImageContainer>
               <Text
                 fSize={30}

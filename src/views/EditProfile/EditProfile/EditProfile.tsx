@@ -65,7 +65,7 @@ const EditProfile: React.FC = () => {
       </Row>
       <PhotoUpload>
         <ImageContainer>
-          <Image src={TempImage.src} alt="No Image" layout="fill" />
+          <Image src={TempImage} alt="No Image" layout="fill" />
         </ImageContainer>
         <Text
           fWeight={600}

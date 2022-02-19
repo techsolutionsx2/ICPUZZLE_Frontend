@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       <Create />
       <Work />
       <Roadmap />
-      <Join />
+      {/* <Join /> */}
     </IndexLayout>
   );
 };

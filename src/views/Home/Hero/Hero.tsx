@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
       </TextPuzzle>
       <ImageContainer>
         <Image
-          src={tempImage.src}
+          src={tempImage}
           alt="No Image"
           width={100}
           height={100}
@@ -137,7 +137,7 @@ const Hero: React.FC = () => {
               Computer
             </Text>
             <ICImageLayout>
-              <Image src={IC.src} alt="No Image" layout="fill"></Image>
+              <Image src={IC} alt="No Image" layout="fill"></Image>
             </ICImageLayout>
           </Row>
         </Col>

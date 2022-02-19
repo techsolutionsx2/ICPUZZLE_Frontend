@@ -20,7 +20,7 @@ const Video: React.FC = () => {
     <Layout id="ICPuzzle">
       <PlayerContainer>
         <PlayContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-          <Image src={Play} alt="No Image"></Image>
+          <Image src={Play} alt="No Image" width={70} height={70}></Image>
         </PlayContainer>
       </PlayerContainer>
       <Row

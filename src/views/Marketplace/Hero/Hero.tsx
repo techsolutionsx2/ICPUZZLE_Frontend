@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   return (
     <Layout>
       <ImageContainer>
-        <Image src={BackImage}></Image>
+        <Image src={BackImage} alt="No Image" width={200} height={200}></Image>
       </ImageContainer>
     </Layout>
   );

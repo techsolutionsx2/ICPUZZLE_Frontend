@@ -21,8 +21,9 @@ export const Layout = styled.div`
 `;
 
 export const ImageContainer = styled(motion.div)`
-  display: flex;
   position: relative;
+
+  display: flex;
 
   width: 60px;
   height: 70px;
@@ -34,8 +35,6 @@ export const ImageContainer = styled(motion.div)`
     height: 40px;
   }
 `;
-
-
 
 export const CreateButton = styled.div`
   @keyframes glowing {
@@ -110,4 +109,3 @@ export const CreateButton = styled.div`
     background-color: #202124;
   }
 `;
-

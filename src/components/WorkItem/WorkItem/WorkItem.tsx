@@ -27,12 +27,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
     return (
       <LoginLayout>
         <ImageContainer>
-          <Image
-            width={50}
-            height={30}
-            src={ICImage.src}
-            alt="No Image"
-          ></Image>
+          <Image width={50} height={30} src={ICImage} alt="No Image"></Image>
         </ImageContainer>
         <Text
           padding="28px 0px 0px 0px "
@@ -51,7 +46,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
   return (
     <Layout flag={creator ? creator : false}>
       <ImageContainer flag={creator ? creator : false}>
-        <Image width={20} height={30} src={image.src} alt="No Image"></Image>
+        <Image width={20} height={30} src={image} alt="No Image"></Image>
       </ImageContainer>
       <Text padding="28px 0px 0px 0px " fWeight={600} fSize={14}>
         {detail}

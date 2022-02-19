@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
       <Layout>
         <Row alignItems="center" gap={8}>
           <ImageContainer>
-            <Image src={Logo} alt="No Image" />
+            <Image src={Logo} alt="No Image" layout="fill" />
           </ImageContainer>
           <Text
             fSize={30}
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
         <Row padding="0px 0px 10px 0px">
           <Row alignItems="center" gap={8}>
             <ImageContainer>
-              <Image src={Logo} alt="No Image" />
+              <Image src={Logo} alt="No Image" layout="fill" />
             </ImageContainer>
             <Text
               fSize={30}

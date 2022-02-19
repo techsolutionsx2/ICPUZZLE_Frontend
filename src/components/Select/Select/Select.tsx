@@ -47,7 +47,7 @@ const Select: React.FC<{ data: BookmarkType[] }> = ({ data }) => {
     >
       {label}
       <IconLayout>
-        <Image src={Dropdown.src} layout="fill"></Image>
+        <Image src={Dropdown} layout="fill" alt="No Image"></Image>
       </IconLayout>
       <DropdownMenu data={bookmark} flag={selected}></DropdownMenu>
     </Layout>

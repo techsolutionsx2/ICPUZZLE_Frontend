@@ -52,7 +52,7 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
       <MainImageContainer>
         <Image
           className="CollectionMain"
-          src={data.mImage.src}
+          src={data.mImage}
           alt="No Image"
           layout="fill"
         ></Image>
@@ -60,7 +60,7 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
       <SubImageContainer>
         <Image
           className="CollectionSub"
-          src={data.sImage.src}
+          src={data.sImage}
           alt="No Image"
           layout="fill"
         ></Image>

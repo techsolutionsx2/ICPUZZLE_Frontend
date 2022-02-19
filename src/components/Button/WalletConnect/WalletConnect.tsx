@@ -58,7 +58,7 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
                 principleId.substr(0, 15) + "..."
               ) : (
                 <ImageContainer>
-                  <Image src={ICImage.src} layout="fill" alt="No Image"></Image>
+                  <Image src={ICImage} layout="fill" alt="No Image"></Image>
                 </ImageContainer>
               )}
             </WalletButton>
@@ -75,7 +75,7 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
           ) : (
             <>
               <MobileImageContainer>
-                <Image src={ICImage.src} layout="fill" alt="No Image"></Image>
+                <Image src={ICImage} layout="fill" alt="No Image"></Image>
               </MobileImageContainer>
               Wallet Connect
             </>

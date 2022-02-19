@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 333 576" width="43" height="74">
+	<title>Asset 1 2-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { opacity: 0.98;fill: #000000;stroke: #000000;stroke-linecap:round;stroke-linejoin:round;stroke-width: 7.13 } 
+		.shp1 { fill: #000000;stroke: #000000;stroke-linecap:round;stroke-linejoin:round;stroke-width: 7.13 } 
+	</style>
+	<g id="a1e4c53b-0bd8-44e2-99d7-afc6d53e520b">
+		<g id="fac4f80d-5fe2-41e1-be45-4e644873afef">
+			<g id="f3d3a899-70cb-41ba-9ae2-cadfc103d45a">
+				<path id="Layer" class="shp0" d="M3.57 426.23C3.57 345.93 76.32 280.84 166.08 280.84C255.84 280.84 328.58 345.93 328.58 426.23C328.58 506.53 255.83 571.62 166.08 571.62C76.33 571.62 3.57 506.53 3.57 426.23Z" />
+				<path id="Layer" class="shp1" d="M17.05 368.19L166.69 3.57L316.33 368.19" />
+			</g>
+		</g>
+	</g>
+</svg>

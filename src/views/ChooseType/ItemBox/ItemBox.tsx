@@ -1,12 +1,11 @@
 import React from "react";
-import Image from "next/image";
 
 // styled component
 import { Layout } from "./ItemBox.styled";
 
 // components
 import Text from "components/Text";
-import { Col, Row } from "components/Layout";
+import { Row } from "components/Layout";
 import { TypeItem } from "components/TypeItem";
 
 //tempData

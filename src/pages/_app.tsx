@@ -15,18 +15,22 @@ import { NoLayoutData } from "utils/Data/NoLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath, pathname } = useRouter();
-  const [flag, setFlag] = useState(true);
+  const [flag, setFlag] = useState(0);
 
   useEffect(() => {
     NoLayoutData.forEach((Layoutdata) => {
       console.log(Layoutdata.path);
+      console.log(pathname);
       if (Layoutdata.path === pathname) {
-        setFlag(true);
+        setFlag(1);
+
+        return;
       } else {
-        setFlag(false);
+        setFlag(0);
       }
     });
   }, [pathname]);
+  console.log(flag);
 
   return flag ? (
     <Component {...pageProps} />

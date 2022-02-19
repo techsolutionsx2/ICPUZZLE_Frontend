@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
       </Profile>
       <PrincipalId>
         <Imagelayout>
-          <Image src={ICImage.src} layout="fill" alt="No Image"></Image>
+          <Image src={ICImage} layout="fill" alt="No Image"></Image>
         </Imagelayout>
         {principleId != ""
           ? principleId.substr(0, 15) + "..."

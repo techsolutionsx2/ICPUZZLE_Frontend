@@ -33,3 +33,20 @@ export const ChooseTypeLayout = styled.div`
     #cbfed1 84.88%
   );
 `;
+export const WorkLayout = styled.div`
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(
+    163.2deg,
+    #fef7b1 15.55%,
+    #fdd0e7 29.42%,
+    #cde6f8 50.21%,
+    #cbfed1 84.88%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

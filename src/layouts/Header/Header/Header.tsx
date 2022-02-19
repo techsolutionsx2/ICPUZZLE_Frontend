@@ -28,7 +28,11 @@ const Header: React.FC = () => {
 
   return (
     <Layout>
-      <Row alignItems="center" gap={10} responsive={{1024: {padding: "30px 35px"}}}>
+      <Row
+        alignItems="center"
+        gap={10}
+        responsive={{ 1024: { padding: "30px 35px" } }}
+      >
         <ImageContainer
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.8 }}
@@ -36,7 +40,7 @@ const Header: React.FC = () => {
             router.push("/");
           }}
         >
-          <Image src={Logo.src} alt="No Image" layout="fill" />
+          <Image src={Logo} alt="No Image" layout="fill" />
         </ImageContainer>
         <Text
           fSize={30}

@@ -123,6 +123,7 @@ export const SignUpButton = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   display: flex;
   width: 60px;
   height: 70px;

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
+
 //Styled Component
 import { Layout, ImageLayout } from "./TypeItem.styled";
 
 //component
 import Text from "components/Text";
-import { Col, Row } from "components/Layout";
+import { Row } from "components/Layout";
 
 //Types
 
