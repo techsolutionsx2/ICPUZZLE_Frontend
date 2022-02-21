@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
+import { useRouter, Router } from "next/router";
+
 // Style
 import "styles/globals.css";
 
 //Layout
 import AppLayout from "layouts/app-layout/app-layout";
+
+//loading
+import { Loading } from "components/Loading";
 
 //Swiper
 import "swiper/css/bundle";
@@ -15,24 +19,21 @@ import { NoLayoutData } from "utils/Data/NoLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath, pathname } = useRouter();
-  const [flag, setFlag] = useState(0);
-
+  const [showLayout, setShowLayout] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
   useEffect(() => {
-    NoLayoutData.forEach((Layoutdata) => {
-      console.log(Layoutdata.path);
-      console.log(pathname);
-      if (Layoutdata.path === pathname) {
-        setFlag(1);
-        console.log(flag);
-        return;
-      } else {
-        setFlag(0);
-      }
-    });
+    if (NoLayoutData.includes(pathname)) {
+      setShowLayout(true);
+    }
   }, [pathname]);
-  console.log(flag);
 
-  return flag ? (
+  Router.events.on("routeChangeStart", () => setShowLoading(true));
+  Router.events.on("routeChangeComplete", () => setShowLoading(false));
+  Router.events.on("routeChangeError", () => setShowLoading(false));
+
+  return showLoading ? (
+    <Loading />
+  ) : showLayout ? (
     <Component {...pageProps} />
   ) : (
     <AppLayout>

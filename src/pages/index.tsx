@@ -11,18 +11,21 @@ import {
   Join,
 } from "views/Home";
 
+import { Loading } from "components/Loading";
+
 //Styled Component
 import { IndexLayout } from "styles/Styled";
 
 const Home: NextPage = () => {
   return (
     <IndexLayout>
-      <Hero />
-      <Video />
-      <Collection />
-      <Create />
-      <Work />
-      <Roadmap />
+      <Loading />
+      {/* <Hero /> */}
+      {/* <Video /> */}
+      {/* <Collection /> */}
+      {/* <Create /> */}
+      {/* <Work /> */}
+      {/* <Roadmap /> */}
       {/* <Join /> */}
     </IndexLayout>
   );

@@ -1,9 +1,2 @@
 //---------------------------------------------------------------
-export const NoLayoutData: { path: string }[] = [
-  {
-    path: "/ChooseType",
-  },
-  {
-    path: "/workingarea",
-  },
-];
+export const NoLayoutData: string[] = ["/ChooseType", "/workingarea"];
