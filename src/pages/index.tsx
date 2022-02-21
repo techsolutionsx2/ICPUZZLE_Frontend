@@ -20,13 +20,13 @@ const Home: NextPage = () => {
   return (
     <IndexLayout>
       <Loading />
-      {/* <Hero /> */}
-      {/* <Video /> */}
-      {/* <Collection /> */}
-      {/* <Create /> */}
-      {/* <Work /> */}
-      {/* <Roadmap /> */}
-      {/* <Join /> */}
+      <Hero />
+      <Video />
+      <Collection />
+      <Create />
+      <Work />
+      <Roadmap />
+      <Join />
     </IndexLayout>
   );
 };
