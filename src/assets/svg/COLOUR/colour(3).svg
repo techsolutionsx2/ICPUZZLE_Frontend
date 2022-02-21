@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 390 410.85">
+  <defs>
+    <style>
+      .b0329f0f-1ebe-49d8-b376-085f1b24c109 {
+        fill: url(#fb4a5ed2-fd53-4a21-811c-7b21a43222d0);
+      }
+
+      .f23ccf0d-642a-40f2-8b07-8b0603668a16 {
+        fill-rule: evenodd;
+        fill: url(#b58dac93-0aca-490f-977f-558a2dc169b2);
+      }
+    </style>
+    <linearGradient id="fb4a5ed2-fd53-4a21-811c-7b21a43222d0" x1="380.16" y1="389.85" x2="7.9" y2="389.85" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00ff08"/>
+      <stop offset="0.15" stop-color="#00ef39"/>
+      <stop offset="0.38" stop-color="#00d87e"/>
+      <stop offset="0.59" stop-color="#00c6b6"/>
+      <stop offset="0.77" stop-color="#00b9de"/>
+      <stop offset="0.91" stop-color="#00b1f6"/>
+      <stop offset="1" stop-color="#00aeff"/>
+    </linearGradient>
+    <linearGradient id="b58dac93-0aca-490f-977f-558a2dc169b2" data-name="New swatch 2" x1="211.9" y1="61.59" x2="211.9" y2="229.06" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00ff08"/>
+      <stop offset="0.03" stop-color="#00fb16"/>
+      <stop offset="0.13" stop-color="#00e94c"/>
+      <stop offset="0.25" stop-color="#00d97c"/>
+      <stop offset="0.36" stop-color="#00cca4"/>
+      <stop offset="0.48" stop-color="#00c1c5"/>
+      <stop offset="0.6" stop-color="#00b9df"/>
+      <stop offset="0.72" stop-color="#00b3f1"/>
+      <stop offset="0.85" stop-color="#00affb"/>
+      <stop offset="1" stop-color="#00aeff"/>
+    </linearGradient>
+  </defs>
+  <g id="b4090ed9-9b8d-40c3-a368-6f217a0e8c35" data-name="Layer 2">
+    <g id="bb8f2e31-b710-4a37-af07-18c4cb3267a3" data-name="Layer 1">
+      <g>
+        <rect class="b0329f0f-1ebe-49d8-b376-085f1b24c109" y="368.85" width="390" height="42" rx="21"/>
+        <path class="f23ccf0d-642a-40f2-8b07-8b0603668a16" d="M291.17,87.38a17,17,0,0,0-17.05-16.93l-31.92.11a40.95,40.95,0,1,0-56.33.19l-36.73.12a17,17,0,0,0-16.94,17l.43,125a17,17,0,0,0,17.05,16.94l125-.43a17,17,0,0,0,16.93-17Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -11,17 +11,15 @@ import { MdDelete } from "react-icons/md";
 import ScaleUp from "assets/png/scaleUp.png";
 import ScaleDown from "assets/png/scaleDown.png";
 
-interface Props {
-  handleScale: (type: string) => void;
-  scale: number;
-  isActive: boolean;
-  handleDeletePuzzle: () => void;
-}
+//type
+import { DrawerProps } from "types/components/Working";
 
-const Drawer: React.FC<Props> = ({
-  handleScale,
+//=================================================================
+
+const Drawer: React.FC<DrawerProps> = ({
   scale,
   isActive,
+  handleScale,
   handleDeletePuzzle,
 }) => {
   const [show, setShow] = useState(true);
@@ -41,7 +39,7 @@ const Drawer: React.FC<Props> = ({
               width={20}
               height={20}
               alt="No Image"
-            ></Image>{" "}
+            ></Image>
           </MenuIconlayout>
           <MenuIconlayout onClick={handleDeletePuzzle}>
             <MdDelete size={20} color={!isActive ? "grey" : "black"} />

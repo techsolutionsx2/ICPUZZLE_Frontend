@@ -30,23 +30,8 @@ import ColoursIcon from "assets/png/colour.png";
 
 import { wearables } from "utils/constants";
 
-declare type PuzzleItem = {
-  width?: number;
-  height?: number;
-  id: string;
-  img: string;
-  x: number;
-  y: number;
-  rotation: number;
-  color?: string;
-  draggable?: boolean;
-  changeColor?: boolean;
-};
-
-interface Props {
-  addPuzzle: (data: PuzzleItem) => void;
-  selectedWearables: string[];
-}
+//type
+import { SidebarProps } from "types/components/Working";
 
 const tools = [
   { id: 1, title: "IDENTITY", icon: IdentityIcon },
@@ -56,20 +41,18 @@ const tools = [
   { id: 5, title: "COLOUR", icon: ColoursIcon },
 ];
 
-const Sidebar: FC<Props> = ({ addPuzzle, selectedWearables }) => {
-  console.log(selectedWearables);
+const Sidebar: FC<SidebarProps> = ({ addPuzzle, selectedWearables }) => {
   const [currentTab, setCurrentTab] = useState<number | null>(null);
 
   const [show, setShow] = useState(true);
 
   const handleDrag = (data: any, i: { id: string; img: string }) => {
     const sidebar = document.getElementById("Sidebar")?.getBoundingClientRect();
-    console.log(sidebar);
     if (sidebar) {
       var { x, y } = data;
       x = x - (window.innerWidth - 1024) / 2 - 30;
       y = y - (window.innerHeight - 650) / 2 - 30;
-      console.log(y);
+
       if (x < sidebar.left - 80 || y > sidebar.height + sidebar.top) {
         const element = { ...i, x, y, rotation: 0, draggable: true };
         addPuzzle(element);
@@ -104,14 +87,18 @@ const Sidebar: FC<Props> = ({ addPuzzle, selectedWearables }) => {
             <Wrapper>
               {currentTab && (
                 <Puzzles>
-                  {wearables.map((i) => (
-                    <PuzzleItem
-                      key={i.id}
-                      flag={selectedWearables.includes(i.id)}
-                    >
-                      <Item data={i} key={i.id} handleDrag={handleDrag} />
-                    </PuzzleItem>
-                  ))}
+                  {wearables.map((i) => {
+                    if (i.group === currentTab) {
+                      return (
+                        <PuzzleItem
+                          key={i.id}
+                          flag={selectedWearables.includes(i.id)}
+                        >
+                          <Item data={i} key={i.id} handleDrag={handleDrag} />
+                        </PuzzleItem>
+                      );
+                    }
+                  })}
                 </Puzzles>
               )}
             </Wrapper>

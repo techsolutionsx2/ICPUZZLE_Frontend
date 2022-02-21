@@ -5,57 +5,76 @@ import styled from "styled-components";
 export const Layout = styled.div`
   position: relative;
   width: 1024px;
-  max-width: 1024px;
-  min-width: 1024px;
-  height: 650px;
-  max-height: 650px;
-  min-height: 650px;
+  height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+
+export const MenuBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-right: 40px;
+`;
+
+export const ResizeButton = styled.div`
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: white;
+  margin-left: 20px;
+`;
+
 export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
 `;
 
-export const Background = styled.div`
+export const Background = styled.div<{ flag: boolean }>`
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background: ${({ flag }) => (flag ? "black" : "#F7F7F7")};
   border-radius: 20px;
 `;
+
 export const Canvas = styled.div``;
 
 export const DrawerContainer = styled.div`
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 250px;
   left: 8px;
   z-index: 2;
 `;
+
+export const Title = styled.input<{ flag: boolean }>`
+  font-family: Montserrat;
+  font-size: 20px;
+  color: ${({ flag }) => (flag ? "white" : "black")};
+  font-weight: 700;
+  outline: none;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+`;
+
 export const TitleContainer = styled.div`
   position: absolute;
   left: 50px;
   top: 50px;
   z-index: 2;
 `;
-export const SidebarContainer = styled.div`
-  position: absolute;
-  width: 25%;
-  height: 100%;
-  right: 0;
-  top: 0;
-`;
-export const ColorPickerContainer = styled.div`
-  position: absolute;
-  z-index: 3;
-  bottom: 15px;
-  left: 0;
-`;
+
 export const MintButtonContainer = styled.div`
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   bottom: 70px;
   left: 40px;
 `;
@@ -132,4 +151,17 @@ export const MintButton = styled.div`
     border-radius: 50%;
     background-color: #202124;
   }
+`;
+
+export const SidebarContainer = styled.div`
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+`;
+export const ColorPickerContainer = styled.div`
+  position: absolute;
+  z-index: 2;
+  bottom: 15px;
+  left: 0;
 `;

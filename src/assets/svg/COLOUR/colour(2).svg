@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 390 410.85">
+  <defs>
+    <style>
+      .fb709bac-b3ec-4a95-a50e-68c9f8692b82 {
+        fill: url(#f28156c3-3ace-4ab2-a2ca-53a21dc4db5b);
+      }
+
+      .b03660eb-6d01-45ec-bc4a-328cefc5074b {
+        fill-rule: evenodd;
+        fill: url(#e177075f-28c7-4ccf-b141-b5cbf1ae110b);
+      }
+    </style>
+    <linearGradient id="f28156c3-3ace-4ab2-a2ca-53a21dc4db5b" data-name="New swatch" x1="3.92" y1="389.85" x2="383.21" y2="389.85" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff00d9"/>
+      <stop offset="1" stop-color="#fbff00"/>
+    </linearGradient>
+    <linearGradient id="e177075f-28c7-4ccf-b141-b5cbf1ae110b" x1="214.93" y1="225.23" x2="206.01" y2="4.26" xlink:href="#f28156c3-3ace-4ab2-a2ca-53a21dc4db5b"/>
+  </defs>
+  <g id="f2af8211-cad9-4365-b8c3-acbe53e63537" data-name="Layer 2">
+    <g id="b1c65d5a-8eae-4128-8b70-bc5059136dbc" data-name="Layer 1">
+      <g>
+        <rect class="fb709bac-b3ec-4a95-a50e-68c9f8692b82" y="368.85" width="390" height="42" rx="21"/>
+        <path class="b03660eb-6d01-45ec-bc4a-328cefc5074b" d="M291.17,87.38a17,17,0,0,0-17.05-16.93l-31.92.11a40.95,40.95,0,1,0-56.33.19l-36.73.12a17,17,0,0,0-16.94,17l.43,125a17,17,0,0,0,17.05,16.94l125-.43a17,17,0,0,0,16.93-17Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React, { FC, useEffect, useRef, useState } from "react";
+import Switch from "react-switch";
 
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -17,45 +17,43 @@ import {
   Sidebar,
   ColorPicker,
 } from "components/WorkingArea";
-import Text from "components/Text";
-
-import DefaultPuzzle from "assets/pictures/defaultPuzzle.svg";
 
 //styled components
 import {
   Layout,
   Container,
+  MenuBox,
+  ResizeButton,
   Background,
   Canvas,
   DrawerContainer,
   TitleContainer,
+  Title,
   SidebarContainer,
   ColorPickerContainer,
   MintButton,
   MintButtonContainer,
 } from "./WorkingArea.styled";
 
-type PuzzleItem = {
-  width?: number | undefined;
-  height?: number | undefined;
-  id: string;
-  img: string;
-  x: number;
-  y: number;
-  rotation: number;
-  color?: string | undefined;
-  draggable?: boolean | undefined;
-  changeColor?: boolean | undefined;
-};
+//Type
+import { PuzzleItemProps } from "types/components/Working";
+
+//Assets
+import { IoResize } from "react-icons/io5";
+import DefaultPuzzle from "assets/svg/defaultPuzzle.svg";
 
 const WorkingArea: FC = () => {
+  const [bgColor, setBgColor] = useState(true);
+
+  const [title, setTitle] = useState<string>("");
+
   const [activeElements, setActiveElements] = useState<any>([]);
   const [scale, setScale] = useState(1);
   const [stagePosition, setStagePosition] = useState({ x: 0, y: 0 });
   const [selectedWearables, setSelectedWearables] = useState<string[]>([]);
 
   const trRef = useRef<any>(null);
-  const stageRef = useRef<any>(null);
+  const stageRef = useRef<any | null>(null);
   const layerRef = useRef<any>(null);
   const selectionImageRef = useRef<any>(null);
   const selection = useRef<any>({
@@ -66,7 +64,7 @@ const WorkingArea: FC = () => {
     y2: 0,
   });
 
-  const [puzzles, setPuzzles] = useState<PuzzleItem[]>([
+  const [puzzles, setPuzzles] = useState<PuzzleItemProps[]>([
     {
       id: randomize("Aa0", 8),
       img: DefaultPuzzle,
@@ -210,7 +208,10 @@ const WorkingArea: FC = () => {
     setStagePosition(newPos);
   };
   const handleDeletePuzzle = () => {
-    if (activeElements.length) {
+    if (
+      !!activeElements.length &&
+      activeElements[0].attrs.id !== puzzles[0].id
+    ) {
       const id = activeElements[0].attrs.id;
       setPuzzles((current) => current.filter((i) => i.id !== id));
       setSelectedWearables((current) => current.filter((i) => i !== id));
@@ -218,7 +219,7 @@ const WorkingArea: FC = () => {
       trRef.current.nodes([]);
     }
   };
-  const addPuzzle = (element: PuzzleItem) => {
+  const addPuzzle = (element: PuzzleItemProps) => {
     setPuzzles((current) => [...current, element]);
     setSelectedWearables((current) => [...current, element.id]);
   };
@@ -234,28 +235,59 @@ const WorkingArea: FC = () => {
       );
     }
   };
+  const downloadImage = () => {
+    const dataURL = stageRef.current.toDataURL();
+    var link = document.createElement("a");
+    link.download = title + ".png";
+    link.href = dataURL;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <Layout>
+      <MenuBox>
+        <Switch
+          checked={bgColor}
+          onChange={setBgColor}
+          onColor="#fff"
+          onHandleColor="#000"
+          handleDiameter={30}
+          uncheckedIcon={false}
+          checkedIcon={false}
+          boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+          activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+          height={22}
+          width={80}
+          className="react-switch"
+          id="material-switch"
+        />
+        <ResizeButton>
+          <IoResize size={20} />
+        </ResizeButton>
+      </MenuBox>
       <DndProvider backend={HTML5Backend}>
         <Container>
-          <Background />
+          <Background flag={bgColor} />
           <DrawerContainer>
             <Drawer
               handleScale={handleScale}
               scale={scale}
               isActive={
-                !!activeElements.length &&
+                activeElements.length &&
                 activeElements[0].attrs.id !== puzzles[0].id
               }
               handleDeletePuzzle={handleDeletePuzzle}
             />
           </DrawerContainer>
           <TitleContainer>
-            <Text fColor="white" fWeight={700} fSize={20}>
-              Title
-            </Text>
+            <Title
+              flag={bgColor}
+              placeholder="Title"
+              onChange={(event: any) => setTitle(event.target.value)}
+            />
           </TitleContainer>
-          <MintButtonContainer>
+          <MintButtonContainer onClick={() => downloadImage()}>
             <MintButton>Mint</MintButton>
           </MintButtonContainer>
           <Canvas>
@@ -271,6 +303,7 @@ const WorkingArea: FC = () => {
               scale={{ x: scale, y: scale }}
               x={stagePosition.x}
               y={stagePosition.y}
+              draggable={true}
             >
               <Layer ref={layerRef}>
                 {puzzles.map((i) => (
@@ -330,15 +363,15 @@ const WorkingArea: FC = () => {
               </Layer>
             </Stage>
           </Canvas>
-          <ColorPickerContainer>
-            <ColorPicker handleChangeColor={handleChangePuzzleColor} />
-          </ColorPickerContainer>
           <SidebarContainer>
             <Sidebar
               addPuzzle={addPuzzle}
               selectedWearables={selectedWearables}
             />
           </SidebarContainer>
+          <ColorPickerContainer>
+            <ColorPicker handleChangeColor={handleChangePuzzleColor} />
+          </ColorPickerContainer>
         </Container>
       </DndProvider>
     </Layout>

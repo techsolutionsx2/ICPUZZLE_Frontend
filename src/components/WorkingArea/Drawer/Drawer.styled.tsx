@@ -7,24 +7,29 @@ export const Layout = styled.div`
   height: 100%;
   border: 0.6rem;
   width: 40px;
-  min-height: 140px;
   & > *:not(:last-child) {
     margin-bottom: 10px;
   }
 `;
 export const Iconlayout = styled.div<{ flag?: boolean }>`
-  background: white;
   width: 40px;
   height: 40px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   border-radius: 10px;
-  position: absolute;
+
   cursor: pointer;
+  background: white;
+
+  position: absolute;
   top: -50px;
   left: 20px;
+
   transition: 0.2s;
+
   ${({ flag }) =>
     flag
       ? `
@@ -35,12 +40,15 @@ export const Iconlayout = styled.div<{ flag?: boolean }>`
 `};
 `;
 export const MenuIconlayout = styled.div`
-  background: white;
   width: 40px;
   height: 40px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   border-radius: 10px;
+
+  background: white;
   cursor: pointer;
 `;
