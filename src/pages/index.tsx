@@ -11,15 +11,12 @@ import {
   Join,
 } from "views/Home";
 
-import { Loading } from "components/Loading";
-
 //Styled Component
 import { IndexLayout } from "styles/Styled";
 
 const Home: NextPage = () => {
   return (
     <IndexLayout>
-      <Loading />
       <Hero />
       <Video />
       <Collection />

@@ -27,9 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [pathname]);
 
-  Router.events.on("routeChangeStart", () => setShowLoading(true));
-  Router.events.on("routeChangeComplete", () => setShowLoading(false));
-  Router.events.on("routeChangeError", () => setShowLoading(false));
+  useEffect(() => {
+    Router.events.on("routeChangeStart", () => setShowLoading(true));
+    Router.events.on("routeChangeComplete", () => setShowLoading(false));
+    Router.events.on("routeChangeError", () => setShowLoading(false));
+  });
 
   return showLoading ? (
     <Loading />
