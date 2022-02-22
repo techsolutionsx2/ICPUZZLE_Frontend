@@ -65,10 +65,9 @@ const ImageElement: FC<Props> = ({
         if (color) {
           ctx.fillStyle = color;
           ctx.fillRect(0, 0, el.width, el.height);
-
           ctx.globalCompositeOperation = "destination-in";
+          ctx.drawImage(image, 0, 0);
         }
-        ctx.drawImage(image, 0, 0);
       }
       return el;
     } else {

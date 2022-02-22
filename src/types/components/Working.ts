@@ -1,14 +1,16 @@
 export interface PuzzleItemProps {
-  width?: number | undefined;
-  height?: number | undefined;
   id: string;
   img: string;
   x: number;
   y: number;
+  width?: number | undefined;
+  height?: number | undefined;
   rotation: number;
   color?: string | undefined;
   draggable?: boolean | undefined;
   changeColor?: boolean | undefined;
+  resizeEnabled?: boolean | undefined;
+  rotateEnabled?: boolean | undefined;
 }
 
 export interface DrawerProps {

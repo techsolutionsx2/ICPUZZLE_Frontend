@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import Image from "next/image";
-import { FC, useState } from "react";
 
 //Styled Components
 import {
@@ -41,7 +41,11 @@ const tools = [
   { id: 5, title: "COLOUR", icon: ColoursIcon },
 ];
 
-const Sidebar: FC<SidebarProps> = ({ flag, addPuzzle, selectedWearables }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  flag,
+  addPuzzle,
+  selectedWearables,
+}) => {
   const [currentTab, setCurrentTab] = useState<number | null>(null);
 
   const [show, setShow] = useState(true);
@@ -50,11 +54,50 @@ const Sidebar: FC<SidebarProps> = ({ flag, addPuzzle, selectedWearables }) => {
     const sidebar = document.getElementById("Sidebar")?.getBoundingClientRect();
     if (sidebar) {
       var { x, y } = data;
-      x = x - (window.innerWidth - 1024) / 2 - 30;
-      y = y - (window.innerHeight - 650) / 2 - 30;
-
+      x = x - (window.innerWidth - 1024) / 2 - 50;
+      y = y - (window.innerHeight - 650) / 2 - 50;
+      var color;
+      var draggable;
+      var changeColor;
+      var resizeEnabled;
+      var rotateEnabled;
       if (x < sidebar.left - 80 || y > sidebar.height + sidebar.top) {
-        const element = { ...i, x, y, rotation: 0, draggable: true };
+        if (currentTab == 1) {
+          draggable = true;
+          changeColor = false;
+          resizeEnabled = true;
+          rotateEnabled = true;
+        }
+        if (currentTab == 2) {
+          draggable = true;
+          changeColor = false;
+          resizeEnabled = true;
+          rotateEnabled = true;
+        }
+        if (currentTab == 3) {
+          color = "#3BA7C6";
+          draggable = true;
+          changeColor = true;
+          resizeEnabled = true;
+          rotateEnabled = true;
+        }
+        if (currentTab == 4) {
+          draggable = true;
+          changeColor = false;
+          resizeEnabled = false;
+          rotateEnabled = true;
+        }
+        const element = {
+          ...i,
+          x,
+          y,
+          rotation: 0,
+          draggable: draggable,
+          changeColor: changeColor,
+          resizeEnabled: resizeEnabled,
+          rotateEnabled: rotateEnabled,
+          color: color,
+        };
         addPuzzle(element);
       }
     }

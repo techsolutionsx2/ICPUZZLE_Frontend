@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useRef, useState, useEffect } from "react";
 import Switch from "react-switch";
 
 import { DndProvider } from "react-dnd";
@@ -69,8 +69,9 @@ const WorkingArea: FC = () => {
   const [stagePosition, setStagePosition] = useState({ x: 0, y: 0 });
   const [selectedWearables, setSelectedWearables] = useState<string[]>([]);
 
-  const trRef = useRef<any>(null);
   const stageRef = useRef<any | null>(null);
+  const trRef = useRef<any>(null);
+
   const layerRef = useRef<any>(null);
   const selectionImageRef = useRef<any>(null);
   const selection = useRef<any>({
@@ -81,42 +82,85 @@ const WorkingArea: FC = () => {
     y2: 0,
   });
 
+  const handleScale = (type: string) => {
+    const stage = stageRef.current;
+    const center = {
+      x: stage.width() / 2,
+      y: stage.height() / 2,
+    };
+    const relatedTo = {
+      x: (center.x - stage.x()) / scale,
+      y: (center.y - stage.y()) / scale,
+    };
+    const newScale =
+      type === "+"
+        ? Number((scale + 0.2).toFixed(1))
+        : Number((scale - 0.2).toFixed(1));
+    const newPos = {
+      x: center.x - relatedTo.x * newScale,
+      y: center.y - relatedTo.y * newScale,
+    };
+
+    setScale(newScale);
+    setStagePosition(newPos);
+  };
+
+  const handleDeletePuzzle = () => {
+    if (activeElements.length && activeElements[0].attrs.id !== puzzles[0].id) {
+      const id = activeElements[0].attrs.id;
+      setPuzzles((current) => current.filter((i) => i.id !== id));
+      setSelectedWearables((current) => current.filter((i) => i !== id));
+      setActiveElements([]);
+      trRef.current.nodes([]);
+    }
+  };
+
   const [puzzles, setPuzzles] = useState<PuzzleItemProps[]>([
     {
       id: randomize("Aa0", 8),
       img: DefaultPuzzle,
-      width: 40,
-      height: 40,
       x: 1024 / 2 - 40,
       y: 650 / 3,
+      width: 40,
+      height: 40,
       rotation: 0,
+      color: "white",
+      draggable: false,
       changeColor: true,
+      resizeEnabled: false,
+      rotateEnabled: true,
     },
   ]);
 
-  const handleDragEnd = ({ target }: any, id: string) => {
-    setPuzzles((current) =>
-      current.map((i) => {
-        if (i.id === id) {
-          i.x = target.attrs.x;
-          i.y = target.attrs.y;
-          i.rotation = target.attrs.rotation;
-        }
-        return i;
-      })
-    );
+  const downloadImage = () => {
+    const dataURL = stageRef.current.toDataURL();
+    var link = document.createElement("a");
+    link.download = title + ".png";
+    link.href = dataURL;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
-  const updateSelectionRect = () => {
-    const node = selectionImageRef.current;
-    node.setAttrs({
-      visible: selection.current.visible,
-      x: Math.min(selection.current.x1, selection.current.x2),
-      y: Math.min(selection.current.y1, selection.current.y2),
-      width: Math.abs(selection.current.x1 - selection.current.x2),
-      height: Math.abs(selection.current.y1 - selection.current.y2),
-    });
-    node.getLayer().batchDraw();
+  const checkDeselect = (e: any) => {
+    const clickedOnEmpty = e.target === e.target.getStage();
+    if (clickedOnEmpty) {
+      trRef.current.nodes([]);
+      setActiveElements([]);
+    }
+  };
+
+  const onClickTap = (e: any) => {
+    let stage = e.target.getStage();
+    let layer = layerRef.current;
+    let tr = trRef.current;
+    if (e.target === stage) {
+      setActiveElements([]);
+      tr.nodes([]);
+      layer.draw();
+      return;
+    }
+    layer.draw();
   };
 
   const onMouseDown = (e: any) => {
@@ -146,13 +190,7 @@ const WorkingArea: FC = () => {
     selection.current.y2 = pos.y;
     updateSelectionRect();
   };
-  const checkDeselect = (e: any) => {
-    const clickedOnEmpty = e.target === e.target.getStage();
-    if (clickedOnEmpty) {
-      trRef.current.nodes([]);
-      setActiveElements([]);
-    }
-  };
+
   const onMouseUp = () => {
     if (!selection.current.visible) {
       return;
@@ -176,66 +214,31 @@ const WorkingArea: FC = () => {
     updateSelectionRect();
   };
 
-  const onClickTap = (e: any) => {
-    if (e.target === e.target.getStage()) {
-      setActiveElements([]);
-    }
-    let stage = e.target.getStage();
-    let layer = layerRef.current;
-    let tr = trRef.current;
-    if (e.target === stage) {
-      setActiveElements([]);
-      tr.nodes([]);
-      layer.draw();
-      return;
-    }
-    layer.draw();
+  const handleDragEnd = ({ target }: any, id: string) => {
+    setPuzzles((current) =>
+      current.map((i) => {
+        if (i.id === id) {
+          i.x = target.attrs.x;
+          i.y = target.attrs.y;
+          i.rotation = target.attrs.rotation;
+        }
+        return i;
+      })
+    );
   };
 
-  const handleDragBound = ({ x, y }: { x: number; y: number }) => {
-    const windowWidth = window.innerWidth - 100;
-    const windowHeight = window.innerHeight - 100;
-
-    return {
-      x: x <= 0 ? 0 : x >= windowWidth ? windowWidth : x,
-      y: y <= 0 ? 0 : y >= windowHeight ? windowHeight : y,
-    };
+  const updateSelectionRect = () => {
+    const node = selectionImageRef.current;
+    node.setAttrs({
+      visible: selection.current.visible,
+      x: Math.min(selection.current.x1, selection.current.x2),
+      y: Math.min(selection.current.y1, selection.current.y2),
+      width: Math.abs(selection.current.x1 - selection.current.x2),
+      height: Math.abs(selection.current.y1 - selection.current.y2),
+    });
+    node.getLayer().batchDraw();
   };
 
-  const handleScale = (type: string) => {
-    const stage = stageRef.current;
-    const center = {
-      x: stage.width() / 2,
-      y: stage.height() / 2,
-    };
-    const relatedTo = {
-      x: (center.x - stage.x()) / scale,
-      y: (center.y - stage.y()) / scale,
-    };
-    const newScale =
-      type === "+"
-        ? Number((scale + 0.2).toFixed(1))
-        : Number((scale - 0.2).toFixed(1));
-    const newPos = {
-      x: center.x - relatedTo.x * newScale,
-      y: center.y - relatedTo.y * newScale,
-    };
-
-    setScale(newScale);
-    setStagePosition(newPos);
-  };
-  const handleDeletePuzzle = () => {
-    if (
-      !!activeElements.length &&
-      activeElements[0].attrs.id !== puzzles[0].id
-    ) {
-      const id = activeElements[0].attrs.id;
-      setPuzzles((current) => current.filter((i) => i.id !== id));
-      setSelectedWearables((current) => current.filter((i) => i !== id));
-      setActiveElements([]);
-      trRef.current.nodes([]);
-    }
-  };
   const addPuzzle = (element: PuzzleItemProps) => {
     setPuzzles((current) => [...current, element]);
     setSelectedWearables((current) => [...current, element.id]);
@@ -248,15 +251,6 @@ const WorkingArea: FC = () => {
         return i;
       })
     );
-  };
-  const downloadImage = () => {
-    const dataURL = stageRef.current.toDataURL();
-    var link = document.createElement("a");
-    link.download = title + ".png";
-    link.href = dataURL;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   return (
@@ -321,13 +315,19 @@ const WorkingArea: FC = () => {
               draggable={true}
             >
               <Layer ref={layerRef}>
-                {puzzles.map((i) => (
+                {puzzles.map((i, index) => (
                   <ImageElement
-                    key={i.id}
+                    key={index}
+                    id={i.id}
                     img={i.img}
-                    y={i.y}
                     x={i.x}
+                    y={i.y}
+                    width={i.width}
+                    height={i.height}
+                    rotation={i.rotation}
+                    color={i.color}
                     draggable={i.draggable}
+                    changeColor={i.changeColor}
                     onDragStart={(e) => e.target.moveToTop()}
                     onDragEnd={(e) => handleDragEnd(e, i.id)}
                     onTransformEnd={(e) =>
@@ -349,23 +349,31 @@ const WorkingArea: FC = () => {
                         trRef.current.getLayer().batchDraw();
                       }
                     }}
-                    rotation={i.rotation}
-                    width={i.width}
-                    height={i.height}
-                    dragBoundFunc={handleDragBound}
-                    color={i.color}
-                    id={i.id}
-                    changeColor={i.changeColor}
                   />
                 ))}
                 <Transformer
                   ref={trRef}
                   resizeEnabled={
                     activeElements.length > 1 ||
-                    (activeElements.length &&
-                      activeElements[0].attrs.id === puzzles[0].id)
-                      ? false
-                      : true
+                    (
+                      activeElements.length &&
+                      puzzles.at(
+                        puzzles.findIndex(
+                          (e) => e.id === activeElements[0].attrs.id
+                        )
+                      )
+                    ).resizeEnabled
+                  }
+                  rotateEnabled={
+                    activeElements.length > 1 ||
+                    (
+                      activeElements.length &&
+                      puzzles.at(
+                        puzzles.findIndex(
+                          (e) => e.id === activeElements[0].attrs.id
+                        )
+                      )
+                    ).rotateEnabled
                   }
                   boundBoxFunc={(oldBox, newBox) => {
                     if (newBox.width < 30 || newBox.height < 30) {
@@ -374,7 +382,7 @@ const WorkingArea: FC = () => {
                     return newBox;
                   }}
                 />
-                <Rect fill="rgba(0, 161, 255, 0.3)" ref={selectionImageRef} />
+                <Rect ref={selectionImageRef} />
               </Layer>
             </Stage>
           </Canvas>
@@ -410,7 +418,7 @@ const WorkingArea: FC = () => {
                   slideToClickedSlide
                 >
                   {wearables.map((i, index) => {
-                    if (i.group === 6) {
+                    if (i.group === 5) {
                       return (
                         <SwiperSlide
                           key={index}

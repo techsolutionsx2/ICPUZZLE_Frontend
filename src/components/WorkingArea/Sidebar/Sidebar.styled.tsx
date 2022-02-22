@@ -136,6 +136,7 @@ export const PuzzleItem = styled.div<{ flag: boolean }>`
   align-items: center;
 
   position: relative;
+  width: 60px;
   height: 60px;
   ${({ flag }) =>
     flag

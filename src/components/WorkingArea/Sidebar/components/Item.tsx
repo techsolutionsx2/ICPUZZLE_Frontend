@@ -31,7 +31,7 @@ const Item: FC<Props> = ({ data, handleDrag }) => {
 
   return (
     <Layout ref={drag} style={{ cursor: isDragging ? "grabbing" : "grab" }}>
-      <Image src={data.img} alt="Puzzle" layout="fill" />
+      <Image src={data.img} alt="Puzzle" width={50} height={50} />
     </Layout>
   );
 };
