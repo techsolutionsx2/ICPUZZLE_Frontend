@@ -24,17 +24,37 @@ export const IconLayout = styled.div<{ flag: boolean }>`
   ${({ flag }) =>
     flag ? "transform: rotate(180deg);" : "transform: rotate(0deg)"};
 `;
-export const Excode = styled.div`
-  padding: 5px 8px 5px 15px;
+export const HexcodeContainer = styled.div<{ flag: boolean }>`
+  position: relative;
+  min-width: 100px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 10px;
-  border: 1px solid white;
-  font-family: Montserrat;
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
+  ${({ flag }) =>
+    flag ? "border: 1px solid white;" : "border: 1px solid black;"}
+
   margin-left: 20px;
   margin-right: 20px;
 `;
+
+export const Hexcode = styled.input<{ flag: boolean }>`
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+  border: none;
+
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  ${({ flag }) => (flag ? "color: white;" : "color: black;")}
+
+  text-align: center;
+`;
+
 export const ColorSelecter = styled.div<{ bgColor: string }>`
   width: 26px;
   height: 26px;

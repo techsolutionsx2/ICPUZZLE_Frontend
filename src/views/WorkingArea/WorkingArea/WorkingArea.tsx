@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import Switch from "react-switch";
 
 import { DndProvider } from "react-dnd";
@@ -9,6 +9,8 @@ import { Layer, Stage, Rect } from "react-konva";
 import { Transformer } from "react-konva/es/ReactKonvaCore";
 
 import randomize from "randomatic";
+
+import Image from "next/image";
 
 //Component
 import {
@@ -33,6 +35,11 @@ import {
   ColorPickerContainer,
   MintButton,
   MintButtonContainer,
+  ColourSwiperContainer,
+  SwiperItem,
+  NextItem,
+  PrevItem,
+  SwiperWrapper,
 } from "./WorkingArea.styled";
 
 //Type
@@ -41,11 +48,21 @@ import { PuzzleItemProps } from "types/components/Working";
 //Assets
 import { IoResize } from "react-icons/io5";
 import DefaultPuzzle from "assets/svg/defaultPuzzle.svg";
+import { wearables } from "utils/constants";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+
+SwiperCore.use([Navigation]);
 
 const WorkingArea: FC = () => {
   const [bgColor, setBgColor] = useState(true);
 
   const [title, setTitle] = useState<string>("");
+
+  const [showColor, setShowColor] = useState(true);
+  const [colorSlide, setColorSlide] = useState(138);
 
   const [activeElements, setActiveElements] = useState<any>([]);
   const [scale, setScale] = useState(1);
@@ -224,16 +241,13 @@ const WorkingArea: FC = () => {
     setSelectedWearables((current) => [...current, element.id]);
   };
   const handleChangePuzzleColor = (color: string) => {
-    console.log(color);
-    if (activeElements.length) {
-      const id = activeElements[0].attrs.id;
-      setPuzzles((current) =>
-        current.map((i) => {
-          if (i.id === id) i.color = color;
-          return i;
-        })
-      );
-    }
+    const id = activeElements[0].attrs.id;
+    setPuzzles((current) =>
+      current.map((i) => {
+        if (i.id === id) i.color = color;
+        return i;
+      })
+    );
   };
   const downloadImage = () => {
     const dataURL = stageRef.current.toDataURL();
@@ -244,6 +258,7 @@ const WorkingArea: FC = () => {
     link.click();
     document.body.removeChild(link);
   };
+
   return (
     <Layout>
       <MenuBox>
@@ -365,13 +380,76 @@ const WorkingArea: FC = () => {
           </Canvas>
           <SidebarContainer>
             <Sidebar
+              flag={bgColor}
               addPuzzle={addPuzzle}
               selectedWearables={selectedWearables}
             />
           </SidebarContainer>
           <ColorPickerContainer>
-            <ColorPicker handleChangeColor={handleChangePuzzleColor} />
+            <ColorPicker
+              show={showColor}
+              setShow={setShowColor}
+              flag={bgColor}
+              active={activeElements.length}
+              handleChangeColor={handleChangePuzzleColor}
+            />
           </ColorPickerContainer>
+          {showColor && (
+            <ColourSwiperContainer>
+              <SwiperWrapper>
+                <Swiper
+                  slidesPerView={5}
+                  centeredSlides={true}
+                  navigation={{
+                    prevEl: ".prevItem",
+                    nextEl: ".nextItem",
+                  }}
+                  onSlideChange={(swiper) => {
+                    setColorSlide(138 + swiper.activeIndex);
+                  }}
+                  slideToClickedSlide
+                >
+                  {wearables.map((i, index) => {
+                    if (i.group === 6) {
+                      return (
+                        <SwiperSlide
+                          key={index}
+                          className={
+                            colorSlide.toString() === i.id
+                              ? "Deck Deck-selected"
+                              : "Deck Deck-unselected"
+                          }
+                        >
+                          <SwiperItem
+                            onClick={() => {
+                              setColorSlide(+i.id);
+                            }}
+                          >
+                            <Image
+                              src={i.img}
+                              alt="No Image"
+                              width={80}
+                              height={80}
+                            ></Image>
+                          </SwiperItem>
+                        </SwiperSlide>
+                      );
+                    }
+                  })}
+                </Swiper>
+                <div className="prevItem">
+                  <PrevItem>
+                    <IoIosArrowBack size={25} color="#94899f" />
+                  </PrevItem>
+                </div>
+                <div className="nextItem">
+                  <NextItem>
+                    <IoIosArrowForward size={25} color="#94899f" />
+                  </NextItem>
+                </div>
+              </SwiperWrapper>
+            </ColourSwiperContainer>
+          )}
         </Container>
       </DndProvider>
     </Layout>

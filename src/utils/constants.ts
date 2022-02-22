@@ -169,6 +169,17 @@ import identity17 from "assets/svg/IDENTITY/identity(17).svg";
 import identity18 from "assets/svg/IDENTITY/identity(18).svg";
 import identity19 from "assets/svg/IDENTITY/identity(19).svg";
 
+import shapes1 from "assets/svg/SHAPES/Shapes(1).svg";
+import shapes2 from "assets/svg/SHAPES/Shapes(2).svg";
+import shapes3 from "assets/svg/SHAPES/Shapes(3).svg";
+import shapes4 from "assets/svg/SHAPES/Shapes(4).svg";
+import shapes5 from "assets/svg/SHAPES/Shapes(5).svg";
+import shapes6 from "assets/svg/SHAPES/Shapes(6).svg";
+import shapes7 from "assets/svg/SHAPES/Shapes(7).svg";
+import shapes8 from "assets/svg/SHAPES/Shapes(8).svg";
+import shapes9 from "assets/svg/SHAPES/Shapes(9).svg";
+import shapes10 from "assets/svg/SHAPES/Shapes(10).svg";
+
 export const wearables = [
   { id: "1", img: Wearable, group: 2 },
   { id: "2", img: Wearable2, group: 2 },
@@ -338,4 +349,14 @@ export const wearables = [
   { id: "166", img: identity17, group: 1 },
   { id: "167", img: identity18, group: 1 },
   { id: "168", img: identity19, group: 1 },
+  { id: "169", img: shapes1, group: 3 },
+  { id: "170", img: shapes2, group: 3 },
+  { id: "171", img: shapes3, group: 3 },
+  { id: "172", img: shapes4, group: 3 },
+  { id: "173", img: shapes5, group: 3 },
+  { id: "174", img: shapes6, group: 3 },
+  { id: "175", img: shapes7, group: 3 },
+  { id: "176", img: shapes8, group: 3 },
+  { id: "177", img: shapes9, group: 3 },
+  { id: "178", img: shapes10, group: 3 },
 ];

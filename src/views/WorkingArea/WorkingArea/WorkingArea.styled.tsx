@@ -1,6 +1,10 @@
 // styled system
 import styled from "styled-components";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 // -------------------------------------------------------
 export const Layout = styled.div`
   position: relative;
@@ -164,4 +168,63 @@ export const ColorPickerContainer = styled.div`
   z-index: 2;
   bottom: 15px;
   left: 0;
+`;
+export const ColourSwiperContainer = styled.div`
+  width: 600px;
+  height: 110px;
+
+  position: absolute;
+  bottom: 70px;
+  left: 130px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const SwiperWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .swiper {
+    padding: 10px;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+  .Deck {
+    transition: transform 0.3s ease;
+  }
+  .Deck-selected {
+    transform: scale(1.1);
+  }
+  .Deck-unselected {
+    transform: scale(0.9);
+  }
+`;
+
+export const SwiperItem = styled.div`
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+`;
+export const PrevItem = styled.div`
+  z-index: 2;
+  position: absolute;
+  bottom: calc(50% - 25px / 2);
+  left: 20px;
+`;
+export const NextItem = styled.div`
+  z-index: 2;
+  position: absolute;
+  bottom: calc(50% - 25px / 2);
+  right: 20px;
 `;

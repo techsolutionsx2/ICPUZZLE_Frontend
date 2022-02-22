@@ -41,7 +41,7 @@ const tools = [
   { id: 5, title: "COLOUR", icon: ColoursIcon },
 ];
 
-const Sidebar: FC<SidebarProps> = ({ addPuzzle, selectedWearables }) => {
+const Sidebar: FC<SidebarProps> = ({ flag, addPuzzle, selectedWearables }) => {
   const [currentTab, setCurrentTab] = useState<number | null>(null);
 
   const [show, setShow] = useState(true);
@@ -63,7 +63,7 @@ const Sidebar: FC<SidebarProps> = ({ addPuzzle, selectedWearables }) => {
   return (
     <Layout id="Sidebar">
       <Iconlayout flag={show} onClick={() => setShow(!show)}>
-        <AiOutlineLeft color="white" size={20} />
+        <AiOutlineLeft color={flag ? "white" : "black"} size={20} />
       </Iconlayout>
       {show && (
         <Container>

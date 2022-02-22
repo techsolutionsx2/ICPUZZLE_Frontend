@@ -19,6 +19,7 @@ export interface DrawerProps {
 }
 
 export interface SidebarProps {
+  flag: boolean;
   addPuzzle: (data: PuzzleItemProps) => void;
   selectedWearables: string[];
 }
