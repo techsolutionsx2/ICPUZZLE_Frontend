@@ -19,15 +19,15 @@ const WorkPage: NextPage = () => {
   }, []);
 
   return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <WorkLayout>
-          <Workingarea />
-        </WorkLayout>
-      )}
-    </>
+    // <>
+    //   {loading ? (
+    //     <Loading />
+    //   ) : (
+    <WorkLayout>
+      <Workingarea />
+    </WorkLayout>
+    //   )}
+    // </>
   );
 };
 
