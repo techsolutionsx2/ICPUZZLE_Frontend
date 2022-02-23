@@ -147,7 +147,6 @@ import colour8 from "assets/svg/COLOUR/colour(8).svg";
 import colour9 from "assets/svg/COLOUR/colour(9).svg";
 import colour10 from "assets/svg/COLOUR/colour(10).svg";
 import colour11 from "assets/svg/COLOUR/colour(11).svg";
-import colour12 from "assets/svg/COLOUR/colour(12).svg";
 
 import identity1 from "assets/svg/IDENTITY/identity(1).svg";
 import identity2 from "assets/svg/IDENTITY/identity(2).svg";
@@ -329,7 +328,6 @@ export const wearables = [
   { id: "146", img: colour9, group: 5 },
   { id: "147", img: colour10, group: 5 },
   { id: "148", img: colour11, group: 5 },
-  { id: "149", img: colour12, group: 5 },
   { id: "150", img: identity1, group: 1 },
   { id: "151", img: identity2, group: 1 },
   { id: "152", img: identity3, group: 1 },
