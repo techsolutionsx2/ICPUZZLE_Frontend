@@ -63,6 +63,13 @@ const WorkingArea: FC = () => {
 
   const [showColor, setShowColor] = useState(true);
   const [colorSlide, setColorSlide] = useState(138);
+  const [swiper, setSwiper] = useState<any>(null);
+
+  useEffect(() => {
+    if (swiper) {
+      swiper.slideTo(colorSlide - 138);
+    }
+  }, [swiper, colorSlide]);
 
   const [activeElements, setActiveElements] = useState<any>([]);
   const [scale, setScale] = useState(1);
@@ -391,10 +398,12 @@ const WorkingArea: FC = () => {
               flag={bgColor}
               addPuzzle={addPuzzle}
               selectedWearables={selectedWearables}
+              selectItem={setColorSlide}
             />
           </SidebarContainer>
           <ColorPickerContainer>
             <ColorPicker
+              index={colorSlide}
               show={showColor}
               setShow={setShowColor}
               flag={bgColor}
@@ -406,6 +415,10 @@ const WorkingArea: FC = () => {
             <ColourSwiperContainer>
               <SwiperWrapper>
                 <Swiper
+                  onSwiper={(s) => {
+                    console.log("initialize swiper", s);
+                    setSwiper(s);
+                  }}
                   slidesPerView={5}
                   centeredSlides={true}
                   navigation={{

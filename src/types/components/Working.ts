@@ -24,4 +24,5 @@ export interface SidebarProps {
   flag: boolean;
   addPuzzle: (data: PuzzleItemProps) => void;
   selectedWearables: string[];
+  selectItem: (id: number) => void;
 }

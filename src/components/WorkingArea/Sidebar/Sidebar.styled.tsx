@@ -144,3 +144,15 @@ export const PuzzleItem = styled.div<{ flag: boolean }>`
         opacity: .5;`
       : ""}
 `;
+
+export const ColourItem = styled.div`
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  width: 60px;
+  height: 60px;
+`;

@@ -13,6 +13,7 @@ import {
   Wrapper,
   Puzzles,
   PuzzleItem,
+  ColourItem,
 } from "./Sidebar.styled";
 
 //Components
@@ -45,6 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   flag,
   addPuzzle,
   selectedWearables,
+  selectItem,
 }) => {
   const [currentTab, setCurrentTab] = useState<number | null>(null);
 
@@ -131,15 +133,35 @@ const Sidebar: React.FC<SidebarProps> = ({
               {currentTab && (
                 <Puzzles>
                   {wearables.map((i) => {
-                    if (i.group === currentTab) {
-                      return (
-                        <PuzzleItem
-                          key={i.id}
-                          flag={selectedWearables.includes(i.id)}
-                        >
-                          <Item data={i} key={i.id} handleDrag={handleDrag} />
-                        </PuzzleItem>
-                      );
+                    if (i.group !== 5) {
+                      if (i.group === currentTab) {
+                        return (
+                          <PuzzleItem
+                            key={i.id}
+                            flag={selectedWearables.includes(i.id)}
+                          >
+                            <Item data={i} key={i.id} handleDrag={handleDrag} />
+                          </PuzzleItem>
+                        );
+                      }
+                    } else {
+                      if (i.group === currentTab) {
+                        return (
+                          <ColourItem
+                            key={i.id}
+                            onClick={() => {
+                              selectItem(+i.id);
+                            }}
+                          >
+                            <Image
+                              src={i.img}
+                              alt="No Image"
+                              width={50}
+                              height={50}
+                            />
+                          </ColourItem>
+                        );
+                      }
                     }
                   })}
                 </Puzzles>
