@@ -12,7 +12,7 @@ const getBack = (data: any) => {
   return str;
 };
 
-export const Layout = styled.div<{ data: any }>`
+export const Layout = styled.div<{ data: any; active: boolean }>`
   position: relative;
   width: 100%;
   display: flex;
@@ -22,7 +22,8 @@ export const Layout = styled.div<{ data: any }>`
     -webkit-appearance: none;
     width: 450px;
     height: 15px;
-    ${({ data }) => (data ? getBack(data) : "")};
+    ${({ data, active }) =>
+      active ? (data ? getBack(data) : "") : "background : grey"};
 
     outline: none;
     -webkit-transition: 0.2s;

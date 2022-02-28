@@ -54,16 +54,22 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const handleDrag = (data: any, i: { id: string; img: string }) => {
     const sidebar = document.getElementById("Sidebar")?.getBoundingClientRect();
+    console.log(sidebar);
     if (sidebar) {
-      var { x, y } = data;
-      x = x - (window.innerWidth - 1024) / 2 - 50;
-      y = y - (window.innerHeight - 650) / 2 - 50;
-      var color;
-      var draggable;
-      var changeColor;
-      var resizeEnabled;
-      var rotateEnabled;
-      if (x < sidebar.left - 80 || y > sidebar.height + sidebar.top) {
+      let { x, y } = data;
+
+      let _x: number = x - (window.innerWidth - 1024) / 2 - 30;
+      let _y: number = y - (window.innerHeight - 650) / 2 - 65;
+
+      let color;
+      let draggable;
+      let changeColor;
+      let resizeEnabled;
+      let rotateEnabled;
+      if (
+        _x < sidebar.left - sidebar.width - 30 ||
+        _y > sidebar.height + sidebar.top
+      ) {
         if (currentTab == 1) {
           draggable = true;
           changeColor = false;
@@ -91,8 +97,10 @@ const Sidebar: React.FC<SidebarProps> = ({
         }
         const element = {
           ...i,
-          x,
-          y,
+          x: _x,
+          y: _y,
+          width: 60,
+          height: 60,
           rotation: 0,
           draggable: draggable,
           changeColor: changeColor,

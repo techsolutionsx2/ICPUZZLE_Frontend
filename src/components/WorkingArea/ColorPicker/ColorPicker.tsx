@@ -1,12 +1,11 @@
 import { FC, useState, useEffect } from "react";
-import { HuePicker } from "react-color";
 
 interface Props {
   index: number;
   show: boolean;
   setShow: (show: boolean) => void;
   flag: boolean;
-  active: number;
+  active: boolean;
   handleChangeColor: (color: string) => void;
 }
 
@@ -29,6 +28,10 @@ const ColorPicker: FC<Props> = ({
   show,
   setShow,
 }) => {
+  useEffect(() => {
+    setHexColor("");
+  }, [active]);
+
   const [hexColor, setHexColor] = useState("");
 
   const handleChangeInput = (e: any) => {
@@ -52,9 +55,9 @@ const ColorPicker: FC<Props> = ({
         <>
           <HexcodeContainer flag={flag}>
             <Hexcode
-              disabled={active === 0}
+              disabled={!active}
               flag={flag}
-              placeholder={"HEXCODE"}
+              placeholder={hexColor === "" ? "HexCode" : hexColor}
               onChange={(e: any) => handleChangeInput(e)}
             />
           </HexcodeContainer>
@@ -71,14 +74,11 @@ const ColorPicker: FC<Props> = ({
               setHexColor("#FFFFFF");
             }}
           />
-          {/* <HuePicker
-            color={hexColor}
-            onChange={({ hex }) => {
-              setHexColor(hex);
-            }}
-            width="100%"
-          /> */}
-          <ColorSlider index={index - 138} setHexColor={setHexColor} />
+          <ColorSlider
+            index={index - 138}
+            setHexColor={setHexColor}
+            active={active}
+          />
         </>
       )}
     </Layout>

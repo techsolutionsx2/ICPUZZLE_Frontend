@@ -22,7 +22,6 @@ export const Iconlayout = styled.div<{ flag?: boolean }>`
   border-radius: 10px;
 
   cursor: pointer;
-  background: white;
 
   position: absolute;
   top: -50px;

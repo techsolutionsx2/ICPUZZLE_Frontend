@@ -21,12 +21,14 @@ const Drawer: React.FC<DrawerProps> = ({
   isActive,
   handleScale,
   handleDeletePuzzle,
+  bgColor,
+  show,
+  setShow,
 }) => {
-  const [show, setShow] = useState(true);
   return (
     <Layout>
       <Iconlayout flag={show} onClick={() => setShow(!show)}>
-        <AiOutlineRight size={20} />
+        <AiOutlineRight size={20} color={bgColor ? "white" : "black"} />
       </Iconlayout>
       {show && (
         <>

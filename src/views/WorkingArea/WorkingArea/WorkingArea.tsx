@@ -1,4 +1,7 @@
-import React, { FC, useRef, useState, useEffect } from "react";
+import Image from "next/image";
+
+import React, { useRef, useState, useEffect } from "react";
+
 import Switch from "react-switch";
 
 import { DndProvider } from "react-dnd";
@@ -10,7 +13,10 @@ import { Transformer } from "react-konva/es/ReactKonvaCore";
 
 import randomize from "randomatic";
 
-import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+
+SwiperCore.use([Navigation]);
 
 //Component
 import {
@@ -51,19 +57,17 @@ import DefaultPuzzle from "assets/svg/defaultPuzzle.svg";
 import { wearables } from "utils/constants";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
-
-SwiperCore.use([Navigation]);
-
-const WorkingArea: FC = () => {
+const WorkingArea: React.FC = () => {
   const [bgColor, setBgColor] = useState(true);
+  const [fullScreen, setFullScreen] = useState(false);
 
   const [title, setTitle] = useState<string>("");
 
   const [showColor, setShowColor] = useState(true);
-  const [colorSlide, setColorSlide] = useState(138);
+  const [showDrawer, setShowDrawer] = useState(true);
+
   const [swiper, setSwiper] = useState<any>(null);
+  const [colorSlide, setColorSlide] = useState(138);
 
   useEffect(() => {
     if (swiper) {
@@ -71,7 +75,7 @@ const WorkingArea: FC = () => {
     }
   }, [swiper, colorSlide]);
 
-  const [activeElements, setActiveElements] = useState<any>([]);
+  const [activeElements, setActiveElements] = useState<any | null>([]);
   const [scale, setScale] = useState(1);
   const [stagePosition, setStagePosition] = useState({ x: 0, y: 0 });
   const [selectedWearables, setSelectedWearables] = useState<string[]>([]);
@@ -140,6 +144,8 @@ const WorkingArea: FC = () => {
   ]);
 
   const downloadImage = () => {
+    trRef.current.nodes([]);
+    setActiveElements([]);
     const dataURL = stageRef.current.toDataURL();
     var link = document.createElement("a");
     link.download = title + ".png";
@@ -250,6 +256,7 @@ const WorkingArea: FC = () => {
     setPuzzles((current) => [...current, element]);
     setSelectedWearables((current) => [...current, element.id]);
   };
+
   const handleChangePuzzleColor = (color: string) => {
     const id = activeElements[0].attrs.id;
     setPuzzles((current) =>
@@ -262,7 +269,7 @@ const WorkingArea: FC = () => {
 
   return (
     <Layout>
-      <MenuBox>
+      <MenuBox flag={!fullScreen}>
         <Switch
           checked={bgColor}
           onChange={setBgColor}
@@ -278,7 +285,7 @@ const WorkingArea: FC = () => {
           className="react-switch"
           id="material-switch"
         />
-        <ResizeButton>
+        <ResizeButton onClick={() => setFullScreen(!fullScreen)}>
           <IoResize size={20} />
         </ResizeButton>
       </MenuBox>
@@ -287,6 +294,9 @@ const WorkingArea: FC = () => {
           <Background flag={bgColor} />
           <DrawerContainer>
             <Drawer
+              show={showDrawer}
+              setShow={setShowDrawer}
+              bgColor={bgColor}
               handleScale={handleScale}
               scale={scale}
               isActive={
@@ -298,6 +308,7 @@ const WorkingArea: FC = () => {
           </DrawerContainer>
           <TitleContainer>
             <Title
+              show={showDrawer}
               flag={bgColor}
               placeholder="Title"
               onChange={(event: any) => setTitle(event.target.value)}
@@ -351,6 +362,7 @@ const WorkingArea: FC = () => {
                       if (e.current !== undefined) {
                         let temp = [];
                         temp.push(e.current);
+                        console.log(temp);
                         setActiveElements(temp);
                         trRef.current.nodes(temp);
                         trRef.current.getLayer().batchDraw();
@@ -407,7 +419,12 @@ const WorkingArea: FC = () => {
               show={showColor}
               setShow={setShowColor}
               flag={bgColor}
-              active={activeElements.length}
+              active={
+                activeElements.length &&
+                puzzles.at(
+                  puzzles.findIndex((e) => e.id === activeElements[0].attrs.id)
+                )?.changeColor
+              }
               handleChangeColor={handleChangePuzzleColor}
             />
           </ColorPickerContainer>
@@ -416,7 +433,6 @@ const WorkingArea: FC = () => {
               <SwiperWrapper>
                 <Swiper
                   onSwiper={(s) => {
-                    console.log("initialize swiper", s);
                     setSwiper(s);
                   }}
                   slidesPerView={5}

@@ -1,5 +1,6 @@
 import { ColorInput, Layout } from "./ColorSlider.styled";
 import rgbHex from "rgb-hex";
+import { useEffect, useRef } from "react";
 
 let list = [
   [
@@ -84,7 +85,8 @@ let list = [
 const ColorSlider: React.FC<{
   index: number;
   setHexColor: (hex: string) => void;
-}> = ({ index, setHexColor }) => {
+  active: boolean;
+}> = ({ index, setHexColor, active }) => {
   var hexToRgb = require("hex-to-rgb");
   let sliderWidth = 450;
   const getColor = (value: number) => {
@@ -109,13 +111,7 @@ const ColorSlider: React.FC<{
       hexToRgb(firstColor),
       ratio
     );
-    console.log(result);
-    console.log(rgbHex(result[0], result[1], result[2]));
     setHexColor("#" + rgbHex(result[0], result[1], result[2]).toString());
-
-    // var hexToRgb = require('hex-to-rgb');
-    // console.log(hexToRgb('000000'));
-    // console.log(hexToRgb('#ffffff'));
   };
 
   const pickHex = (color1: number[], color2: number[], weight: number) => {
@@ -130,9 +126,15 @@ const ColorSlider: React.FC<{
     ];
     return rgb;
   };
+  const colorInput = useRef<any | null>(null);
+  useEffect(() => {
+    colorInput.current.value = 0;
+  }, [index, active]);
+
   return (
-    <Layout data={list[index]}>
+    <Layout data={list[index]} active={active}>
       <ColorInput
+        ref={colorInput}
         min={1}
         max={99}
         defaultValue={0}
@@ -141,6 +143,7 @@ const ColorSlider: React.FC<{
         onChange={(e) => {
           getColor(+e.target.value);
         }}
+        disabled={!active}
       />
     </Layout>
   );

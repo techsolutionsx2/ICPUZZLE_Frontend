@@ -14,10 +14,13 @@ export interface PuzzleItemProps {
 }
 
 export interface DrawerProps {
+  bgColor: boolean;
   scale: number;
   isActive: boolean;
   handleScale: (type: string) => void;
   handleDeletePuzzle: () => void;
+  show: boolean;
+  setShow: (type: boolean) => void;
 }
 
 export interface SidebarProps {

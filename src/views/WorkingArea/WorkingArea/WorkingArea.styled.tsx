@@ -15,8 +15,8 @@ export const Layout = styled.div`
   align-items: center;
 `;
 
-export const MenuBox = styled.div`
-  display: flex;
+export const MenuBox = styled.div<{ flag: boolean }>`
+  display: ${({ flag }) => (flag ? "flex" : "none")};
   justify-content: flex-end;
   align-items: center;
   width: 100%;
@@ -59,7 +59,8 @@ export const DrawerContainer = styled.div`
   z-index: 2;
 `;
 
-export const Title = styled.input<{ flag: boolean }>`
+export const Title = styled.input<{ flag: boolean; show: boolean }>`
+  ${({ show }) => (show ? "" : "display:none;")};
   font-family: Montserrat;
   font-size: 20px;
   color: ${({ flag }) => (flag ? "white" : "black")};
