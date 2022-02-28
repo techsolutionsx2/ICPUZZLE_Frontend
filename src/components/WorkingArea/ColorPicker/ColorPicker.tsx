@@ -6,6 +6,7 @@ interface Props {
   setShow: (show: boolean) => void;
   flag: boolean;
   active: boolean;
+  color: any;
   handleChangeColor: (color: string) => void;
   screenMode: boolean;
 }
@@ -29,11 +30,13 @@ const ColorPicker: FC<Props> = ({
   show,
   setShow,
   screenMode,
+  color,
 }) => {
   useEffect(() => {
     setHexColor("");
   }, [active]);
 
+  const [inputColor, setInputColor] = useState(color);
   const [hexColor, setHexColor] = useState("");
 
   const handleChangeInput = (e: any) => {
@@ -44,6 +47,7 @@ const ColorPicker: FC<Props> = ({
   useEffect(() => {
     if (active) {
       handleChangeColor(hexColor);
+      setInputColor(hexColor);
     }
   }, [hexColor]);
 
@@ -59,7 +63,9 @@ const ColorPicker: FC<Props> = ({
             <Hexcode
               disabled={!active}
               flag={flag}
-              placeholder={hexColor === "" ? "HexCode" : hexColor}
+              placeholder={
+                color !== 0 ? color : hexColor === "" ? "HexCode" : hexColor
+              }
               onChange={(e: any) => handleChangeInput(e)}
             />
           </HexcodeContainer>

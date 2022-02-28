@@ -136,7 +136,7 @@ const WorkingArea: React.FC = () => {
       width: 40,
       height: 40,
       rotation: 0,
-      color: "white",
+      color: "#FFFFFF",
       draggable: false,
       changeColor: true,
       resizeEnabled: false,
@@ -446,6 +446,12 @@ const WorkingArea: React.FC = () => {
                 puzzles.at(
                   puzzles.findIndex((e) => e.id === activeElements[0].attrs.id)
                 )?.changeColor
+              }
+              color={
+                activeElements.length &&
+                puzzles.at(
+                  puzzles.findIndex((e) => e.id === activeElements[0].attrs.id)
+                )?.color
               }
               handleChangeColor={handleChangePuzzleColor}
             />
