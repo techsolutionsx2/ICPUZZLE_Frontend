@@ -12,7 +12,7 @@ export const Layout = styled.div<{ flag: boolean }>`
   ${({ flag }) =>
     flag &&
     `& > :last-child {
-    margin-left: 30px;
+    margin-left: 25px;
   }`};
 `;
 export const IconLayout = styled.div<{ flag: boolean }>`

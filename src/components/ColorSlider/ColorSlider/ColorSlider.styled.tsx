@@ -20,7 +20,7 @@ export const Layout = styled.div<{
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   .colorSlider {
     -webkit-appearance: none;
