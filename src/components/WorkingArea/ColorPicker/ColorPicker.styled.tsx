@@ -4,7 +4,6 @@ import styled from "styled-components";
 // -------------------------------------------------------
 export const Layout = styled.div<{ flag: boolean }>`
   position: relative;
-  width: 700px;
   user-select: none;
   display: flex;
   justify-content: flex-start;

@@ -6,17 +6,17 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // -------------------------------------------------------
-export const Layout = styled.div`
+export const Layout = styled.div<{ screenMode: boolean }>`
   position: relative;
-  width: 1024px;
-  height: 680px;
+  width: ${({ screenMode }) => (screenMode ? "1024px" : "100vw")};
+  height: ${({ screenMode }) => (screenMode ? "680px" : "100vh")};
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const MenuBox = styled.div<{ flag: boolean }>`
-  display: ${({ flag }) => (flag ? "flex" : "none")};
+export const MenuBox = styled.div<{ screenMode: boolean }>`
+  display: ${({ screenMode }) => (screenMode ? "flex" : "none")};
   justify-content: flex-end;
   align-items: center;
   width: 100%;
@@ -41,21 +41,38 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const Background = styled.div<{ flag: boolean }>`
+export const Background = styled.div<{ flag: boolean; screenMode: boolean }>`
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   background: ${({ flag }) => (flag ? "black" : "#F7F7F7")};
-  border-radius: 20px;
+  border-radius: ${({ screenMode }) => (screenMode ? "20px" : "0px")};
+`;
+
+export const MenuContainer = styled.div<{ screenMode: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 45%;
+  z-index: 2;
+
+  width: 10%;
+
+  display: ${({ screenMode }) => (!screenMode ? "flex" : "none")};
+  justify-content: center;
+  border-radius: 0px 0px 20px 20px;
+  align-items: center;
+  padding: 5px 5px 5px 5px;
+
+  background: #cecece;
 `;
 
 export const Canvas = styled.div``;
 
 export const DrawerContainer = styled.div`
   position: absolute;
-  top: 250px;
-  left: 8px;
+  top: 40%;
+  left: 10px;
   z-index: 2;
 `;
 
@@ -73,15 +90,15 @@ export const Title = styled.input<{ flag: boolean; show: boolean }>`
 export const TitleContainer = styled.div`
   position: absolute;
   left: 50px;
-  top: 50px;
+  top: 60px;
   z-index: 2;
 `;
 
 export const MintButtonContainer = styled.div`
   position: absolute;
+  left: 50px;
+  bottom: 80px;
   z-index: 2;
-  bottom: 70px;
-  left: 40px;
 `;
 
 export const MintButton = styled.div`
@@ -170,13 +187,13 @@ export const ColorPickerContainer = styled.div`
   bottom: 15px;
   left: 0;
 `;
-export const ColourSwiperContainer = styled.div`
-  width: 600px;
+export const ColourSwiperContainer = styled.div<{ screenMode: boolean }>`
+  width: 60%;
   height: 110px;
 
   position: absolute;
   bottom: 70px;
-  left: 130px;
+  left: ${({ screenMode }) => (!screenMode ? "130px" : "20%")};
 
   display: flex;
   justify-content: center;

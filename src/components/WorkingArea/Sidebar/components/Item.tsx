@@ -26,7 +26,7 @@ const Item: FC<Props> = ({ data, handleDrag }) => {
         handleDrag(offset, data);
       },
     }),
-    [data.id]
+    [data.id, handleDrag]
   );
 
   return (

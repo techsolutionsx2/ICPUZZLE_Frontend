@@ -1,3 +1,13 @@
+export interface DrawerProps {
+  show: boolean;
+  isActive: boolean;
+  bgColor: boolean;
+  scale: number;
+  setShow: (type: boolean) => void;
+  handleScale: (type: string) => void;
+  handleDeletePuzzle: () => void;
+}
+
 export interface PuzzleItemProps {
   id: string;
   img: string;
@@ -13,19 +23,10 @@ export interface PuzzleItemProps {
   rotateEnabled?: boolean | undefined;
 }
 
-export interface DrawerProps {
-  bgColor: boolean;
-  scale: number;
-  isActive: boolean;
-  handleScale: (type: string) => void;
-  handleDeletePuzzle: () => void;
-  show: boolean;
-  setShow: (type: boolean) => void;
-}
-
 export interface SidebarProps {
+  screenMode: boolean;
   flag: boolean;
-  addPuzzle: (data: PuzzleItemProps) => void;
   selectedWearables: string[];
+  addPuzzle: (data: PuzzleItemProps) => void;
   selectItem: (id: number) => void;
 }

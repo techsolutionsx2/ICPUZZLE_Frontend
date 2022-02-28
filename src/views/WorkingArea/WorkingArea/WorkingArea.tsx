@@ -33,6 +33,7 @@ import {
   MenuBox,
   ResizeButton,
   Background,
+  MenuContainer,
   Canvas,
   DrawerContainer,
   TitleContainer,
@@ -268,8 +269,8 @@ const WorkingArea: React.FC = () => {
   };
 
   return (
-    <Layout>
-      <MenuBox flag={!fullScreen}>
+    <Layout screenMode={!fullScreen}>
+      <MenuBox screenMode={!fullScreen}>
         <Switch
           checked={bgColor}
           onChange={setBgColor}
@@ -291,7 +292,27 @@ const WorkingArea: React.FC = () => {
       </MenuBox>
       <DndProvider backend={HTML5Backend}>
         <Container>
-          <Background flag={bgColor} />
+          <Background flag={bgColor} screenMode={!fullScreen} />
+          <MenuContainer screenMode={!fullScreen}>
+            <Switch
+              checked={bgColor}
+              onChange={setBgColor}
+              onColor="#fff"
+              onHandleColor="#000"
+              handleDiameter={20}
+              uncheckedIcon={false}
+              checkedIcon={false}
+              boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+              activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+              height={15}
+              width={40}
+              className="react-switch"
+              id="material-switch"
+            />
+            <ResizeButton onClick={() => setFullScreen(!fullScreen)}>
+              <IoResize size={20} />
+            </ResizeButton>
+          </MenuContainer>
           <DrawerContainer>
             <Drawer
               show={showDrawer}
@@ -319,8 +340,8 @@ const WorkingArea: React.FC = () => {
           </MintButtonContainer>
           <Canvas>
             <Stage
-              width={1024}
-              height={650}
+              width={fullScreen ? window.innerWidth : 1024}
+              height={fullScreen ? window.innerHeight : 650}
               ref={stageRef}
               onMouseDown={onMouseDown}
               onMouseUp={onMouseUp}
@@ -362,7 +383,6 @@ const WorkingArea: React.FC = () => {
                       if (e.current !== undefined) {
                         let temp = [];
                         temp.push(e.current);
-                        console.log(temp);
                         setActiveElements(temp);
                         trRef.current.nodes(temp);
                         trRef.current.getLayer().batchDraw();
@@ -407,6 +427,7 @@ const WorkingArea: React.FC = () => {
           </Canvas>
           <SidebarContainer>
             <Sidebar
+              screenMode={fullScreen}
               flag={bgColor}
               addPuzzle={addPuzzle}
               selectedWearables={selectedWearables}
@@ -415,6 +436,7 @@ const WorkingArea: React.FC = () => {
           </SidebarContainer>
           <ColorPickerContainer>
             <ColorPicker
+              screenMode={fullScreen}
               index={colorSlide}
               show={showColor}
               setShow={setShowColor}
@@ -429,7 +451,7 @@ const WorkingArea: React.FC = () => {
             />
           </ColorPickerContainer>
           {showColor && (
-            <ColourSwiperContainer>
+            <ColourSwiperContainer screenMode={fullScreen}>
               <SwiperWrapper>
                 <Swiper
                   onSwiper={(s) => {

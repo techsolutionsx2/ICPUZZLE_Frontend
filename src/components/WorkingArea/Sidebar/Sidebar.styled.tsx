@@ -4,7 +4,6 @@ import styled from "styled-components";
 // -------------------------------------------------------
 export const Layout = styled.div`
   position: relative;
-  width: 100%;
   height: 100%;
   padding: 32px 0;
   box-sizing: border-box;
@@ -13,15 +12,17 @@ export const Layout = styled.div`
 export const Iconlayout = styled.div<{ flag?: boolean }>`
   width: 20px;
   height: 50px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   position: absolute;
 
   z-index: 4;
 
   right: 0;
-  top: calc(50% - 32px);
+  top: calc(50% - 25px);
   cursor: pointer;
   transition: 0.2s;
   ${({ flag }) =>
@@ -33,15 +34,15 @@ export const Iconlayout = styled.div<{ flag?: boolean }>`
         transform: rotate(0deg) translateX(-50%);
 `}
 `;
+
 export const Container = styled.div`
-  width: 100%;
-  height: 100%;
   position: relative;
+  height: 100%;
   padding-right: 35px;
 `;
+
 export const Tools = styled.div`
   position: relative;
-  width: 100%;
   border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
@@ -72,6 +73,7 @@ export const ItemLayout = styled.div<{ flag: boolean }>`
           transition: .2s;`
       : ""}
 `;
+
 export const Icon = styled.div`
   position: relative;
   width: 25px;
@@ -96,8 +98,8 @@ export const Tab = styled.div<{ flag: boolean }>`
   pointer-events: none;
   background: #cecece;
   transition: 0.3s;
-  height: calc(100% - 20rem);
-  min-height: 20rem;
+  height: 55%;
+
   ${({ flag }) =>
     flag
       ? `opacity: 1;
@@ -120,11 +122,8 @@ export const Wrapper = styled.div`
 export const Puzzles = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  gap: 10px;
   width: 100%;
-  height: 100%;
-  flex-wrap: wrap;
   padding: 15px;
   box-sizing: border-box;
 `;

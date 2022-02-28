@@ -12,7 +12,11 @@ const getBack = (data: any) => {
   return str;
 };
 
-export const Layout = styled.div<{ data: any; active: boolean }>`
+export const Layout = styled.div<{
+  data: any;
+  active: boolean;
+  iWidth: number;
+}>`
   position: relative;
   width: 100%;
   display: flex;
@@ -20,7 +24,7 @@ export const Layout = styled.div<{ data: any; active: boolean }>`
   align-items: center;
   .colorSlider {
     -webkit-appearance: none;
-    width: 450px;
+    width: ${({ iWidth }) => iWidth !== 0 && iWidth}px;
     height: 15px;
     ${({ data, active }) =>
       active ? (data ? getBack(data) : "") : "background : grey"};

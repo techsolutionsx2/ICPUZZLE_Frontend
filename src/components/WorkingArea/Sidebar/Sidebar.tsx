@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 
 //Styled Components
 import {
@@ -33,6 +33,7 @@ import { wearables } from "utils/constants";
 
 //type
 import { SidebarProps } from "types/components/Working";
+import { MdModeEditOutline } from "react-icons/md";
 
 const tools = [
   { id: 1, title: "IDENTITY", icon: IdentityIcon },
@@ -44,22 +45,27 @@ const tools = [
 
 const Sidebar: React.FC<SidebarProps> = ({
   flag,
-  addPuzzle,
   selectedWearables,
+  screenMode,
+  addPuzzle,
   selectItem,
 }) => {
   const [currentTab, setCurrentTab] = useState<number | null>(null);
-
   const [show, setShow] = useState(true);
-
   const handleDrag = (data: any, i: { id: string; img: string }) => {
     const sidebar = document.getElementById("Sidebar")?.getBoundingClientRect();
-    console.log(sidebar);
     if (sidebar) {
       let { x, y } = data;
+      let _x: number;
+      let _y: number;
 
-      let _x: number = x - (window.innerWidth - 1024) / 2 - 30;
-      let _y: number = y - (window.innerHeight - 650) / 2 - 65;
+      if (!screenMode) {
+        _x = x - (window.innerWidth - 1024) / 2 - 30;
+        _y = y - (window.innerHeight - 650) / 2 - 65;
+      } else {
+        _x = x - 30;
+        _y = y - 30;
+      }
 
       let color;
       let draggable;

@@ -7,6 +7,7 @@ interface Props {
   flag: boolean;
   active: boolean;
   handleChangeColor: (color: string) => void;
+  screenMode: boolean;
 }
 
 import { AiOutlineUp } from "react-icons/ai";
@@ -27,6 +28,7 @@ const ColorPicker: FC<Props> = ({
   flag,
   show,
   setShow,
+  screenMode,
 }) => {
   useEffect(() => {
     setHexColor("");
@@ -75,6 +77,7 @@ const ColorPicker: FC<Props> = ({
             }}
           />
           <ColorSlider
+            screenMode={screenMode}
             index={index - 138}
             setHexColor={setHexColor}
             active={active}
