@@ -1,23 +1,23 @@
-import React from "react";
+import React from "react"
 
-// styled component
-import { Layout, NextItem, PrevItem, SwiperContainer } from "./Roadmap.styled";
+// Styled component
+import { Layout, NextItem, PrevItem, SwiperContainer } from "./Roadmap.styled"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { RoadmapItem } from "components/RoadmapItem";
+import Text from "components/Text"
+import { RoadmapItem } from "components/RoadmapItem"
 
-//asserts
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+// Asserts
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 
-//Swiper
+// Swiper
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react"
 
-import SwiperCore, { Pagination, Navigation } from "swiper";
+import SwiperCore, { Pagination, Navigation } from "swiper"
 
-SwiperCore.use([Pagination, Navigation]);
+SwiperCore.use([Pagination, Navigation])
 
 // -----------------------------------------------------------
 
@@ -25,14 +25,14 @@ const params1 = {
   pagination: {
     clickable: true,
     renderBullet: (index: number, className: string) => {
-      return '<span class="' + className + '"></span>';
-    },
-  },
-};
+      return '<span class="' + className + '"></span>'
+    }
+  }
+}
 
 const Roadmap: React.FC = () => {
   return (
-    <Layout id="Roadmap">
+    <Layout id="Roadmap" data-aos="fade-up">
       <Text fSize={44} lHeight={48} fWeight={800}>
         Roadmap
       </Text>
@@ -48,29 +48,51 @@ const Roadmap: React.FC = () => {
             "1050": { slidesPerView: 3.5 },
             "1200": { slidesPerView: 4 },
             "1500": {
-              slidesPerView: 5,
-            },
+              slidesPerView: 5
+            }
           }}
           navigation={{
             prevEl: ".prevItem",
-            nextEl: ".nextItem",
+            nextEl: ".nextItem"
           }}
           {...params1}
         >
           <SwiperSlide>
-            <RoadmapItem first={true} color="#fffb00, #48ff00, #00ffd5" />
+            <RoadmapItem
+              first={true}
+              color="#fffb00, #48ff00, #00ffd5"
+              title="Q4 2021"
+              text="ICPuzzle NFT & Bets Launch"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <RoadmapItem color="#00ffd5, #002bff, #7a00ff" />
+            <RoadmapItem
+              color="#00ffd5, #002bff, #7a00ff"
+              title="Q1 2022"
+              text="BetaV2 Launch"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <RoadmapItem color="#7a00ff, #ff00c8, #ff0000" />
+            <RoadmapItem
+              color="#7a00ff, #ff00c8, #ff0000"
+              title="Q2 2022"
+              text="Alpha release of the app with marketplace"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <RoadmapItem color="#ff0000, #ff0000, #ff0000" />
+            <RoadmapItem
+              color="#ff0000, #ff0000, #ff0000"
+              title="Q3 2022"
+              text="Launch of 3D NFTs & Dropped to community"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <RoadmapItem color="#ff0000, #ff0000, #ff0000" end={true} />
+            <RoadmapItem
+              color="#ff0000, #ff0000, #ff0000"
+              end={true}
+              title="Q4 2022"
+              text="Some more Puzzles"
+            />
           </SwiperSlide>
         </Swiper>
       </SwiperContainer>
@@ -85,7 +107,7 @@ const Roadmap: React.FC = () => {
         </NextItem>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Roadmap;
+export default Roadmap

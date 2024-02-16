@@ -1,22 +1,28 @@
-import React from "react";
-import Image from "next/image";
-
+import React from "react"
+import Image from "next/image"
+import { useRouter } from "next/router"
 //Styled Component
-import { Layout, ImageLayout } from "./TypeItem.styled";
+import { Layout, ImageLayout } from "./TypeItem.styled"
 
 //component
-import Text from "components/Text";
-import { Row } from "components/Layout";
+import Text from "components/Text"
+import { Row } from "components/Layout"
 
 //Types
 
-import { TypeItemProps } from "types/components/TypeItem";
+import { TypeItemProps } from "types/components/TypeItem"
 
 //-------------------------------------------------------------
 
 const TypeItem: React.FC<{ data: TypeItemProps }> = ({ data }) => {
+  const router = useRouter()
   return (
-    <Layout>
+    <Layout
+      onClick={() => {
+        router.push("/workingarea")
+      }}
+      data-aos="zoom-in"
+    >
       <Row
         justifyContent="center"
         flexDirection="column"
@@ -47,7 +53,7 @@ const TypeItem: React.FC<{ data: TypeItemProps }> = ({ data }) => {
         </Text>
       </Row>
     </Layout>
-  );
-};
+  )
+}
 
-export default TypeItem;
+export default TypeItem

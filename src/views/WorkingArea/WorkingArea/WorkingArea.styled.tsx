@@ -1,11 +1,12 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css"
+import "swiper/css/pagination"
+import "swiper/css/navigation"
 
 // -------------------------------------------------------
+
 export const Layout = styled.div<{ screenMode: boolean }>`
   position: relative;
   width: ${({ screenMode }) => (screenMode ? "1024px" : "100vw")};
@@ -13,7 +14,7 @@ export const Layout = styled.div<{ screenMode: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const MenuBox = styled.div<{ screenMode: boolean }>`
   display: ${({ screenMode }) => (screenMode ? "flex" : "none")};
@@ -22,7 +23,19 @@ export const MenuBox = styled.div<{ screenMode: boolean }>`
   width: 100%;
   margin-bottom: 10px;
   margin-right: 40px;
-`;
+`
+
+export const FileButton = styled.div`
+  margin-left: 20px;
+  background: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: white;
+`
 
 export const ResizeButton = styled.div`
   width: 35px;
@@ -33,13 +46,13 @@ export const ResizeButton = styled.div`
   border-radius: 5px;
   background: white;
   margin-left: 20px;
-`;
+`
 
 export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-`;
+`
 
 export const Background = styled.div<{ flag: boolean; screenMode: boolean }>`
   position: absolute;
@@ -48,15 +61,15 @@ export const Background = styled.div<{ flag: boolean; screenMode: boolean }>`
   height: 100%;
   background: ${({ flag }) => (flag ? "black" : "#F7F7F7")};
   border-radius: ${({ screenMode }) => (screenMode ? "20px" : "0px")};
-`;
+`
 
 export const MenuContainer = styled.div<{ screenMode: boolean }>`
   position: absolute;
   top: 0;
-  left: 45%;
+  left: 43%;
   z-index: 2;
 
-  width: 10%;
+  width: 14%;
 
   display: ${({ screenMode }) => (!screenMode ? "flex" : "none")};
   justify-content: center;
@@ -65,16 +78,16 @@ export const MenuContainer = styled.div<{ screenMode: boolean }>`
   padding: 5px 5px 5px 5px;
 
   background: #cecece;
-`;
+`
 
-export const Canvas = styled.div``;
+export const Canvas = styled.div``
 
 export const DrawerContainer = styled.div`
   position: absolute;
   top: 40%;
   left: 10px;
   z-index: 2;
-`;
+`
 
 export const Title = styled.input<{ flag: boolean; show: boolean }>`
   ${({ show }) => (show ? "" : "display:none;")};
@@ -85,21 +98,21 @@ export const Title = styled.input<{ flag: boolean; show: boolean }>`
   outline: none;
   background: rgba(0, 0, 0, 0);
   border: none;
-`;
+`
 
 export const TitleContainer = styled.div`
   position: absolute;
   left: 50px;
   top: 60px;
   z-index: 2;
-`;
+`
 
 export const MintButtonContainer = styled.div`
   position: absolute;
   left: 50px;
   bottom: 80px;
   z-index: 2;
-`;
+`
 
 export const MintButton = styled.div`
   @keyframes glowing {
@@ -173,20 +186,20 @@ export const MintButton = styled.div`
     border-radius: 50%;
     background-color: #202124;
   }
-`;
+`
 
 export const SidebarContainer = styled.div`
   position: absolute;
   height: 100%;
   right: 0;
   top: 0;
-`;
+`
 export const ColorPickerContainer = styled.div`
   position: absolute;
   z-index: 2;
   bottom: 15px;
   left: 0;
-`;
+`
 export const ColourSwiperContainer = styled.div<{ screenMode: boolean }>`
   width: 60%;
   height: 110px;
@@ -198,7 +211,7 @@ export const ColourSwiperContainer = styled.div<{ screenMode: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 export const SwiperWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -223,26 +236,44 @@ export const SwiperWrapper = styled.div`
   .Deck-unselected {
     transform: scale(0.9);
   }
-`;
+`
 
 export const SwiperItem = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
   border-radius: 10px;
-`;
+`
 export const PrevItem = styled.div`
   z-index: 2;
   position: absolute;
   bottom: calc(50% - 25px / 2);
   left: 20px;
-`;
+`
 export const NextItem = styled.div`
   z-index: 2;
   position: absolute;
   bottom: calc(50% - 25px / 2);
   right: 20px;
-`;
+`
+
+export const PageLayout = styled.div`
+  /* position: relative; */
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  min-width: 100vw;
+  /* background: linear-gradient(
+    163.2deg,
+    #fef7b1 15.55%,
+    #fdd0e7 29.42%,
+    #cde6f8 50.21%,
+    #cbfed1 84.88%
+  ); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

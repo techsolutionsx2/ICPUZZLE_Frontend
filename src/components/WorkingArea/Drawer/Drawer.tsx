@@ -1,18 +1,18 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
 //styled components
-import { Layout, Iconlayout, MenuIconlayout } from "./Drawer.styled";
+import { Layout, Iconlayout, MenuIconlayout } from "./Drawer.styled"
 
 //assets
-import { AiOutlineRight } from "react-icons/ai";
-import { MdDelete } from "react-icons/md";
+import { AiOutlineRight } from "react-icons/ai"
+import { MdDelete } from "react-icons/md"
 
-import ScaleUp from "assets/png/scaleUp.png";
-import ScaleDown from "assets/png/scaleDown.png";
+import ScaleUp from "assets/png/scaleUp.png"
+import ScaleDown from "assets/png/scaleDown.png"
 
 //type
-import { DrawerProps } from "types/components/Working";
+import { DrawerProps } from "types/components/Working"
 
 //=================================================================
 
@@ -23,7 +23,7 @@ const Drawer: React.FC<DrawerProps> = ({
   handleDeletePuzzle,
   bgColor,
   show,
-  setShow,
+  setShow
 }) => {
   return (
     <Layout>
@@ -43,13 +43,13 @@ const Drawer: React.FC<DrawerProps> = ({
               alt="No Image"
             ></Image>
           </MenuIconlayout>
-          <MenuIconlayout onClick={handleDeletePuzzle}>
+          <MenuIconlayout onClick={() => handleDeletePuzzle("")}>
             <MdDelete size={20} color={!isActive ? "grey" : "black"} />
           </MenuIconlayout>
         </>
       )}
     </Layout>
-  );
-};
+  )
+}
 
-export default Drawer;
+export default Drawer

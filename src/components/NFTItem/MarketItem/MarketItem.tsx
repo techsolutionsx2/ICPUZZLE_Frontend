@@ -1,29 +1,29 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
 // styled component
 import {
   ImageContainer,
   Layout,
   BuyButton,
-  IconContainer,
-} from "./MarketItem.styled";
+  IconContainer
+} from "./MarketItem.styled"
 
 // component
 
-import Text from "components/Text";
-import { Row } from "components/Layout";
+import Text from "components/Text"
+import { Row } from "components/Layout"
 
 //assets
-import ICImage from "assets/png/IC.png";
+import ICImage from "assets/png/IC.png"
 
 //  types
-import { NFTItemProps } from "types/components/NFT";
+import { NFTItemProps } from "types/components/NFT"
 // -----------------------------------------------------------
 
 const MarketItem: React.FC<{ data: NFTItemProps }> = ({ data }) => {
   return (
-    <Layout>
+    <Layout data-aos="fade-up">
       <ImageContainer>
         <Image
           className="NFTImage"
@@ -68,7 +68,7 @@ const MarketItem: React.FC<{ data: NFTItemProps }> = ({ data }) => {
         </Row>
       </BuyButton>
     </Layout>
-  );
-};
+  )
+}
 
-export default MarketItem;
+export default MarketItem

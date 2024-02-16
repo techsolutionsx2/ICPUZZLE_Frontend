@@ -1,18 +1,24 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
   margin-top: 100px;
+  margin-bottom: 20px;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @media screen and (max-width: 900px) {
     flex-direction: column;
     align-items: center;
   }
-`;
+`
 export const ImageContainer = styled.div`
   min-width: 500px;
   min-height: 500px;
@@ -46,33 +52,7 @@ export const ImageContainer = styled.div`
 
   position: relative;
   z-index: 0;
-
-  ::before {
-    content: "";
-    background: linear-gradient(
-      45deg,
-      #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
-      #00ffd5,
-      #002bff,
-      #7a00ff,
-      #ff00c8,
-      #ff0000
-    );
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(3px);
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    opacity: 1;
-    border-radius: 50%;
-  }
-`;
+`
 export const GoApp = styled.div`
   @keyframes glowing {
     0% {
@@ -95,6 +75,7 @@ export const GoApp = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -154,7 +135,7 @@ export const GoApp = styled.div`
   @media screen and (max-width: 425px) {
     width: 90%;
   }
-`;
+`
 export const ICImageLayout = styled.div`
   position: relative;
   width: 64px;
@@ -166,7 +147,7 @@ export const ICImageLayout = styled.div`
     height: 100px;
     margin-top: 20px;
   }
-`;
+`
 export const TextPuzzle = styled.div`
   width: 300px;
   display: flex;
@@ -187,7 +168,7 @@ export const TextPuzzle = styled.div`
     padding: 0px;
     justify-content: center;
   }
-`;
+`
 export const TextIC = styled.div`
   width: 300px;
   display: flex;
@@ -208,4 +189,13 @@ export const TextIC = styled.div`
     padding: 0px;
     justify-content: center;
   }
-`;
+`
+export const MoButContainer = styled.div`
+  width: 100%;
+  display: none;
+  @media screen and (max-width: 900px) {
+    display: flex;
+    justify-content: center;
+    padding: 70px 0px 0px 0px;
+  }
+`

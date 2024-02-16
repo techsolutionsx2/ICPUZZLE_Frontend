@@ -1,29 +1,29 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
-// styled component
+// Styled component
 import {
   Layout,
   LayoutComing,
   MainImageContainer,
-  SubImageContainer,
-} from "./CollectionItem.styled";
+  SubImageContainer
+} from "./CollectionItem.styled"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { Col } from "components/Layout";
+import Text from "components/Text"
+import { Col } from "components/Layout"
 
-//type
+//Type
 
-import { CollectionItemProps } from "types/components/Collection";
+import { CollectionItemProps } from "types/components/Collection"
 
 // -----------------------------------------------------------
 
 const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
   if (data.coming) {
     return (
-      <LayoutComing>
+      <LayoutComing data-aos="fade-up">
         <Col>
           <Text
             fWeight={600}
@@ -45,24 +45,28 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
           </Text>
         </Col>
       </LayoutComing>
-    );
+    )
   }
   return (
-    <Layout>
+    <Layout data-aos="fade-up">
       <MainImageContainer>
         <Image
-          className="CollectionMain"
           src={data.mImage}
           alt="No Image"
-          layout="fill"
+          width={100}
+          height={100}
+          objectFit="contain"
+          objectPosition="center center"
         ></Image>
       </MainImageContainer>
       <SubImageContainer>
         <Image
-          className="CollectionSub"
           src={data.sImage}
           alt="No Image"
-          layout="fill"
+          width={30}
+          height={30}
+          objectFit="contain"
+          objectPosition="center center"
         ></Image>
       </SubImageContainer>
       <Text
@@ -78,16 +82,16 @@ const CollectionItem: React.FC<{ data: CollectionItemProps }> = ({ data }) => {
         padding="14px 0px 0px 0px"
         tAlign="center"
         fWeight={600}
-        fSize={14}
+        fSize={16}
         lHeight={22}
       >
         {data.subTitle}
       </Text>
-      <Text tAlign="center" fWeight={600} fSize={14} lHeight={22}>
+      <Text tAlign="center" fWeight={600} fSize={16} lHeight={22}>
         {data.detail}
       </Text>
     </Layout>
-  );
-};
+  )
+}
 
-export default CollectionItem;
+export default CollectionItem

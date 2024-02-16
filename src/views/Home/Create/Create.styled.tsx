@@ -1,5 +1,5 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
@@ -10,7 +10,8 @@ export const Layout = styled.div`
     margin-right: 50px;
   }
 
-  padding-top: 150px;
+  padding-top: 130px;
+  padding-bottom: 20px;
 
   @media screen and (max-width: 1250px) {
     flex-direction: column;
@@ -22,12 +23,12 @@ export const Layout = styled.div`
   @media screen and (max-width: 900px) {
     display: none;
   }
-`;
+`
 export const ItemList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 270px);
   grid-gap: 50px;
-`;
+`
 export const CreateButton = styled.div`
   margin-top: 40px;
 
@@ -106,4 +107,4 @@ export const CreateButton = styled.div`
     border-radius: 20px;
     background-color: #202124;
   }
-`;
+`

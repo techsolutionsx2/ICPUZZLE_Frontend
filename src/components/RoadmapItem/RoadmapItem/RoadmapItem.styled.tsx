@@ -1,5 +1,5 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div<{ first?: boolean }>`
@@ -10,7 +10,7 @@ export const Layout = styled.div<{ first?: boolean }>`
   align-items: ${({ first }) => (first ? "flex-start" : "center")};
 
   position: relative;
-`;
+`
 export const Detail = styled.div`
   width: 180px;
   height: 160px;
@@ -18,8 +18,8 @@ export const Detail = styled.div`
   z-index: 0;
 
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
 
   ::before {
     content: "";
@@ -55,7 +55,7 @@ export const Detail = styled.div`
     border-radius: 15px;
     background-color: black;
   }
-`;
+`
 export const PointContainer = styled.div`
   margin-top: 38px;
   width: 50px;
@@ -66,18 +66,18 @@ export const PointContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const Point = styled.div<{ color: string }>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: ${({ color }) => (color ? color : "white")};
-`;
+`
 
 export const Line = styled.div<{
-  endItem?: boolean;
-  color?: string;
+  endItem?: boolean
+  color?: string
 }>`
   position: absolute;
   bottom: 31px;
@@ -90,4 +90,4 @@ export const Line = styled.div<{
   );
   border: none;
   z-index: 0;
-`;
+`

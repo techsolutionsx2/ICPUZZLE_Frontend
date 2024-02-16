@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react"
+import Image from "next/image"
+import { useRouter } from "next/router"
 
 // Framer motion
-import { useCycle } from "framer-motion";
+import { useCycle } from "framer-motion"
 
 //components
 
-import { MenuToggle } from "./MenuToggle";
-import Text from "components/Text";
+import { MenuToggle } from "./MenuToggle"
+import Text from "components/Text"
 
 // Assets
 
-import Logo from "assets/png/logo.png";
+// import Logo from "assets/png/MainLogo.png"
 
 //Styled Components
 
@@ -25,55 +25,55 @@ import {
   ItemList,
   MenuItem,
   ButtonGroup,
-  CreateButton,
-} from "./MobileMenu.styled";
+  CreateButton
+} from "./MobileMenu.styled"
 
 //Components
 
-import { Row } from "components/Layout";
-import { WalletConnect } from "components/Button";
+import { Row } from "components/Layout"
+import { WalletConnect } from "components/Button"
 
 // Bookmark Data
 
-import { PageBookmarkData } from "utils/Data/Bookmark";
+import { PageBookmarkData } from "utils/Data/Bookmark"
 
 //Type
-import { BookmarkType } from "types/utils/Bookmark";
+import { BookmarkType } from "types/utils/Bookmark"
 
 // -----------------------------------------------------------
 
 const MobileMenu = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, toggleOpen] = useCycle(false, true)
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const { asPath, pathname } = useRouter();
+  const { asPath, pathname } = useRouter()
 
   const [bookmark, setBookmarks] = useState<BookmarkType>({
     pageList: [""],
     bookmarkList: [""],
-    path: "",
-  });
+    path: ""
+  })
 
   useEffect(() => {
-    PageBookmarkData.forEach((bookmarkItem) => {
+    PageBookmarkData.forEach(bookmarkItem => {
       if (bookmarkItem.path === pathname) {
-        setBookmarks(bookmarkItem);
+        setBookmarks(bookmarkItem)
       }
-    });
-  }, [pathname]);
+    })
+  }, [pathname])
 
   const setBookmark = (value: string) => {
     if (value == "/Home") {
-      router.push("/");
-      toggleOpen();
+      router.push("/")
+      toggleOpen()
     } else {
-      router.push(value);
-      toggleOpen();
+      router.push(value)
+      toggleOpen()
     }
-  };
+  }
 
-  const height = bookmark.bookmarkList.length + bookmark.pageList.length;
+  const height = bookmark.bookmarkList.length + bookmark.pageList.length
   return (
     <Container>
       <MotionNav initial={false} animate={isOpen ? "open" : "closed"}>
@@ -85,10 +85,10 @@ const MobileMenu = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
                 onClick={() => {
-                  router.push("/");
+                  router.push("/")
                 }}
               >
-                <Image src={Logo} alt="No Image" layout="fill" />
+                <img src={"/image/MainLogo.png"} alt="No Image" />
               </ImageContainer>
               <Text
                 fSize={30}
@@ -108,12 +108,12 @@ const MobileMenu = () => {
                   whileHover={{ scale: 1.1 }}
                   key={key}
                   onClick={() => {
-                    setBookmark("#" + item.replace(/\s/g, ""));
+                    setBookmark("#" + item.replace(/\s/g, ""))
                   }}
                 >
                   {item}
                 </MenuItem>
-              );
+              )
             })}
             {bookmark.pageList.map((item, key) => {
               return (
@@ -121,12 +121,12 @@ const MobileMenu = () => {
                   whileHover={{ scale: 1.1 }}
                   key={key}
                   onClick={() => {
-                    setBookmark("/" + item.replace(/\s/g, ""));
+                    setBookmark("/" + item.replace(/\s/g, ""))
                   }}
                 >
                   {item}
                 </MenuItem>
-              );
+              )
             })}
           </ItemList>
           <ButtonGroup>
@@ -136,6 +136,6 @@ const MobileMenu = () => {
         </Menu>
       </MotionNav>
     </Container>
-  );
-};
-export default MobileMenu;
+  )
+}
+export default MobileMenu

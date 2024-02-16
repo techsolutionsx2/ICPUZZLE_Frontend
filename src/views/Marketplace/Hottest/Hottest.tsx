@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-// styled component
+// Styled component
 import {
   Layout,
   NFTList,
@@ -8,28 +8,29 @@ import {
   MobileLayout,
   PrevItem,
   NextItem,
-  SwiperContainer,
-} from "./Hottest.styled";
+  SwiperContainer
+} from "./Hottest.styled"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { Row } from "components/Layout";
-import { MarketItem } from "components/NFTItem";
+import Text from "components/Text"
+import { Row } from "components/Layout"
+import { MarketItem } from "components/NFTItem"
 
-//tempdata
+// Tempdata
 
-import { NFTItemData } from "utils/tempData/NFTItem";
-//asserts
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { NFTItemData } from "utils/tempData/NFTItem"
 
-//Swiper
+// Asserts
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 
-import { Swiper, SwiperSlide } from "swiper/react";
+// Swiper
 
-import SwiperCore, { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react"
 
-SwiperCore.use([Pagination, Navigation]);
+import SwiperCore, { Pagination, Navigation } from "swiper"
+
+SwiperCore.use([Pagination, Navigation])
 
 // -----------------------------------------------------------
 
@@ -37,10 +38,10 @@ const params1 = {
   pagination: {
     clickable: true,
     renderBullet: (index: number, className: string) => {
-      return '<span class="' + className + '"></span>';
-    },
-  },
-};
+      return '<span class="' + className + '"></span>'
+    }
+  }
+}
 
 const Hottest: React.FC = () => {
   return (
@@ -50,6 +51,7 @@ const Hottest: React.FC = () => {
           justifyContent="space-between"
           alignItems="flex-end"
           padding="0px 200px"
+          data-aos="fade-up"
         >
           <Text fWeight={800} fSize={50}>
             Hottest NFTs
@@ -58,7 +60,7 @@ const Hottest: React.FC = () => {
         </Row>
         <NFTList>
           {NFTItemData.map((item, index) => {
-            return <MarketItem key={index} data={item}></MarketItem>;
+            return <MarketItem key={index} data={item}></MarketItem>
           })}
         </NFTList>
       </Layout>
@@ -68,9 +70,10 @@ const Hottest: React.FC = () => {
           fSize={50}
           responsive={{
             768: { fSize: 40 },
-            425: { fSize: 30 },
+            425: { fSize: 30 }
           }}
           fColor="#0B1D35"
+          data-aos="fade-up"
         >
           Hottest NFTs
         </Text>
@@ -83,11 +86,11 @@ const Hottest: React.FC = () => {
               "500": { slidesPerView: 1.5 },
               "650": { slidesPerView: 2 },
               "800": { slidesPerView: 2.5 },
-              "1000": { slidesPerView: 3 },
+              "1000": { slidesPerView: 3 }
             }}
             navigation={{
               prevEl: ".prevItem",
-              nextEl: ".nextItem",
+              nextEl: ".nextItem"
             }}
             {...params1}
           >
@@ -98,7 +101,7 @@ const Hottest: React.FC = () => {
                     <MarketItem data={item}></MarketItem>
                   </div>
                 </SwiperSlide>
-              );
+              )
             })}
           </Swiper>
           <div className="prevItem">
@@ -113,10 +116,10 @@ const Hottest: React.FC = () => {
           </div>
         </SwiperContainer>
 
-        <Button>Explore</Button>
+        <Button data-aos="fade-up">Explore</Button>
       </MobileLayout>
     </div>
-  );
-};
+  )
+}
 
-export default Hottest;
+export default Hottest

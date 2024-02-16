@@ -1,5 +1,5 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
@@ -7,7 +7,7 @@ export const Layout = styled.div`
   height: 100%;
   padding: 32px 0;
   box-sizing: border-box;
-`;
+`
 
 export const Iconlayout = styled.div<{ flag?: boolean }>`
   width: 20px;
@@ -33,13 +33,13 @@ export const Iconlayout = styled.div<{ flag?: boolean }>`
       : `
         transform: rotate(0deg) translateX(-50%);
 `}
-`;
+`
 
 export const Container = styled.div`
   position: relative;
   height: 100%;
   padding-right: 35px;
-`;
+`
 
 export const Tools = styled.div`
   position: relative;
@@ -51,7 +51,7 @@ export const Tools = styled.div`
   & > *:not(:last-child) {
     margin-bottom: 8px;
   }
-`;
+`
 
 export const ItemLayout = styled.div<{ flag: boolean }>`
   position: relative;
@@ -72,7 +72,7 @@ export const ItemLayout = styled.div<{ flag: boolean }>`
       ? `border-color: #979797;
           transition: .2s;`
       : ""}
-`;
+`
 
 export const Icon = styled.div`
   position: relative;
@@ -88,7 +88,7 @@ export const Icon = styled.div`
     object-fit: contain;
     display: flex;
   }
-`;
+`
 
 export const Tab = styled.div<{ flag: boolean }>`
   position: relative;
@@ -107,7 +107,7 @@ export const Tab = styled.div<{ flag: boolean }>`
         pointer-events: auto;
         transition: .3s;`
       : ""};
-`;
+`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -118,7 +118,7 @@ export const Wrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 export const Puzzles = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -126,7 +126,7 @@ export const Puzzles = styled.div`
   width: 100%;
   padding: 15px;
   box-sizing: border-box;
-`;
+`
 export const PuzzleItem = styled.div<{ flag: boolean }>`
   background: white;
   border-radius: 10px;
@@ -142,16 +142,29 @@ export const PuzzleItem = styled.div<{ flag: boolean }>`
       ? `pointer-events: none;
         opacity: .5;`
       : ""}
-`;
-
-export const ColourItem = styled.div`
+`
+export const Layers = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 230px;
+  & > *:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`
+export const LayerItem = styled.div`
+  width: 200px;
   background: white;
   border-radius: 10px;
   display: flex;
+  justify-content: space-between;
+`
+export const LayerImage = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
   justify-content: center;
   align-items: center;
-
-  position: relative;
-  width: 60px;
-  height: 60px;
-`;
+  border-radius: 10px;
+  border: 2px solid black;
+`

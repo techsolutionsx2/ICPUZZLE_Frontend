@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
-// styled component
+// Styled component
 import {
   Layout,
   EditLayout,
@@ -11,16 +11,16 @@ import {
   UpdateButton,
   PhotoUpload,
   ImageContainer,
-  UploadButton,
-} from "./EditProfile.styled";
+  UploadButton
+} from "./EditProfile.styled"
 
-// components
-import Text from "components/Text";
-import { Col, Row } from "components/Layout";
+// Components
+import Text from "components/Text"
+import { Col, Row } from "components/Layout"
 
-//assets
+//Assets
 
-import TempImage from "assets/png/temp.png";
+import TempImage from "assets/png/temp.png"
 
 // -----------------------------------------------------------
 
@@ -34,9 +34,10 @@ const EditProfile: React.FC = () => {
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
-            alignItems: "center",
-          },
+            alignItems: "center"
+          }
         }}
+        data-aos="fade-up"
       >
         <Text
           fWeight={600}
@@ -46,7 +47,7 @@ const EditProfile: React.FC = () => {
           padding="0px 0px 40px 0px"
           responsive={{
             500: { fSize: 30, padding: "0px 0px 30px 0px" },
-            375: { padding: "0px 0px 20px 0px" },
+            375: { padding: "0px 0px 20px 0px" }
           }}
         >
           Edit Profile
@@ -63,7 +64,7 @@ const EditProfile: React.FC = () => {
           manage other personal setting
         </Text>
       </Row>
-      <PhotoUpload>
+      <PhotoUpload data-aos="fade-up">
         <ImageContainer>
           <Image src={TempImage} alt="No Image" layout="fill" />
         </ImageContainer>
@@ -78,7 +79,7 @@ const EditProfile: React.FC = () => {
         </Text>
         <UploadButton>Choose file</UploadButton>
       </PhotoUpload>
-      <EditLayout>
+      <EditLayout data-aos="fade-up">
         <Row flexDirection="column" responsive={{ 900: { display: "none" } }}>
           <Text
             fWeight={600}
@@ -161,7 +162,7 @@ const EditProfile: React.FC = () => {
               padding="0px 0px 0px 5px"
               responsive={{
                 500: { fSize: 16 },
-                375: { padding: "0px" },
+                375: { padding: "0px" }
               }}
             >
               Verification
@@ -175,7 +176,7 @@ const EditProfile: React.FC = () => {
             fColor="rgba(0,0,0,0.47)"
             mWidth={450}
             responsive={{
-              500: { fSize: 14 },
+              500: { fSize: 14 }
             }}
           >
             Proceed with verification process to get more visibility and gain
@@ -186,7 +187,7 @@ const EditProfile: React.FC = () => {
         <UpdateButton>Update profile</UpdateButton>
       </EditLayout>
     </Layout>
-  );
-};
+  )
+}
 
-export default EditProfile;
+export default EditProfile

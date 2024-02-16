@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
 // styled component
 import {
@@ -10,20 +10,20 @@ import {
   ImageContainer,
   Contact,
   MobileLayout,
-  IconContainer,
-} from "./Footer.styled";
+  IconContainer
+} from "./Footer.styled"
 
 // assets
-import Logo from "assets/png/logo.png";
-import Discord from "assets/png/discord.png";
-import Twitter from "assets/png/twitter.png";
+// import Logo from "assets/png/MainLogo.png"
+import Discord from "assets/png/discord.png"
+import Twitter from "assets/png/twitter.png"
 
 // component
 
-import Text from "components/Text";
-import { Col, Row } from "components/Layout";
-import { MdOutlineEmail } from "react-icons/md";
-import { BsDiscord, BsTwitter } from "react-icons/bs";
+import Text from "components/Text"
+import { Col, Row } from "components/Layout"
+import { MdOutlineEmail } from "react-icons/md"
+import { BsDiscord, BsTwitter } from "react-icons/bs"
 
 // -----------------------------------------------------------
 
@@ -31,9 +31,9 @@ const Footer: React.FC = () => {
   return (
     <React.Fragment>
       <Layout>
-        <Row alignItems="center" gap={8}>
+        <Row alignItems="center" gap={8} padding="0px 0px 20px 0px">
           <ImageContainer>
-            <Image src={Logo} alt="No Image" layout="fill" />
+            <img src={"/image/MainLogo.png"} alt="No Image" />
           </ImageContainer>
           <Text
             fSize={30}
@@ -45,17 +45,6 @@ const Footer: React.FC = () => {
             ICPuzzle
           </Text>
         </Row>
-        <Text
-          fSize={16}
-          lHeight={18}
-          fWeight={800}
-          tFont="Montserrat"
-          fStyle="normal"
-          fColor="#000000"
-          padding="11px 0px 17px 15px"
-        >
-          he latestICPuzzle updates.
-        </Text>
         <Row padding="0px 0px 24px 0px" gap={16}>
           <EmailInputContainer>
             <MdOutlineEmail color="#666666" width={20} height={20} />
@@ -64,8 +53,12 @@ const Footer: React.FC = () => {
           <SignUpButton>Sign Up</SignUpButton>
         </Row>
         <Row padding="0px 0px 68px 5px" gap={20}>
-          <BsDiscord size={40} />
-          <BsTwitter size={40} />
+          <BsTwitter
+            size={40}
+            onClick={() => {
+              window.location.href = "https://twitter.com/myartbar"
+            }}
+          />
         </Row>
         <Contact>
           <Col>
@@ -107,7 +100,7 @@ const Footer: React.FC = () => {
         <Row padding="0px 0px 10px 0px">
           <Row alignItems="center" gap={8}>
             <ImageContainer>
-              <Image src={Logo} alt="No Image" layout="fill" />
+              <img src={"/image/MainLogo.png"} alt="No Image" />
             </ImageContainer>
             <Text
               fSize={30}
@@ -126,26 +119,18 @@ const Footer: React.FC = () => {
             responsive={{ 425: { gap: 10 } }}
           >
             <IconContainer>
-              <Image src={Twitter} alt="No Image" width={30} height={30} />
-            </IconContainer>
-            <IconContainer>
-              <Image src={Discord} alt="No Image" width={30} height={30} />
+              <Image
+                src={Twitter}
+                alt="No Image"
+                width={30}
+                height={30}
+                onClick={() => {
+                  window.location.href = "https://twitter.com/myartbar"
+                }}
+              />
             </IconContainer>
           </Row>
         </Row>
-        <Text
-          fSize={16}
-          lHeight={18}
-          fWeight={800}
-          tFont="Montserrat"
-          fStyle="normal"
-          fColor="#000000"
-          padding="11px 0px 17px 15px"
-          tAlign="center"
-          responsive={{ 1024: { padding: "0px" } }}
-        >
-          he latest ICPuzzle updates.
-        </Text>
 
         <EmailInputContainer>
           <MdOutlineEmail color="#666666" width={20} height={20} />
@@ -173,20 +158,11 @@ const Footer: React.FC = () => {
               Privacy Policy
             </Text>
           </Row>
-          <Row>
-            <Row flexDirection="column" alignItems="flex-end">
-              <Text fWeight={500} fSize={13} lHeight={16} fColor="#0B1D35">
-                made by
-              </Text>
-              <Text fWeight={500} fSize={13} lHeight={16} fColor="#0B1D35">
-                roobinium.io
-              </Text>
-            </Row>
-          </Row>
+          <Row></Row>
         </Row>
       </MobileLayout>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

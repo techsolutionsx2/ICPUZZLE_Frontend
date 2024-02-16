@@ -1,14 +1,14 @@
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react"
+import Image from "next/image"
 
-//context
-import { useWallet } from "context/WalletContext";
+//Context
+import { useWallet } from "context/WalletContext"
 
-//assets
+//Assets
 
-import ICImage from "assets/png/IC.png";
+import ICImage from "assets/png/IC.png"
 
-//styled component
+//Styled component
 
 import {
   WalletLayout,
@@ -17,13 +17,18 @@ import {
   Backdiv,
   MobileLayout,
   ItemLayout,
-  MobileImageContainer,
-} from "./WallectConnect.styled";
+  MobileImageContainer
+} from "./WallectConnect.styled"
 
-import { StoicIdentity } from "ic-stoic-identity";
+//Components
+import { Menu } from "components/Menu"
+
+import { StoicIdentity } from "ic-stoic-identity"
 
 const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
-  const { principleId, setPrincipleId } = useWallet();
+  const [show, setShow] = useState(false)
+
+  const { principleId, setContextPrincipleID } = useWallet()
 
   const login = () => {
     if (principleId == "") {
@@ -31,22 +36,27 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
         StoicIdentity.load().then(async (identity: any) => {
           if (identity !== false) {
           } else {
-            identity = await StoicIdentity.connect();
+            identity = await StoicIdentity.connect()
           }
-          setPrincipleId(identity.getPrincipal().toText());
-          StoicIdentity.disconnect();
-        });
+          setContextPrincipleID(identity.getPrincipal().toText())
+          StoicIdentity.disconnect()
+        })
       }
     }
-  };
+  }
 
   const showMenu = () => {
     if (principleId == "") {
-      login();
+      login()
     } else {
-      console.log("show Menu");
+      console.log("first")
+      setShow(!false)
     }
-  };
+  }
+
+  const closeMenu = () => {
+    setShow(false)
+  }
 
   return (
     <div>
@@ -63,6 +73,7 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
               )}
             </WalletButton>
             <Backdiv />
+            <Menu flag={show} setFlag={closeMenu} />
           </WalletLayout>
         </>
       ) : (
@@ -92,7 +103,7 @@ const WalletConnect: React.FC<{ type: number }> = ({ type }) => {
         ""
       )}
     </div>
-  );
-};
+  )
+}
 
-export default WalletConnect;
+export default WalletConnect

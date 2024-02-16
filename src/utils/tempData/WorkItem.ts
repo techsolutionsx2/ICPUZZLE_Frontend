@@ -1,31 +1,33 @@
-//asserts
-import LampImage from "assets/png/lamp.png";
+// Asserts
+import Work3 from "assets/png/work_3.png"
+import Work5 from "assets/png/work_5.png"
+import Work6 from "assets/png/work_6.png"
 
-// type
-import { WorkItemProps } from "types/components/Work";
+// Type
+import { WorkItemProps } from "types/components/Work"
 
 export const WorkItemData: WorkItemProps[] = [
   {
-    image: LampImage,
-    detail: "Take your",
+    type: 0
   },
   {
-    login: true,
+    type: 1
   },
   {
-    image: LampImage,
-    detail: "Take your",
+    image: Work3,
+    detail: "Take your idea and run to us. \n Turn an idea into a Puzzle Nft"
   },
   {
-    image: LampImage,
-    detail: "Take your idea and run to us, Turn an idea into a puzzle",
+    type: 2
   },
   {
-    image: LampImage,
-    detail: "Take your idea and run to us, Turn an idea into a puzzle",
+    image: Work5,
+    detail:
+      "Mint Nfts using in game assets either unlocked or purchased to build your own Nft collection or to customise Puzzle Nfts."
   },
   {
-    image: LampImage,
-    detail: "Take your idea and run to us, Turn an idea into a puzzle",
-  },
-];
+    image: Work6,
+    detail:
+      "List your creation on the marketplace for collectors to purchase or to just create your own Puzzle Nft. Thank you."
+  }
+]

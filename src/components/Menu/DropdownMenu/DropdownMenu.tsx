@@ -1,27 +1,27 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React from "react"
+import { useRouter } from "next/router"
 
 // Styled component
-import { Layout, MenuItem } from "./DropdownMenu.styled";
+import { Layout, MenuItem } from "./DropdownMenu.styled"
 
 //Types
-import { BookmarkType } from "types/utils/Bookmark";
+import { BookmarkType } from "types/utils/Bookmark"
 
 // -----------------------------------------------------------
 
 const DropdownMenu: React.FC<{ data: BookmarkType; flag: boolean }> = ({
   data,
-  flag,
+  flag
 }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   const setBookmark = (value: string) => {
     if (value == "/Home") {
-      router.push("/");
+      router.push("/")
     } else {
-      router.push(value);
+      router.push(value)
     }
-  };
+  }
 
   return (
     <Layout flag={flag}>
@@ -31,12 +31,12 @@ const DropdownMenu: React.FC<{ data: BookmarkType; flag: boolean }> = ({
             whileHover={{ scale: 1.1 }}
             key={key}
             onClick={() => {
-              setBookmark("#" + item.replace(/\s/g, ""));
+              setBookmark("#" + item.replace(/\s/g, ""))
             }}
           >
             {item}
           </MenuItem>
-        );
+        )
       })}
       {data.pageList.map((item, key) => {
         return (
@@ -44,15 +44,15 @@ const DropdownMenu: React.FC<{ data: BookmarkType; flag: boolean }> = ({
             whileHover={{ scale: 1.2 }}
             key={key}
             onClick={() => {
-              setBookmark("/" + item.replace(/\s/g, ""));
+              setBookmark("/" + item.replace(/\s/g, ""))
             }}
           >
             {item}
           </MenuItem>
-        );
+        )
       })}
     </Layout>
-  );
-};
+  )
+}
 
-export default DropdownMenu;
+export default DropdownMenu

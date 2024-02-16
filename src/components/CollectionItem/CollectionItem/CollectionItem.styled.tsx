@@ -1,5 +1,5 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 
@@ -24,7 +24,7 @@ export const Layout = styled.div`
       margin-top: 0px;
     }
   }
-`;
+`
 export const LayoutComing = styled.div`
   width: 270px;
   height: 450px;
@@ -69,7 +69,7 @@ export const LayoutComing = styled.div`
     left: 0;
     top: 0;
     border-radius: 20px;
-    background-color: #202124;
+    background-color: #000;
   }
 
   transition: all 0.3s;
@@ -81,7 +81,7 @@ export const LayoutComing = styled.div`
       margin-top: 0px;
     }
   }
-`;
+`
 
 export const MainImageContainer = styled.div`
   img {
@@ -90,20 +90,25 @@ export const MainImageContainer = styled.div`
 
   border-radius: 20px;
 
-  position: relative;
-
   width: 260px;
   height: 270px;
-`;
-export const SubImageContainer = styled.div`
-  img {
-    border-radius: 50px;
-  }
 
+  display: flex;
+  justify-content: center;
+
+  background-color: #000;
+`
+export const SubImageContainer = styled.div`
   margin-top: -35px;
+
   width: 70px;
   height: 70px;
   position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   z-index: 0;
 
   ::before {
@@ -142,4 +147,4 @@ export const SubImageContainer = styled.div`
     border-radius: 50%;
     background-color: #202124;
   }
-`;
+`

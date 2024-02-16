@@ -1,28 +1,29 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
-// styled component
-import { Layout, PlayerContainer, PlayContainer } from "./Video.styled";
+// Styled component
+import { Layout, PlayerContainer, PlayContainer } from "./Video.styled"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { Row, Col } from "components/Layout";
+import Text from "components/Text"
+import { Row, Col } from "components/Layout"
 
-//assets
+//Assets
 
-import Play from "assets/png/play.png";
+import Play from "assets/png/play.png"
 
 // -----------------------------------------------------------
 
 const Video: React.FC = () => {
   return (
     <Layout id="ICPuzzle">
-      <PlayerContainer>
+      <PlayerContainer data-aos="fade-right">
         <PlayContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
           <Image src={Play} alt="No Image" width={70} height={70}></Image>
         </PlayContainer>
       </PlayerContainer>
+
       <Row
         mWidth={550}
         alignItems="center"
@@ -32,8 +33,9 @@ const Video: React.FC = () => {
           1024: { mWidth: 400 },
           900: { mWidth: 550, padding: "0px 0px 0px 0px" },
           600: { mWidth: 400 },
-          425: { mWidth: 320 },
+          425: { mWidth: 320 }
         }}
+        data-aos="fade-left"
       >
         <Col>
           <Text
@@ -45,7 +47,7 @@ const Video: React.FC = () => {
               1024: { fSize: 40 },
               900: { fSize: 50, tAlign: "center" },
               768: { fSize: 40 },
-              375: { fSize: 30 },
+              375: { fSize: 30 }
             }}
           >
             ICPuzzles
@@ -60,7 +62,7 @@ const Video: React.FC = () => {
               1024: { fSize: 16, lHeight: 20, padding: "30px 0px 0px 0px" },
               900: { fSize: 20, lHeight: 30, tAlign: "center" },
               768: { padding: "20px 0px 0px 0px", fSize: 16 },
-              375: { fSize: 14 },
+              375: { fSize: 14 }
             }}
           >
             {
@@ -77,7 +79,7 @@ const Video: React.FC = () => {
               1024: { fSize: 16, lHeight: 20, padding: "9px 0px 0px 0px" },
               900: { fSize: 20, lHeight: 30, tAlign: "center" },
               768: { padding: "5px 0px 0px 0px", fSize: 16 },
-              375: { fSize: 14 },
+              375: { fSize: 14 }
             }}
           >
             Just like physical goods, you can do whatever you want with them!
@@ -85,7 +87,7 @@ const Video: React.FC = () => {
         </Col>
       </Row>
     </Layout>
-  );
-};
+  )
+}
 
-export default Video;
+export default Video

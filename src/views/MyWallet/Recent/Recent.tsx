@@ -1,41 +1,52 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 // styled component
-import { Layout, MenuItem, Line, RecentButton, Button } from "./Recent.styled";
+import { Layout, MenuItem, Line, RecentButton, Button } from "./Recent.styled"
 
 // components
-import Text from "components/Text";
-import { Col, Row } from "components/Layout";
+import Text from "components/Text"
+import { Col, Row } from "components/Layout"
 
 // -----------------------------------------------------------
 
 const Recent: React.FC = () => {
-  const [menuItem, setMenuItem] = useState(0);
+  const [menuItem, setMenuItem] = useState(0)
 
   return (
     <Layout>
-      <Row justifyContent="center" gap={20} responsive={{ 425: { gap: "0" } }}>
-        <MenuItem
-          onClick={() => setMenuItem(0)}
-          flag={menuItem == 0 ? true : false}
+      <div style={{ width: "100%" }} data-aos="fade-up">
+        <Row
+          justifyContent="center"
+          gap={20}
+          responsive={{ 425: { gap: "0" } }}
+          data-aos="fade-up"
         >
-          On Sale
-        </MenuItem>
-        <MenuItem
-          onClick={() => setMenuItem(1)}
-          flag={menuItem == 1 ? true : false}
-        >
-          Owned
-        </MenuItem>
-        <MenuItem
-          onClick={() => setMenuItem(2)}
-          flag={menuItem == 2 ? true : false}
-        >
-          Create
-        </MenuItem>
-      </Row>
-      <Line />
-      <Row padding="30px 0px 0px 0px" justifyContent="flex-end">
+          <MenuItem
+            onClick={() => setMenuItem(0)}
+            flag={menuItem == 0 ? true : false}
+          >
+            On Sale
+          </MenuItem>
+          <MenuItem
+            onClick={() => setMenuItem(1)}
+            flag={menuItem == 1 ? true : false}
+          >
+            Owned
+          </MenuItem>
+          <MenuItem
+            onClick={() => setMenuItem(2)}
+            flag={menuItem == 2 ? true : false}
+          >
+            Create
+          </MenuItem>
+        </Row>
+        <Line />
+      </div>
+      <Row
+        padding="30px 0px 0px 0px"
+        justifyContent="flex-end"
+        data-aos="fade-up"
+      >
         <RecentButton>Recently added</RecentButton>
       </Row>
       <Row
@@ -43,6 +54,7 @@ const Recent: React.FC = () => {
         flexDirection="column"
         padding="100px 0px 0px 0px"
         mWidth={500}
+        data-aos="zoom-in"
       >
         <Text fSize={20} fWeight={600} responsive={{ 768: { fSize: 16 } }}>
           No items found
@@ -68,7 +80,7 @@ const Recent: React.FC = () => {
         </Row>
       </Row>
     </Layout>
-  );
-};
+  )
+}
 
-export default Recent;
+export default Recent

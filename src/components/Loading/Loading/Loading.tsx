@@ -1,12 +1,11 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
 
-// styled component
-import { Layout, ImageContainer } from "./Loading.styled";
+// Styled component
+import { Layout, ImageContainer } from "./Loading.styled"
 
-//assets
+//Assets
 
-import LoadingImage from "assets/svg/Loading.svg";
+import LoadingImage from "assets/svg/Loading.svg"
 
 // -----------------------------------------------------------
 
@@ -17,7 +16,7 @@ const Loading: React.FC = () => {
         <object type="image/svg+xml" data={LoadingImage}></object>
       </ImageContainer>
     </Layout>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

@@ -1,17 +1,17 @@
-import React from "react";
+import React from "react"
 
-// styled component
-import { Layout, CollectionItems, Button } from "./Creators.styled";
+// Styled component
+import { Layout, CollectionItems, Button } from "./Creators.styled"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { Row } from "components/Layout";
-import { WorkItem } from "components/WorkItem";
+import Text from "components/Text"
+import { Row } from "components/Layout"
+import { WorkItem } from "components/WorkItem"
 
-//tempData
+// TempData
 
-import { CreatorItemData } from "utils/tempData/Creator";
+import { CreatorItemData } from "utils/tempData/Creator"
 
 // -----------------------------------------------------------
 
@@ -26,15 +26,16 @@ const TopCollection: React.FC = () => {
           responsive={{
             1250: { justifyContent: "center" },
             700: { justifyContent: "flex-start", padding: "0px 100px" },
-            425: { padding: "0px 50px" },
+            425: { padding: "0px 50px" }
           }}
+          data-aos="fade-up"
         >
           <Text
             fWeight={800}
             fSize={50}
             responsive={{
               768: { fSize: 40 },
-              425: { fSize: 30 },
+              425: { fSize: 30 }
             }}
             fColor="#0B1D35"
           >
@@ -50,14 +51,8 @@ const TopCollection: React.FC = () => {
         <CollectionItems>
           {CreatorItemData.map((item, index) => {
             return (
-              <WorkItem
-                image={item.image}
-                detail={item.detail}
-                login={item.login}
-                creator={true}
-                key={index}
-              />
-            );
+              <WorkItem image={item.image} detail={item.detail} key={index} />
+            )
           })}
         </CollectionItems>
         <Row
@@ -65,12 +60,13 @@ const TopCollection: React.FC = () => {
           responsive={{ 1250: { display: "flex" } }}
           justifyContent="center"
           padding="50px 0px 0px 0px"
+          data-aos="fade-up"
         >
           <Button>Explore Creators</Button>
         </Row>
       </Layout>
     </div>
-  );
-};
+  )
+}
 
-export default TopCollection;
+export default TopCollection

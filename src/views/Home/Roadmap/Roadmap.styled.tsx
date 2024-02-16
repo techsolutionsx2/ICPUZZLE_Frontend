@@ -1,9 +1,9 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 //Swiper
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css"
+import "swiper/css/pagination"
+import "swiper/css/navigation"
 // -------------------------------------------------------
 export const Layout = styled.div`
   width: 100%;
@@ -32,7 +32,7 @@ export const Layout = styled.div`
       min-width: 1500px !important;
     }
   }
-`;
+`
 
 export const PrevItem = styled.div`
   z-index: 2;
@@ -42,7 +42,7 @@ export const PrevItem = styled.div`
   @media screen and (max-width: 500px) {
     left: calc(50vw - 100px);
   }
-`;
+`
 export const NextItem = styled.div`
   z-index: 2;
   position: absolute;
@@ -51,10 +51,10 @@ export const NextItem = styled.div`
   @media screen and (max-width: 500px) {
     right: calc(50vw - 100px);
   }
-`;
+`
 export const SwiperContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 100px;
   max-width: 100%;
-`;
+`

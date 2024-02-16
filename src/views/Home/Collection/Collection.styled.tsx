@@ -1,10 +1,10 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 //Swiper
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css"
+import "swiper/css/pagination"
+import "swiper/css/navigation"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
@@ -12,7 +12,7 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 120px 0px 0px 0px;
+  padding: 120px 0px 20px 0px;
   position: relative;
 
   .swiper {
@@ -34,7 +34,7 @@ export const Layout = styled.div`
     display: flex;
     justify-content: center;
   }
-`;
+`
 
 export const CollectionItems = styled.div`
   width: 100%;
@@ -47,7 +47,7 @@ export const CollectionItems = styled.div`
     grid-template-columns: repeat(2, 270px);
     column-gap: 100px;
   }
-`;
+`
 
 export const PrevItem = styled.div`
   z-index: 2;
@@ -57,7 +57,7 @@ export const PrevItem = styled.div`
   @media screen and (max-width: 500px) {
     left: calc(50vw - 100px);
   }
-`;
+`
 export const NextItem = styled.div`
   z-index: 2;
   position: absolute;
@@ -66,4 +66,4 @@ export const NextItem = styled.div`
   @media screen and (max-width: 500px) {
     right: calc(50vw - 100px);
   }
-`;
+`

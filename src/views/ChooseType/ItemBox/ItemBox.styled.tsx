@@ -1,9 +1,9 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  padding: 100px;
+  padding: 90px;
 
   display: flex;
   flex-direction: column;
@@ -15,4 +15,4 @@ export const Layout = styled.div`
   @media screen and (max-width: 425px) {
     padding: 100px 20px 100px 20px;
   }
-`;
+`

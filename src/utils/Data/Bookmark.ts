@@ -1,5 +1,5 @@
 //Types
-import { BookmarkType } from "types/utils/Bookmark";
+import { BookmarkType } from "types/utils/Bookmark"
 
 //---------------------------------------------------------------
 export const PageBookmarkData: BookmarkType[] = [
@@ -10,29 +10,29 @@ export const PageBookmarkData: BookmarkType[] = [
       "Collection",
       "Create own NFT",
       "How it works",
-      "Roadmap",
+      "Roadmap"
     ],
-    pageList: ["Marketplace"],
+    pageList: []
   },
   {
     path: "/NFTs",
     bookmarkList: ["Explore", "Recently NFT "],
-    pageList: [],
+    pageList: []
   },
   {
     path: "/Marketplace",
     bookmarkList: ["Hottest NFT", "Creator", "Top Collection"],
-    pageList: ["Home"],
+    pageList: ["Home"]
   },
 
   {
     path: "/EditProfile",
     bookmarkList: ["Edit Profile"],
-    pageList: [],
+    pageList: []
   },
   {
     path: "/MyWallet",
     bookmarkList: ["MY Wallet"],
-    pageList: [],
-  },
-];
+    pageList: []
+  }
+]

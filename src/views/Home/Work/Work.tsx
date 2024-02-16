@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react"
 
-// styled component
-import { Layout, GridLayout } from "./Work.styled";
+// Styled component
+import { Layout, GridLayout } from "./Work.styled"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { Row } from "components/Layout";
+import Text from "components/Text"
+import { Row } from "components/Layout"
+import { WorkItem } from "components/WorkItem"
 
-// temp Data
+// Temp Data
 
-import { WorkItemData } from "utils/tempData/WorkItem";
-import { WorkItem } from "components/WorkItem";
+import { WorkItemData } from "utils/tempData/WorkItem"
 
 // -----------------------------------------------------------
 const Work: React.FC = () => {
@@ -24,8 +24,8 @@ const Work: React.FC = () => {
           1250: {
             flexDirection: "column-reverse",
             alignItems: "center",
-            gap: "0",
-          },
+            gap: "0"
+          }
         }}
       >
         <Row
@@ -37,22 +37,14 @@ const Work: React.FC = () => {
             700: {
               flexDirection: "column",
               alignItems: "center",
-              gap: "50",
-            },
+              gap: "50"
+            }
           }}
         >
-          <WorkItem
-            image={WorkItemData[0].image}
-            detail={WorkItemData[0].detail}
-            login={WorkItemData[0].login}
-          ></WorkItem>
-          <WorkItem
-            image={WorkItemData[1].image}
-            detail={WorkItemData[1].detail}
-            login={WorkItemData[1].login}
-          ></WorkItem>
+          <WorkItem type={WorkItemData[0].type}></WorkItem>
+          <WorkItem type={WorkItemData[1].type}></WorkItem>
         </Row>
-        <Row mWidth={590} justifyContent="center">
+        <Row mWidth={590} justifyContent="center" data-aos="fade-up">
           <Text
             padding="20px"
             fColor="#0B1D35"
@@ -60,7 +52,7 @@ const Work: React.FC = () => {
             fWeight={800}
             responsive={{
               768: { fSize: 40 },
-              375: { fSize: 30 },
+              375: { fSize: 30 }
             }}
           >
             How it works
@@ -75,14 +67,14 @@ const Work: React.FC = () => {
                 key={index}
                 image={item.image}
                 detail={item.detail}
-                login={item.login}
+                type={item.type}
               ></WorkItem>
-            );
+            )
           }
         })}
       </GridLayout>
     </Layout>
-  );
-};
+  )
+}
 
-export default Work;
+export default Work

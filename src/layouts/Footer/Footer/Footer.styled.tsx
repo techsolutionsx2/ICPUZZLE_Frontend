@@ -1,5 +1,5 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
@@ -20,7 +20,7 @@ export const Layout = styled.div`
   @media screen and (max-width: 1024px) {
     display: none;
   }
-`;
+`
 export const EmailInputContainer = styled.div`
   display: flex;
   width: 250px;
@@ -32,7 +32,7 @@ export const EmailInputContainer = styled.div`
   @media screen and (max-width: 1024px) {
     margin-top: 30px;
   }
-`;
+`
 export const EmailInput = styled.input`
   width: 200px;
   background: rgba(0, 0, 0, 0);
@@ -40,7 +40,7 @@ export const EmailInput = styled.input`
   margin-left: 5px;
   font-size: 16px;
   outline: none;
-`;
+`
 
 export const SignUpButton = styled.div`
   @keyframes glowing {
@@ -120,7 +120,7 @@ export const SignUpButton = styled.div`
     border-radius: 15px;
     background-color: #202124;
   }
-`;
+`
 
 export const ImageContainer = styled.div`
   position: relative;
@@ -132,7 +132,7 @@ export const ImageContainer = styled.div`
     width: 33px;
     height: 40px;
   }
-`;
+`
 
 export const Contact = styled.div`
   position: absolute;
@@ -141,7 +141,7 @@ export const Contact = styled.div`
   @media screen and (max-width: 1250px) {
     left: 100px;
   }
-`;
+`
 
 export const MobileLayout = styled.div`
   display: none;
@@ -154,7 +154,7 @@ export const MobileLayout = styled.div`
   @media screen and (max-width: 700px) {
     padding: 50px 5vw 0px 5vw;
   }
-`;
+`
 export const IconContainer = styled.div`
   position: relative;
   width: 50px;
@@ -166,4 +166,4 @@ export const IconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`

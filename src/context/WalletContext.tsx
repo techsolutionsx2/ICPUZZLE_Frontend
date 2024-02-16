@@ -1,38 +1,47 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react"
 
 // Types
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 type Context = {
-  principleId: string;
-  setPrincipleId: React.Dispatch<React.SetStateAction<string>>;
-};
+  principleId: string
+  setContextPrincipleID: (_value: string) => void
+}
 
 //initialContext
 
 const initialContext: Context = {
   principleId: "",
-  setPrincipleId: (): void => {
-    throw new Error("setContext function must be overridden");
-  },
-};
+  setContextPrincipleID: (string): void => {
+    throw new Error("setContext function must be overridden")
+  }
+}
 
 //create context
 
-const WalletContext = React.createContext<Context>(initialContext);
+const WalletContext = React.createContext<Context>(initialContext)
 
 export const useWallet = () => {
-  return useContext(WalletContext);
-};
+  return useContext(WalletContext)
+}
 
 export const WalletProvider: React.FC<LayoutProps> = ({ children }) => {
-  const [principleId, setPrincipleId] = useState("");
+  const [principleId, setPrincipleId] = useState("")
+
+  useEffect(() => {
+    setPrincipleId(localStorage.getItem("principleId") || "")
+  }, [])
+
+  const setContextPrincipleID = (_value: string) => {
+    localStorage.setItem("principleId", _value)
+    setPrincipleId(_value)
+  }
 
   return (
-    <WalletContext.Provider value={{ principleId, setPrincipleId }}>
+    <WalletContext.Provider value={{ principleId, setContextPrincipleID }}>
       {children}
     </WalletContext.Provider>
-  );
-};
+  )
+}

@@ -1,28 +1,23 @@
-import React from "react";
-import Image from "next/image";
+import React from "react"
+import Image from "next/image"
 
-// styled component
-import { Layout, ImageContainer } from "./Hero.styled";
+// Styled component
+import { Layout, ImageContainer } from "./Hero.styled"
 
-// component
+//Assets
 
-import Text from "components/Text";
-import { Row } from "components/Layout";
-
-//assets
-
-import BackImage from "assets/png/mHero.png";
+import BackImage from "assets/png/Hero_Market.png"
 
 // -----------------------------------------------------------
 
 const Hero: React.FC = () => {
   return (
-    <Layout>
+    <Layout data-aos="zoom-in">
       <ImageContainer>
         <Image src={BackImage} alt="No Image" width={200} height={200}></Image>
       </ImageContainer>
     </Layout>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

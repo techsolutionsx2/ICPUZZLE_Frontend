@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 
-// styled component
-import { Layout } from "./Join.styled";
+// Styled component
+import { Layout } from "./Join.styled"
 
-// component
+// Component
 
-import { JoinUs } from "components/JoinUs";
+import { JoinUs } from "components/JoinUs"
 
 // -----------------------------------------------------------
 
@@ -14,7 +14,7 @@ const Join: React.FC = () => {
     <Layout>
       <JoinUs />
     </Layout>
-  );
-};
+  )
+}
 
-export default Join;
+export default Join

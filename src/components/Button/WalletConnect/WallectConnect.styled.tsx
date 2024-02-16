@@ -1,12 +1,13 @@
 // Styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 
 export const WalletLayout = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-`;
+`
 export const MobileLayout = styled.div`
   @keyframes glowing {
     0% {
@@ -80,7 +81,7 @@ export const MobileLayout = styled.div`
     border-radius: 20px;
     background-color: #202124;
   }
-`;
+`
 export const ItemLayout = styled.div`
   margin-top: 15px;
 
@@ -155,7 +156,7 @@ export const ItemLayout = styled.div`
     border-radius: 20px;
     background-color: #202124;
   }
-`;
+`
 
 export const WalletButton = styled.div<{ flag: string }>`
   @keyframes glowing {
@@ -229,7 +230,7 @@ export const WalletButton = styled.div<{ flag: string }>`
     border-radius: 23px;
     background-color: #202124;
   }
-`;
+`
 export const Backdiv = styled.div`
   width: 30px;
   height: 30px;
@@ -245,16 +246,16 @@ export const Backdiv = styled.div`
     #f44bf1 51%,
     #ff8484 62.48%
   );
-`;
+`
 export const ImageContainer = styled.div`
   position: relative;
   width: 40px;
   height: 30px;
-`;
+`
 
 export const MobileImageContainer = styled.div`
   position: relative;
   margin-right: 10px;
   width: 30px;
   height: 20px;
-`;
+`

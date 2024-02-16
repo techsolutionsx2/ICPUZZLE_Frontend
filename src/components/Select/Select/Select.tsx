@@ -1,48 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
+import React, { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import Image from "next/image"
+
 //Styled Component
-import { Layout, IconLayout } from "./Select.styled";
+import { Layout, IconLayout } from "./Select.styled"
 
 //Types
 
-import { BookmarkType } from "types/utils/Bookmark";
+import { BookmarkType } from "types/utils/Bookmark"
 
 //Assets
 
-import Dropdown from "assets/png/dropdown.png";
+import Dropdown from "assets/png/dropdown.png"
 
 //Components
 
-import { DropdownMenu } from "components/Menu";
+import { DropdownMenu } from "components/Menu"
 
 //-------------------------------------------------------------
 
 const Select: React.FC<{ data: BookmarkType[] }> = ({ data }) => {
-  const { asPath, pathname } = useRouter();
+  const { pathname } = useRouter()
   const [bookmark, setBookmarks] = useState<BookmarkType>({
     pageList: [""],
     bookmarkList: [""],
-    path: "",
-  });
+    path: ""
+  })
 
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(false)
 
-  const [label, setLabel] = useState("");
+  const [label, setLabel] = useState("")
 
   useEffect(() => {
-    data.forEach((bookmarkItem) => {
+    data.forEach(bookmarkItem => {
       if (bookmarkItem.path === pathname) {
-        setBookmarks(bookmarkItem);
-        setLabel(bookmarkItem.bookmarkList[0]);
+        setBookmarks(bookmarkItem)
+        setLabel(bookmarkItem.bookmarkList[0])
       }
-    });
-  }, [pathname]);
+    })
+  }, [pathname])
 
   return (
     <Layout
       onClick={() => {
-        setSelected(!selected);
+        setSelected(!selected)
       }}
     >
       {label}
@@ -51,7 +52,7 @@ const Select: React.FC<{ data: BookmarkType[] }> = ({ data }) => {
       </IconLayout>
       <DropdownMenu data={bookmark} flag={selected}></DropdownMenu>
     </Layout>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select

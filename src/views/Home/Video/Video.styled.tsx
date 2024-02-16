@@ -1,30 +1,30 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 //Framer motion
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
   display: flex;
   justify-content: center;
-  padding: 230px 0px 0px 0px;
+  padding: 210px 0px 0px 0px;
 
   @media screen and (max-width: 1024px) {
-    padding: 180px 0px 0px 0px;
+    padding: 160px 0px 0px 0px;
   }
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
     align-items: center;
   }
   @media screen and (max-width: 768px) {
-    padding: 150px 0px 0px 0px;
+    padding: 130px 0px 0px 0px;
   }
 
   @media screen and (max-width: 425px) {
-    padding: 120px 0px 0px 0px;
+    padding: 100px 0px 0px 0px;
   }
-`;
+`
 export const PlayerContainer = styled.div`
   background: black;
   width: 550px;
@@ -52,6 +52,6 @@ export const PlayerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
-export const PlayContainer = styled(motion.div)``;
+export const PlayContainer = styled(motion.div)``

@@ -1,2 +1,1 @@
-//---------------------------------------------------------------
-export const NoLayoutData: string[] = ["/ChooseType", "/workingarea"];
+export const NoLayoutData: string[] = ["/ChooseType"]

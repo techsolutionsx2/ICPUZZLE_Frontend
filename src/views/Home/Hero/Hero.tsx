@@ -1,7 +1,8 @@
-import Image from "next/image";
-import React from "react";
+import Image from "next/image"
+import { useRouter } from "next/router"
+import React from "react"
 
-// styled component
+// Styled component
 import {
   Layout,
   ImageContainer,
@@ -9,23 +10,33 @@ import {
   ICImageLayout,
   TextPuzzle,
   TextIC,
-} from "./Hero.styled";
+  MoButContainer
+} from "./Hero.styled"
 
-// assets
-import IC from "assets/png/IC.png";
-import tempImage from "assets/png/temp.png";
+// Assets
+// import LanHero from "assets/png/Hero_Index.png"
+import IC from "assets/png/IC.png"
 
-// component
+// Component
 
-import Text from "components/Text";
-import { Row, Col } from "components/Layout";
+import Text from "components/Text"
+import { Row, Col } from "components/Layout"
+
+// context
+import { useWallet } from "context/WalletContext"
+
+//Notification
+import { Store } from "react-notifications-component"
 
 // -----------------------------------------------------------
 
 const Hero: React.FC = () => {
+  const router = useRouter()
+
+  const { principleId } = useWallet()
   return (
     <Layout>
-      <TextPuzzle>
+      <TextPuzzle data-aos="fade-right">
         <Col
           padding="10px 30px 0px 0px"
           mWidth={230}
@@ -40,7 +51,7 @@ const Hero: React.FC = () => {
               1024: { fSize: 40 },
               900: { fSize: 50 },
               768: { fSize: 40 },
-              375: { fSize: 30 },
+              375: { fSize: 30 }
             }}
           >
             ICPuzzle
@@ -54,8 +65,8 @@ const Hero: React.FC = () => {
             responsive={{
               1024: { fSize: 20 },
               900: { padding: "30px 0px 0px 0px", tAlign: "center" },
-              768: { padding: "20px 0px 0px 0px", fSize: 16 },
-              375: { fSize: 14 },
+              768: { padding: "15px 0px 0px 0px", fSize: 16 },
+              375: { fSize: 14 }
             }}
           >
             Create, Solve, Play, Buy, Sell, Trade.
@@ -65,20 +76,36 @@ const Hero: React.FC = () => {
             padding="50px 18px 0px 0px"
             responsive={{ 900: { display: "none" } }}
           >
-            <GoApp>Go to App</GoApp>
+            <GoApp
+              onClick={() => {
+                if (principleId === "") {
+                  Store.addNotification({
+                    title: "Warning",
+                    message: "You have to connect wallet",
+                    type: "danger",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                      duration: 5000,
+                      onScreen: true
+                    }
+                  })
+                } else {
+                  router.push("/workingarea")
+                }
+              }}
+            >
+              Go to App
+            </GoApp>
           </Row>
         </Col>
       </TextPuzzle>
-      <ImageContainer>
-        <Image
-          src={tempImage}
-          alt="No Image"
-          width={100}
-          height={100}
-          layout="fill"
-        />
+      <ImageContainer data-aos="zoom-in">
+        <img src="/image/Hero_Index.png" alt="No Image" />
       </ImageContainer>
-      <TextIC>
+      <TextIC data-aos="fade-left">
         <Col>
           <Text
             fWeight={600}
@@ -88,7 +115,7 @@ const Hero: React.FC = () => {
               1200: { fSize: 20 },
               900: { fSize: 25, tAlign: "center" },
               768: { fSize: 16 },
-              375: { fSize: 14 },
+              375: { fSize: 14 }
             }}
           >
             Built & hosted on
@@ -100,13 +127,13 @@ const Hero: React.FC = () => {
             responsive={{
               1024: { fSize: 20 },
               900: {
-                padding: "20px 0px 0px 0px",
+                padding: "15px 0px 0px 0px",
                 fSize: 50,
                 lHeight: 54,
-                tAlign: "center",
+                tAlign: "center"
               },
               768: { fSize: 40 },
-              375: { fSize: 30 },
+              375: { fSize: 30 }
             }}
           >
             The Internet
@@ -114,7 +141,7 @@ const Hero: React.FC = () => {
           <Row
             gap={10}
             responsive={{
-              900: { flexDirection: "column", alignItems: "center" },
+              900: { flexDirection: "column", alignItems: "center" }
             }}
           >
             <Text
@@ -128,10 +155,10 @@ const Hero: React.FC = () => {
                   padding: "8px 0px 0px 0px",
                   fSize: 50,
                   lHeight: 54,
-                  tAlign: "center",
+                  tAlign: "center"
                 },
                 768: { fSize: 40, lHeight: 40 },
-                375: { fSize: 30, lHeight: 30 },
+                375: { fSize: 30, lHeight: 30 }
               }}
             >
               Computer
@@ -142,15 +169,33 @@ const Hero: React.FC = () => {
           </Row>
         </Col>
       </TextIC>
-      <Row
-        display="none"
-        justifyContent="center"
-        responsive={{ 900: { display: "flex", padding: "70px 0px 0px 0px" } }}
-      >
-        <GoApp>Go to App</GoApp>
-      </Row>
+      <MoButContainer data-aos="fade-left">
+        <GoApp
+          onClick={() => {
+            if (principleId === "") {
+              Store.addNotification({
+                title: "Warning",
+                message: "You have to connect wallet",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 5000,
+                  onScreen: true
+                }
+              })
+            } else {
+              router.push("/workingarea")
+            }
+          }}
+        >
+          Go to App
+        </GoApp>
+      </MoButContainer>
     </Layout>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

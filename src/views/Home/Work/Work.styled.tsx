@@ -1,13 +1,13 @@
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 
 // -------------------------------------------------------
 export const Layout = styled.div`
-  padding-top: 150px;
+  padding-top: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const GridLayout = styled.div`
   padding-top: 50px;
@@ -22,4 +22,4 @@ export const GridLayout = styled.div`
   @media screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 300px);
   }
-`;
+`

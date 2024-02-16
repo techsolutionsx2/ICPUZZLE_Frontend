@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 // styled system
-import styled from "styled-components";
+import styled from "styled-components"
 // type
-import { ResponsivedLayoutRowProps } from "types/components/Layout";
+import { ResponsivedLayoutRowProps } from "types/components/Layout"
 // utils
-import { isEmpty } from "utils/helper-validation";
+import { isEmpty } from "utils/helper-validation"
 // ----------------------------------------------------------
 
 // ********** flex-box 24 items ********** //
@@ -26,11 +26,11 @@ const RowWrapper = styled.div<ResponsivedLayoutRowProps>`
   ${({ zIndex }) => (zIndex ? `z-index: ${zIndex}` : "")};
   position: relative;
   ${({ flexDirection, gap, display }) => {
-    return getGap(flexDirection, gap, display);
+    return getGap(flexDirection, gap, display)
   }}
   ${({ responsive, flexDirection, display, gap }) =>
     responsive && getResponsive(responsive, flexDirection, display, gap)}
-`;
+`
 // func getter for responsive
 const getResponsive = (
   responsive: any,
@@ -38,23 +38,23 @@ const getResponsive = (
   display: any,
   gap: any
 ) => {
-  let resStyle = "";
+  let resStyle = ""
   const resData = Object.keys(responsive).sort(
     (a, b) => parseInt(b) - parseInt(a)
-  );
-  let lastDirection = flexDirection;
-  let lastDisplay = display;
-  let lastGap = gap;
-  resData.forEach((itemSize) => {
-    const item = responsive[itemSize];
+  )
+  let lastDirection = flexDirection
+  let lastDisplay = display
+  let lastGap = gap
+  resData.forEach(itemSize => {
+    const item = responsive[itemSize]
     if (!isEmpty(item.flexDirection)) {
-      lastDirection = item.flexDirection;
+      lastDirection = item.flexDirection
     }
     if (!isEmpty(item.display)) {
-      lastDisplay = item.display;
+      lastDisplay = item.display
     }
     if (!isEmpty(item.gap)) {
-      lastGap = item.gap;
+      lastGap = item.gap
     }
     resStyle += `@media screen and (max-width:${itemSize}px){
       ${item.display ? `display: ${item.display};` : `display:${lastDisplay};`}
@@ -98,10 +98,10 @@ const getResponsive = (
           ? "gap:0px;"
           : getGap(lastDirection, lastGap, lastDisplay)
       }
-    }`;
-  });
-  return resStyle;
-};
+    }`
+  })
+  return resStyle
+}
 
 // func getter for gap
 const getGap = (flexDirection: any, gap: any, display: any) => {
@@ -112,14 +112,14 @@ const getGap = (flexDirection: any, gap: any, display: any) => {
    `
       : `
      gap: ${gap}px;
-    `;
+    `
   } else if (flexDirection === "column") {
     return `
       & > *:not(:last-child) {
          margin-right: 0px;
          margin-bottom: ${gap}px;
       }
-    `;
+    `
   } else if (flexDirection === "column-reverse") {
     return `
       height: 100%;
@@ -127,23 +127,23 @@ const getGap = (flexDirection: any, gap: any, display: any) => {
          margin-right: 0px;
          margin-bottom: ${gap}px;
       }
-    `;
+    `
   } else if (flexDirection === "row") {
     return `
       & > *:not(:last-child) {
          margin-bottom: 0px;
          margin-right: ${gap}px;
       }
-    `;
+    `
   } else if (flexDirection === "row-reverse") {
     return `
       & > *:not(:first-child) {
          margin-bottom: 0px;
          margin-right: ${gap}px;
       }
-    `;
+    `
   }
-};
+}
 
 const Row = ({
   children,
@@ -161,6 +161,7 @@ const Row = ({
   className,
   mWidth,
   rWidth,
+  ...props
 }: ResponsivedLayoutRowProps) => {
   return (
     <RowWrapper
@@ -178,9 +179,10 @@ const Row = ({
       mWidth={mWidth}
       className={className}
       rWidth={rWidth}
+      {...props}
     >
       {children}
     </RowWrapper>
-  );
-};
-export default Row;
+  )
+}
+export default Row

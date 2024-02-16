@@ -1,26 +1,26 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react"
 
 interface Props {
-  index: number;
-  show: boolean;
-  setShow: (show: boolean) => void;
-  flag: boolean;
-  active: boolean;
-  color: any;
-  handleChangeColor: (color: string) => void;
-  screenMode: boolean;
+  index: number
+  show: boolean
+  setShow: (show: boolean) => void
+  flag: boolean
+  active: boolean
+  color: any
+  handleChangeColor: (color: string) => void
+  screenMode: boolean
 }
 
-import { AiOutlineUp } from "react-icons/ai";
+import { AiOutlineUp } from "react-icons/ai"
 
 import {
   Layout,
   IconLayout,
   HexcodeContainer,
   Hexcode,
-  ColorSelecter,
-} from "./ColorPicker.styled";
-import { ColorSlider } from "components/ColorSlider";
+  ColorSelecter
+} from "./ColorPicker.styled"
+import { ColorSlider } from "components/ColorSlider"
 
 const ColorPicker: FC<Props> = ({
   index,
@@ -30,26 +30,26 @@ const ColorPicker: FC<Props> = ({
   show,
   setShow,
   screenMode,
-  color,
+  color
 }) => {
   useEffect(() => {
-    setHexColor("");
-  }, [active]);
+    setHexColor("")
+  }, [active])
 
-  const [inputColor, setInputColor] = useState(color);
-  const [hexColor, setHexColor] = useState("");
+  const [inputColor, setInputColor] = useState(color)
+  const [hexColor, setHexColor] = useState("")
 
   const handleChangeInput = (e: any) => {
-    setHexColor(e.target.value);
-    handleChangeColor(hexColor);
-  };
+    setHexColor(e.target.value)
+    handleChangeColor(hexColor)
+  }
 
   useEffect(() => {
     if (active) {
-      handleChangeColor(hexColor);
-      setInputColor(hexColor);
+      handleChangeColor(hexColor)
+      setInputColor(hexColor)
     }
-  }, [hexColor]);
+  }, [hexColor])
 
   return (
     <Layout flag={show}>
@@ -72,26 +72,26 @@ const ColorPicker: FC<Props> = ({
           <ColorSelecter
             bgColor="black"
             onClick={() => {
-              setHexColor("#000000");
+              setHexColor("#000000")
             }}
           />
           <ColorSelecter
             bgColor="white"
             onClick={() => {
-              console.log("sdfwe");
-              setHexColor("#FFFFFF");
+              console.log("sdfwe")
+              setHexColor("#ffffff")
             }}
           />
           <ColorSlider
             screenMode={screenMode}
-            index={index - 138}
+            index={index}
             setHexColor={setHexColor}
             active={active}
           />
         </>
       )}
     </Layout>
-  );
-};
+  )
+}
 
-export default ColorPicker;
+export default ColorPicker
